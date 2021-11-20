@@ -1,148 +1,88 @@
 {
   "students": [
     {
-      "studentName": "yeet",
-      "date": "2021-11-17",
-      "sujet": "qwe",
-      "id": 2
-    },
-    {
-      "studentName": "redouane",
-      "date": "2021-12-01",
-      "sujet": "frfrfrf",
+      "studentName": "asdasd",
       "id": 3
     },
     {
-      "studentName": "3424234",
-      "date": "2021-11-24",
-      "sujet": "234",
+      "studentName": "asdasdf",
       "id": 4
     },
     {
-      "studentName": "yeet",
-      "date": "2021-11-22",
-      "sujet": "qwe",
+      "studentName": "sadsdasdaf",
       "id": 5
     },
     {
-      "studentName": "yeet",
-      "date": "2021-11-23",
-      "sujet": "qwe",
+      "studentName": "asdfasdf",
       "id": 6
     },
     {
-      "studentName": "asdasd",
-      "date": "2021-11-24",
-      "sujet": "qwe",
+      "studentName": "asd",
       "id": 7
     },
     {
-      "studentName": "324",
-      "date": "2021-11-30",
-      "sujet": "234",
+      "studentName": "asdasd",
       "id": 8
     },
     {
-      "studentName": "",
-      "date": "",
-      "sujet": "",
+      "studentName": "asd",
       "id": 9
     },
     {
-      "studentName": "yeet",
-      "date": "2021-11-24",
-      "sujet": "qwe",
+      "studentName": "asd",
       "id": 10
     },
     {
-      "studentName": "yeet",
-      "date": "2021-11-15",
-      "sujet": "qwe",
+      "studentName": "asd",
       "id": 11
     },
     {
-      "studentName": "asdasd",
-      "date": "2021-11-23",
-      "sujet": "frfrfrf",
+      "studentName": "",
       "id": 12
     },
     {
-      "studentName": "yeet",
-      "date": "2021-11-18",
-      "sujet": "frfrfrf",
+      "studentName": "asd",
       "id": 13
     },
     {
-      "studentName": "REDOUANE",
-      "date": "2021-11-16",
-      "sujet": "234",
+      "studentName": "asdasdasd",
       "id": 14
     },
     {
-      "studentName": "asdasd",
-      "date": "2021-11-09",
-      "sujet": "frfrfrf",
+      "studentName": "asdasdasd",
       "id": 15
     },
     {
-      "studentName": "asdasd",
-      "date": "2021-11-17",
-      "sujet": "frfrfrf",
+      "studentName": "asd",
       "id": 16
     },
     {
-      "studentName": "lol",
-      "date": "2021-03-01",
-      "sujet": "asdas",
+      "studentName": "fsd",
       "id": 17
     },
     {
       "studentName": "yeet",
-      "date": "2021-11-24",
-      "sujet": "frfrfrf",
       "id": 18
     },
     {
-      "studentName": "yeet",
-      "date": "2021-11-30",
-      "sujet": "asdas",
+      "studentName": "asd",
       "id": 19
     },
     {
-      "studentName": "REDOUANE",
-      "date": "2021-12-02",
-      "sujet": "frfrfrf",
+      "studentName": "asd",
       "id": 20
     },
     {
-      "studentName": "sf",
-      "date": "2021-11-17",
-      "sujet": "sdsd",
+      "studentName": "",
       "id": 21
     },
     {
-      "studentName": "yeet",
-      "date": "2021-11-24",
-      "sujet": "frfrfrf",
+      "studentName": "asd",
       "id": 22
     },
     {
-      "studentName": "ASDASD",
-      "date": "2021-11-24",
-      "sujet": "asdas",
+      "studentName": "asd",
       "id": 23
-    },
-    {
-      "studentName": "",
-      "date": "",
-      "sujet": "",
-      "id": 24
-    },
-    {
-      "studentName": "yeet",
-      "date": "2021-11-23",
-      "sujet": "234",
-      "id": 25
     }
   ]
 }
