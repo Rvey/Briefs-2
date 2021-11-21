@@ -1,29 +1,19 @@
 {
   "students": [
     {
-      "name": "sadfasdf",
-      "color": "b570d0",
+      "name": "redone",
+      "color": "60c1a2",
+      "id": 1
+    },
+    {
+      "name": "amine",
+      "color": "b07463",
       "id": 2
     },
     {
-      "name": "asdasdasdsd",
-      "color": "377742",
+      "name": "ayoub",
+      "color": "f2f232",
       "id": 3
-    },
-    {
-      "name": "dsfgsdfgsdfg",
-      "color": "587853",
-      "id": 4
-    },
-    {
-      "name": "dfsgsdfgsfdg",
-      "color": "bf29ee",
-      "id": 5
-    },
-    {
-      "name": "dsfgsdfgsdfgs",
-      "color": "b6ab05",
-      "id": 6
     }
   ]
 }

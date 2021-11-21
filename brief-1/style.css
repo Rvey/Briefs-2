@@ -4,17 +4,21 @@ h1 {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-#wheelOfFortune {
+.wheelOfFortune {
   display: inline-block;
   position: relative;
   overflow: hidden;
+  border: black 2px solid;
+  border-radius: 50%;
 }
 
-#wheel {
+.wheel {
   display: block;
+  border: white 10px solid;
+  border-radius: 50%;
 }
 
-#spin {
+.spin {
   font: 1.5em/0 sans-serif;
   user-select: none;
   cursor: pointer;
@@ -34,11 +38,12 @@ h1 {
   transition: 0.8s;
 }
 
-#spin::after {
+.spin::after {
   content: "";
   position: absolute;
   top: -17px;
   border: 10px solid transparent;
   border-bottom-color: currentColor;
   border-top: none;
+  
 }

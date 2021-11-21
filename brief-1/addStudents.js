@@ -7,13 +7,6 @@ const save = document.querySelector(".save");
 const Count = JSON.parse(sessionStorage.getItem("count"));
 const students = JSON.parse(sessionStorage.getItem("students"));
 
-// const generateStudentList = (studentName) => {
-//   if (studentList.getElementsByTagName("li").length >= Count) {
-//     nameInput.disabled = true;
-//   } else if (studentList.getElementsByTagName("li").length >= Count) {
-//     nameInput.disabled = false;
-//   }
-// };
 
 count.innerHTML = Count
 studentCount.addEventListener("change", (e) => {
