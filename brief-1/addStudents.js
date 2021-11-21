@@ -3,45 +3,44 @@ const studentList = document.querySelector(".studentList");
 const nameInput = document.querySelector(".nameInput");
 const studentCount = document.querySelector(".studentCount");
 const count = document.querySelector(".count");
-let Count = 0;
-const students = [];
+const save = document.querySelector(".save");
+const Count = JSON.parse(sessionStorage.getItem("count"));
+const students = JSON.parse(sessionStorage.getItem("students"));
 
-const generateStudentList = (studentName) => {
-  const html = `
-    <li>
-    <span>${studentName}</span>
-    <span class="delete">remove</span>
-    </li>
-    `;
-  studentList.innerHTML += html;
-  if (studentList.getElementsByTagName("li").length >= Count) {
-    nameInput.disabled = true;
-  } else if (studentList.getElementsByTagName("li").length >= Count) {
-    nameInput.disabled = false;
-  }
-};
+// const generateStudentList = (studentName) => {
+//   if (studentList.getElementsByTagName("li").length >= Count) {
+//     nameInput.disabled = true;
+//   } else if (studentList.getElementsByTagName("li").length >= Count) {
+//     nameInput.disabled = false;
+//   }
+// };
 
+count.innerHTML = Count
 studentCount.addEventListener("change", (e) => {
-  count.innerHTML = e.target.value;
-  Count = e.target.value;
+  sessionStorage.setItem("count", e.target.value);
+  count.innerHTML = e.target.value
 });
+
 addName.addEventListener("submit", (e) => {
   e.preventDefault();
-  const studentName = addName.add.value;
+  const studentName = {
+    name: addName.add.value,
+    color: Math.floor(Math.random()*16777215).toString(16)
+  };
 
-  if (studentName.length >= 3) {
-    generateStudentList(studentName);
-    addName.classList.remove("delete");
+  if (students.length -1 <= Count - 2) {
+    addStudents(studentName);
     addName.reset();
-  } else if (studentName.length <= 2) {
-    addName.classList.add("border-red-300");
+  } else if (students.length > Count) {
+    nameInput.classList.add("bg-red-400");
+    console.log('youReach the max');
   }
-  console.log();
 });
 
 studentList.addEventListener("click", (e) => {
   if (e.target.classList.contains("delete")) {
     e.target.parentElement.remove();
+    deleteStudents(e.target.id);
     nameInput.disabled = false;
   }
 });

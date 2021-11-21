@@ -4,32 +4,47 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="tailwind.css" rel="stylesheet" />
+    <!-- <link href="tailwind.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="style.css">
     <title>Reeeeeeee</title>
   </head>
   <body>
-    <div class="w-full h-full flex flex-col justify-center items-center mt-12">
+    <div class="">
       <div>
-        <label for="">Student Number</label>
-        <input type="number" class="studentCount border rounded-md w-12" />
+        <label for="">Set New Student Number</label>
+        <input type="number" class="studentCount" />
+        <span>Current Value</span>
         <span class="count"></span>
       </div>
-      <form class="add flex flex-col justify-center items-center">
-        <label class="text-light">Add new student ...</label>
+      <form class="add">
+        <label for="required-email" class="text-gray-700">Name </label>
         <input
           type="text"
-          name="add"
-          id="id"
-          class="border rounded-md nameInput"
-        />
+          class="nameInput" name="add" placeholder="Enter student Name"/>
       </form>
     </div>
-    <button class="">Save</button>
-    <div>
-      <ul class="studentList"></ul>
+  
+      <ul class="studentList">
+
+      </ul>
+   
+      
+    </div>
+    <div id="wheelOfFortune">
+      <canvas id="wheel" width="300" height="300"></canvas>
+      <div id="spin">SPIN</div>
+    </div>
+
+    <div >
+      <label for="selected">Selected Student</label>
+      <input type="text" class="selectedStudent" value="-" />
+      <input type="text" class="subject" />
+      <input type="date" class="date"/>
     </div>
   </body>
 
   <!-- <script src="/script.js"></script> -->
   <script src="/addStudents.js"></script>
+  <script src="/fetch.js"></script>
+  <script src="/wheel.js"></script>
 </html>

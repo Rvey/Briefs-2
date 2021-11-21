@@ -1,88 +1,29 @@
 {
   "students": [
     {
-      "studentName": "asdasd",
+      "name": "sadfasdf",
+      "color": "b570d0",
+      "id": 2
+    },
+    {
+      "name": "asdasdasdsd",
+      "color": "377742",
       "id": 3
     },
     {
-      "studentName": "asdasdf",
+      "name": "dsfgsdfgsdfg",
+      "color": "587853",
       "id": 4
     },
     {
-      "studentName": "sadsdasdaf",
+      "name": "dfsgsdfgsfdg",
+      "color": "bf29ee",
       "id": 5
     },
     {
-      "studentName": "asdfasdf",
+      "name": "dsfgsdfgsdfgs",
+      "color": "b6ab05",
       "id": 6
-    },
-    {
-      "studentName": "asd",
-      "id": 7
-    },
-    {
-      "studentName": "asdasd",
-      "id": 8
-    },
-    {
-      "studentName": "asd",
-      "id": 9
-    },
-    {
-      "studentName": "asd",
-      "id": 10
-    },
-    {
-      "studentName": "asd",
-      "id": 11
-    },
-    {
-      "studentName": "",
-      "id": 12
-    },
-    {
-      "studentName": "asd",
-      "id": 13
-    },
-    {
-      "studentName": "asdasdasd",
-      "id": 14
-    },
-    {
-      "studentName": "asdasdasd",
-      "id": 15
-    },
-    {
-      "studentName": "asd",
-      "id": 16
-    },
-    {
-      "studentName": "fsd",
-      "id": 17
-    },
-    {
-      "studentName": "yeet",
-      "id": 18
-    },
-    {
-      "studentName": "asd",
-      "id": 19
-    },
-    {
-      "studentName": "asd",
-      "id": 20
-    },
-    {
-      "studentName": "",
-      "id": 21
-    },
-    {
-      "studentName": "asd",
-      "id": 22
-    },
-    {
-      "studentName": "asd",
-      "id": 23
     }
   ]
 }
