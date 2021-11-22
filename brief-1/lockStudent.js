@@ -15,6 +15,5 @@ submit.addEventListener("click", async (e) => {
   addStudentSubject(lockedStudent)
   deleteStudents(studentId.innerHTML)
   
-
-  console.log(positive_array);
+  window.location.reload();
 });

@@ -1,4 +1,5 @@
 const rand = (m, M) => Math.random() * (M - m) + m;
+
 const length = students.length;
 const start_spin = document.querySelector(".spin");
 const student = document.querySelector(".selectedStudent");
@@ -41,7 +42,7 @@ const rotate = () => {
   const sector = students[getIndex()];
   context.canvas.style.transform = `rotate(${angR - PI / 2}rad)`;
   student.innerHTML = sector.name;
-  student.innerHTML = sector.id;
+  studentId.innerHTML = sector.id;
   start_spin.style.background = `#${sector.color}`;
 };
 
