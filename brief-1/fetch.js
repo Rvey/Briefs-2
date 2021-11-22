@@ -1,21 +1,21 @@
 const addStudents = (studentName) => {
-  fetch("http://localhost:8000/students", {
+  fetch("http://localhost:8002/students", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(studentName),
   });
-  
+
 };
 
 const deleteStudents = (id) => {
-  fetch("http://localhost:8000/students/" + id, {
+  fetch("http://localhost:8002/students/" + id, {
     method: "DELETE",
   }).then((res) => res.json());
   const filtered = students.filter((item) => item.id != id);
   sessionStorage.setItem("students", JSON.stringify(filtered));
 };
 
-fetch("http://localhost:8000/students/")
+fetch("http://localhost:8002/students/")
   .then((response) => response.json())
   .then((data) => {
     sessionStorage.setItem("students", JSON.stringify(data));
@@ -27,14 +27,14 @@ fetch("http://localhost:8000/students/")
     });
   });
 const addStudentSubject = (student) => {
-  fetch("http://localhost:8000/lockedStudents", {
+  fetch("http://localhost:8002/lockedStudents", {
     method: "POST",
     headers: { "content-Type": "application/json" },
     body: JSON.stringify(student),
   });
 };
 
-fetch("http://localhost:8000/lockedStudents/")
+fetch("http://localhost:8002/lockedStudents/")
   .then((response) => response.json())
   .then((data) => {
     sessionStorage.setItem("selectedStudent", JSON.stringify(data));
@@ -50,7 +50,7 @@ fetch("http://localhost:8000/lockedStudents/")
   });
 
 const fetchData = () => {
-  fetch("http://localhost:8000/students/")
+  fetch("http://localhost:8002/students/")
     .then((response) => response.json())
     .then((data) => {
       sessionStorage.setItem("students", JSON.stringify(data));

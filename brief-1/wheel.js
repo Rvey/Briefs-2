@@ -61,14 +61,13 @@ const engine = () => {
 };
 
 // INIT
-fetch("http://localhost:8000/students/")
+fetch("http://localhost:8002/students/")
   .then((response) => response.json())
   .then((data) => {
     data.map((sector, i) => {
       drawSector(sector, i);
     });
   });
-
 rotate(); // Initial rotation
 engine(); // Start engine
 start_spin.addEventListener("click", () => {
