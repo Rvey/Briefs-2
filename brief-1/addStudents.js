@@ -6,27 +6,27 @@ const count = document.querySelector(".count");
 const save = document.querySelector(".save");
 const Count = JSON.parse(sessionStorage.getItem("count"));
 const students = JSON.parse(sessionStorage.getItem("students"));
+// let students = [];
 
-
-count.innerHTML = Count
+count.innerHTML = Count;
 studentCount.addEventListener("change", (e) => {
   sessionStorage.setItem("count", e.target.value);
-  count.innerHTML = e.target.value
+  count.innerHTML = e.target.value;
 });
 
 addName.addEventListener("submit", (e) => {
-  e.preventDefault();
+  // e.preventDefault();
   const studentName = {
     name: addName.add.value,
-    color: Math.floor(Math.random()*16777215).toString(16)
+    color: Math.floor(Math.random() * 16777215).toString(16),
   };
 
-  if (students.length -1 <= Count - 2) {
+  if (students.length - 1 <= Count - 2) {
     addStudents(studentName);
     addName.reset();
   } else if (students.length > Count) {
     nameInput.classList.add("bg-red-400");
-    console.log('youReach the max');
+    console.log("youReach the max");
   }
 });
 

@@ -1,7 +1,9 @@
 const rand = (m, M) => Math.random() * (M - m) + m;
+
 const length = students.length;
 const start_spin = document.querySelector(".spin");
 const student = document.querySelector(".selectedStudent");
+const studentId = document.querySelector(".id");
 const context = document.querySelector(".wheel").getContext("2d");
 const diameter = context.canvas.width;
 const rad = diameter / 2;
@@ -39,7 +41,8 @@ const drawSector = (sector, i) => {
 const rotate = () => {
   const sector = students[getIndex()];
   context.canvas.style.transform = `rotate(${angR - PI / 2}rad)`;
-  student.value = sector.name;
+  student.innerHTML = sector.name;
+  studentId.innerHTML = sector.id;
   start_spin.style.background = `#${sector.color}`;
 };
 
@@ -64,4 +67,3 @@ engine(); // Start engine
 start_spin.addEventListener("click", () => {
   if (!angVelocity) angVelocity = rand(0.25, 0.15);
 });
-console.log(angVelocity);
