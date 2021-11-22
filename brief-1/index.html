@@ -1,70 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- <link href="tailwind.css" rel="stylesheet" /> -->
-  <link rel="stylesheet" href="style.css">
-  <title>Reeeeeeee</title>
-</head>
-
-<body>
-  <div class="">
-    <div>
-      <label for="">Set New Student Number</label>
-      <input type="number" class="studentCount" />
-      <span>Current Value</span>
-      <span class="count"></span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link href="tailwind.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="style.css">
+    <title>Reeeeeeee</title>
+  </head>
+  <body>
+    <div class="">
+      <div>
+        <label for="">Set New Student Number</label>
+        <input type="number" class="studentCount" />
+        <span>Current Value</span>
+        <span class="count"></span>
+      </div>
+      <form class="add">
+        <label for="required-email" class="text-gray-700">Name </label>
+        <input
+          type="text"
+          class="nameInput" name="add" placeholder="Enter student Name"/>
+      </form>
     </div>
-    <form class="add">
-      <label for="required-email" class="text-gray-700">Name </label>
-      <input type="text" class="nameInput" name="add" placeholder="Enter student Name" />
-    </form>
-  </div>
+  
+      <ul class="studentList">
 
-  <ul class="studentList">
-
-  </ul>
-
-
-  </div>
-  <div class="wheelContainer">
-    <canvas class="wheel" width="300" height="300"></canvas>
-    <div class="spin">SPIN</div>
-  </div>
-
-  <div>
-    <div>
-      <label for="selected">Selected Student : </label>
-      <label for="selected" class="selectedStudent">Selected Student</label>
-      <span class="id"></span>
-      <!-- <p type="text" class="selectedStudent" value="-" /> -->
+      </ul>
+   
+      
     </div>
-    <div>
-      <label for="subject">Subject</label>
-      <input type="text" class="subject" />
+    <div class="wheelOfFortune">
+      <canvas class="wheel" width="300" height="300"></canvas>
+      <div class="spin">SPIN</div>
     </div>
-    <div>
-      <label for="date">Date</label>
-      <input type="date" class="date"  />
+
+    <div >
+      <div>
+        
+        <label for="selected">Selected Student</label>
+        <input type="text" class="selectedStudent" value="-" />
+      </div>
+      <div>
+        <label for="subject" >Subject</label>
+        <input type="text" class="subject" />
+      </div>
+      <div>
+        <label for="date" >Date</label>
+        <input type="date" class="date"/>
+      </div>
     </div>
-    <button class="submit">save</button>
-  </div>
-  <div>
-    lockedStudent
-    <ul class="lockedStudent">
+  </body>
 
-    </ul>
-  </div>
-</body>
-
-<!-- <script src="/script.js"></script> -->
-<script src="/addStudents.js"></script>
-<script src="/lockStudent.js"></script>
-<script src="/fetch.js"></script>
-<script src="/wheel.js"></script>
-<script src="/validateDate.js"></script>
-
+  <!-- <script src="/script.js"></script> -->
+  <script src="/addStudents.js"></script>
+  <script src="/fetch.js"></script>
+  <script src="/wheel.js"></script>
 </html>

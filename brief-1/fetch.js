@@ -23,29 +23,3 @@ fetch("http://localhost:8000/students/")
       </li>`;
     });
   });
-
-  //
-
-  const addStudentSubject = (student) => {
-    fetch("http://localhost:8000/lockedStudents" , {
-      method: "POST" ,
-      headers: {"content-Type" : "application/json"},
-      body: JSON.stringify(student)
-    })
-  }
-
-
-  fetch("http://localhost:8000/lockedStudents/")
-  .then((response) => response.json())
-  .then((data) => {
-    sessionStorage.setItem("selectedStudent", JSON.stringify(data));
-    data.map((el) => {
-      lockedStudent.innerHTML += `<li>
-      <span class="text-center">${el.name}</span>
-      <span class="text-center">${el.subject}</span>
-      <span class="text-center">${el.date}</span>
-          <button type="button" class="delete" id=${el.id} >delete</button>
-      </li>`;
-    });
-  });
-
