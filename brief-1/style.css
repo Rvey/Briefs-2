@@ -4,7 +4,7 @@ h1 {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.wheelOfFortune {
+.wheelContainer {
   display: inline-block;
   position: relative;
   overflow: hidden;

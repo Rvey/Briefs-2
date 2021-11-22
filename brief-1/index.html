@@ -28,18 +28,20 @@
 
       </ul>
    
+      <button class="reload">reload</button>
       
     </div>
-    <div class="wheelOfFortune">
+    <div class="wheelContainer">
       <canvas class="wheel" width="300" height="300"></canvas>
       <div class="spin">SPIN</div>
     </div>
 
     <div >
-      <div>
+      <div >
         
         <label for="selected">Selected Student</label>
-        <input type="text" class="selectedStudent" value="-" />
+        <span type="text" class="selectedStudent"></span>
+        <span class="id"></span>
       </div>
       <div>
         <label for="subject" >Subject</label>
@@ -50,10 +52,21 @@
         <input type="date" class="date"/>
       </div>
     </div>
+    <div>
+      lockedStudent
+      <ul class="lockedStudent">
+  
+      </ul>
+      <button class="submit">submit</button>
+    </div>
   </body>
 
   <!-- <script src="/script.js"></script> -->
   <script src="/addStudents.js"></script>
   <script src="/fetch.js"></script>
   <script src="/wheel.js"></script>
+  <script src="/lockStudent.js"></script>
+  <script src="/misc.js"></script>
+
 </html>
+ 

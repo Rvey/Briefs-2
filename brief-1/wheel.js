@@ -1,14 +1,16 @@
+
 const rand = (m, M) => Math.random() * (M - m) + m;
-const length = students.length;
+let length = students.length;
 const start_spin = document.querySelector(".spin");
 const student = document.querySelector(".selectedStudent");
 const context = document.querySelector(".wheel").getContext("2d");
 const diameter = context.canvas.width;
+const studentId = document.querySelector(".id");
 const rad = diameter / 2;
 const PI = Math.PI;
 const circle = 2 * PI;
-const arc = circle / students.length;
-
+const arc = circle / length;
+// let ehe = [];
 const friction = 0.995; // 0.995=soft, 0.99=mid, 0.98=hard
 let angVelocity = 0; // Angular velocity
 let angR = 0; // Angle in radians
@@ -39,7 +41,8 @@ const drawSector = (sector, i) => {
 const rotate = () => {
   const sector = students[getIndex()];
   context.canvas.style.transform = `rotate(${angR - PI / 2}rad)`;
-  student.value = sector.name;
+  student.innerHTML = sector.name;
+  studentId.innerHTML = sector.id;
   start_spin.style.background = `#${sector.color}`;
 };
 
@@ -58,7 +61,14 @@ const engine = () => {
 };
 
 // INIT
-students.forEach(drawSector);
+fetch("http://localhost:8000/students/")
+  .then((response) => response.json())
+  .then((data) => {
+    data.map((sector, i) => {
+      drawSector(sector, i);
+    });
+  });
+
 rotate(); // Initial rotation
 engine(); // Start engine
 start_spin.addEventListener("click", () => {
