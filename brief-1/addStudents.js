@@ -7,7 +7,6 @@ const save = document.querySelector(".save");
 const Count = JSON.parse(sessionStorage.getItem("count"));
 const students = JSON.parse(sessionStorage.getItem("students"));
 
-
 count.innerHTML = Count
 studentCount.addEventListener("change", (e) => {
   sessionStorage.setItem("count", e.target.value);

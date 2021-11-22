@@ -74,4 +74,3 @@ engine(); // Start engine
 start_spin.addEventListener("click", () => {
   if (!angVelocity) angVelocity = rand(0.25, 0.15);
 });
-console.log(angVelocity);

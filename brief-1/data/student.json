@@ -1,52 +1,12 @@
 {
   "students": [
     {
-      "name": "ehe",
-      "color": "7ca9a5",
-      "id": 7
-    },
-    {
-      "name": "yes sir",
-      "color": "c2757f",
-      "id": 8
-    },
-    {
-      "name": "omega lul",
-      "color": "223ace",
-      "id": 9
+      "name": "sadasd",
+      "color": "ffa882",
+      "id": 28
     }
   ],
   "lockedStudents": [
-    {
-      "name": "",
-      "subject": "asdasd",
-      "date": "2021-11-09",
-      "id": 1
-    },
-    {
-      "name": "",
-      "subject": "ehe",
-      "date": "2021-11-16",
-      "id": 2
-    },
-    {
-      "name": "",
-      "subject": "asdasd",
-      "date": "2021-11-11",
-      "id": 3
-    },
-    {
-      "name": "",
-      "subject": "yep ",
-      "date": "2021-11-10",
-      "id": 4
-    },
-    {
-      "name": "redone",
-      "subject": "yes sir",
-      "date": "2021-11-17",
-      "id": 5
-    },
     {
       "name": "redone",
       "subject": "yes",
@@ -54,100 +14,46 @@
       "id": 6
     },
     {
-      "name": "<span type=\"text\" class=\"selectedStudent\">redone</span>",
-      "subject": "asdasda",
+      "name": "ehe",
+      "subject": "ehe",
       "date": "2021-11-17",
       "id": 7
     },
     {
-      "name": "<span type=\"text\" class=\"selectedStudent\">redone</span>",
-      "subject": "as",
-      "date": "2021-11-09",
+      "name": "yes sir",
+      "subject": "ss",
+      "date": "",
       "id": 8
     },
     {
-      "name": "<span type=\"text\" class=\"selectedStudent\">redone</span>",
-      "subject": "asdasd",
-      "date": "2021-11-17",
+      "name": "ehe",
+      "subject": "yyeyeey",
+      "date": "",
       "id": 9
     },
     {
-      "name": "<span type=\"text\" class=\"selectedStudent\">redone</span>",
-      "subject": "dasdad",
-      "date": "2021-11-16",
+      "name": "omega lul",
+      "subject": "ee",
+      "date": "",
       "id": 10
     },
     {
-      "name": "<span type=\"text\" class=\"selectedStudent\">redone</span>",
-      "subject": "",
+      "name": "yep",
+      "subject": "yep",
       "date": "",
       "id": 11
     },
     {
-      "name": "<span type=\"text\" class=\"selectedStudent\">redone</span>",
-      "subject": "asdasd",
-      "date": "2021-11-02",
+      "name": "sadasdasd",
+      "subject": "sdaa",
+      "date": "",
       "id": 12
     },
     {
-      "name": "<span type=\"text\" class=\"selectedStudent\">redone</span>",
-      "subject": "asdasd",
+      "name": "sadasdas",
+      "subject": "sa",
       "date": "",
       "id": 13
-    },
-    {
-      "name": "<span type=\"text\" class=\"selectedStudent\" id=\"1\">redone</span>",
-      "subject": "gjdfghkjdfg",
-      "date": "2021-11-11",
-      "id": 14
-    },
-    {
-      "name": "<span type=\"text\" class=\"selectedStudent\" id=\"1\">redone</span>",
-      "subject": "asdas",
-      "date": "2021-11-16",
-      "id": 15
-    },
-    {
-      "name": "redone",
-      "subject": "asdasda",
-      "date": "2021-11-17",
-      "id": 16
-    },
-    {
-      "name": "redone",
-      "subject": "asdsad",
-      "date": "",
-      "id": 17
-    },
-    {
-      "name": "ayoub",
-      "subject": "asddsa",
-      "date": "2021-11-10",
-      "id": 18
-    },
-    {
-      "name": "redone",
-      "subject": "asdsd",
-      "date": "2021-11-16",
-      "id": 19
-    },
-    {
-      "name": "ahmed",
-      "subject": "asdasda",
-      "date": "2021-11-25",
-      "id": 20
-    },
-    {
-      "name": "sdada",
-      "subject": "Sas",
-      "date": "2021-11-16",
-      "id": 21
-    },
-    {
-      "name": "dsadsd",
-      "subject": "asdasd",
-      "date": "",
-      "id": 22
     }
   ]
 }
