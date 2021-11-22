@@ -11,7 +11,7 @@ const deleteStudents = (id) => {
     method: "DELETE",
   }).then((res) => res.json());
 };
-
+let st = [];
 fetch("http://localhost:8000/students/")
   .then((response) => response.json())
   .then((data) => {
@@ -24,18 +24,17 @@ fetch("http://localhost:8000/students/")
     });
   });
 
-  //
+//
 
-  const addStudentSubject = (student) => {
-    fetch("http://localhost:8000/lockedStudents" , {
-      method: "POST" ,
-      headers: {"content-Type" : "application/json"},
-      body: JSON.stringify(student)
-    })
-  }
+const addStudentSubject = (student) => {
+  fetch("http://localhost:8000/lockedStudents", {
+    method: "POST",
+    headers: { "content-Type": "application/json" },
+    body: JSON.stringify(student),
+  });
+};
 
-
-  fetch("http://localhost:8000/lockedStudents/")
+fetch("http://localhost:8000/lockedStudents/")
   .then((response) => response.json())
   .then((data) => {
     sessionStorage.setItem("selectedStudent", JSON.stringify(data));
@@ -49,3 +48,16 @@ fetch("http://localhost:8000/students/")
     });
   });
 
+const reload = () => {
+  fetch("http://localhost:8000/students/")
+    .then((response) => response.json())
+    .then((data) => {
+      sessionStorage.setItem("students", JSON.stringify(data));
+      data.map((el) => {
+        studentList.innerHTML += `<li>
+      <span class="text-center">${el.name}</span>
+          <button type="button" class="delete" id=${el.id} >delete</button>
+      </li>`;
+      });
+    });
+};

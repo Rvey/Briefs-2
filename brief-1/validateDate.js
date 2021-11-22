@@ -9,6 +9,6 @@ const validate = (dateString) => {
 date.addEventListener("change", (e) => {
   if (!validate(e.target.value)) {
     e.target.value = "";
-    console.log('ehe');
+    console.log("ehe");
   }
 });

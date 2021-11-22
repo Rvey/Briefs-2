@@ -6,7 +6,6 @@ const count = document.querySelector(".count");
 const save = document.querySelector(".save");
 const Count = JSON.parse(sessionStorage.getItem("count"));
 const students = JSON.parse(sessionStorage.getItem("students"));
-// let students = [];
 
 count.innerHTML = Count;
 studentCount.addEventListener("change", (e) => {
@@ -28,6 +27,7 @@ addName.addEventListener("submit", (e) => {
     nameInput.classList.add("bg-red-400");
     console.log("youReach the max");
   }
+ 
 });
 
 studentList.addEventListener("click", (e) => {
