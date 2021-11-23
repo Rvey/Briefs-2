@@ -1,4 +1,3 @@
-
 const rand = (m, M) => Math.random() * (M - m) + m;
 let length = students.length;
 const start_spin = document.querySelector(".spin");
@@ -10,8 +9,8 @@ const rad = diameter / 2;
 const PI = Math.PI;
 const circle = 2 * PI;
 const arc = circle / length;
-// let ehe = [];
-const friction = 0.995; // 0.995=soft, 0.99=mid, 0.98=hard
+
+const friction = 0.98; // 0.995=soft, 0.99=mid, 0.98=hard
 let angVelocity = 0; // Angular velocity
 let angR = 0; // Angle in radians
 
@@ -32,7 +31,7 @@ const drawSector = (sector, i) => {
   context.rotate(ang + arc / 2);
   context.textAlign = "right";
   context.fillStyle = "#fff";
-  context.font = "bold 30px sans-serif";
+  context.font = "20px sans-serif";
   context.fillText(sector.name, rad - 10, 10);
   //
   context.restore();
@@ -60,14 +59,7 @@ const engine = () => {
   requestAnimationFrame(engine);
 };
 
-// INIT
-fetch("http://localhost:8002/students/")
-  .then((response) => response.json())
-  .then((data) => {
-    data.map((sector, i) => {
-      drawSector(sector, i);
-    });
-  });
+
 rotate(); // Initial rotation
 engine(); // Start engine
 start_spin.addEventListener("click", () => {

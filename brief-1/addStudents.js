@@ -7,11 +7,11 @@ const save = document.querySelector(".save");
 const Count = JSON.parse(sessionStorage.getItem("count"));
 const students = JSON.parse(sessionStorage.getItem("students"));
 
-count.innerHTML = Count
-studentCount.addEventListener("change", (e) => {
-  sessionStorage.setItem("count", e.target.value);
-  count.innerHTML = e.target.value
-});
+// count.innerHTML = Count
+// studentCount.addEventListener("change", (e) => {
+//   sessionStorage.setItem("count", e.target.value);
+//   count.innerHTML = e.target.value
+// });
 
 addName.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -20,13 +20,16 @@ addName.addEventListener("submit", (e) => {
     color: Math.floor(Math.random()*16777215).toString(16)
   };
 
-  if (students.length -1 <= Count - 2) {
-    addStudents(studentName);
-    addName.reset();
-  } else if (students.length > Count) {
-    nameInput.classList.add("bg-red-400");
-    console.log('youReach the max');
-  }
+  // if (students.length  <= Count ) {
+  //   addStudents(studentName);
+  //   addName.reset();
+  //   reloading() 
+  // } else if (students.length > Count) {
+  //   nameInput.classList.add("bg-red-400");
+  //   console.log('youReach the max');
+  // }
+  addStudents(studentName);
+  addName.reset();
 });
 
 studentList.addEventListener("click", (e) => {

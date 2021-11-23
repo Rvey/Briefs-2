@@ -1,6 +1,8 @@
 const importCSV = document.querySelector(".import");
-const csvConverter = (students) => {
-  const items = students;
+
+const jsonData = JSON.parse(sessionStorage.getItem("selectedStudent"));
+const csvConverter = (locked) => {
+  const items = locked;
   const replacer = (key, value) => (value === null ? "" : value);
   const header = Object.keys(items[0]);
   const csv = [
@@ -11,11 +13,14 @@ const csvConverter = (students) => {
         .join(",")
     ),
   ].join("\r\n");
+  
+  let dataUri = "data:text/csv;charset=utf-8," + csv;
+  let exportFileDefaultName = "data.csv";
 
-  console.log(csv);
+  importCSV.setAttribute("href", dataUri);
+  importCSV.setAttribute("download", exportFileDefaultName);
 };
 
 importCSV.addEventListener("click", (e) => {
-  const locked = JSON.parse(sessionStorage.getItem("selectedStudent"));
-  csvConverter(locked);
+  csvConverter(jsonData);
 });

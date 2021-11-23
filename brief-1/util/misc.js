@@ -1,18 +1,22 @@
 const reload = document.querySelector(".reload");
-const datePicker = document.querySelector(".datePicker");
+const yep = document.querySelector(".yep");
 
+const datePicker = document.querySelector(".datePicker");
 datePicker.min = new Date().toLocaleDateString("en-ca");
+
 datePicker.value = new Date().toLocaleDateString("en-ca");
 
 datePicker.addEventListener("input", (e) => {
   const day = new Date(datePicker.value).getUTCDay();
   if ([6, 0].includes(day)) {
     e.preventDefault();
-    datePicker.value = "";
-    datePicker.style.backgroundColor = 'red' 
+    datePicker.value = new Date().toLocaleDateString("en-ca");
     return false;
   }
-  //   if ([6, 0].includes(day)) {
-  //   console.log(day);
-  //   }
 });
+reload.addEventListener("click", (e) => {
+  yep.style.display='none'
+});
+const reloading = () => {
+  location.reload();
+}

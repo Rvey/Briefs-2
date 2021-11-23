@@ -1,3 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital@0;1&display=swap");
+* {
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background: #202124;
+  overflow: hidden;
+}
+.studentList {
+  height: 45em;
+  grid-template-rows: repeat(12, minmax(0, 1fr));
+  background: #343536;
+ 
+}
+.students {
+  height: 90%;
+  grid-template-rows: repeat(12, minmax(0, 1fr));
+  background: #343536;
+  border-radius: 5px;
+
+}
+.sectionR {
+  height: 90%;
+  background: #343536;
+  border-radius: 5px;
+}
 h1 {
   width: 200px;
   white-space: nowrap;
@@ -45,5 +71,4 @@ h1 {
   border: 10px solid transparent;
   border-bottom-color: currentColor;
   border-top: none;
-  
 }

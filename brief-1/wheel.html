@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="tailwind.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="grid grid-cols-3 gap-7 px-10 h-screen items-center">
+        <div class="sectionR col-span-2 gap-7 flex flex-col justify-center">
+           <div class="m-auto">
+              <div class="wheelContainer">
+                 <canvas class="wheel" width="500" height="500"></canvas>
+                 <div class="spin">SPIN</div>
+              </div>
+           </div>
+           <div class="flex flex-col gap-2 mb-4 w-11/12 m-auto">
+              <div class="flex gap-2 bg-white py-1 px-2 justify-center items-center rounded-md ">
+                 <div class="bg-gray-500 px-4 py-2 rounded-md w-full text-center">
+                    <span type="text" class="selectedStudent text-xl font-semibold"></span>
+                    <span class="id opacity-0"></span>
+                 </div>
+              </div>
+              <div class="flex flex-col gap-3">
+                 <label for="subject" class="text-white" >Subject</label>
+                 <input
+                    type="text"
+                    class="subject border-gray-300 border rounded-md pl-3 py-1 w-full focus:ring-2 focus:border-none bg-gray-500 text-white"
+                    name="add" placeholder="Subject ..." />
+              </div>
+              <div class="datepicker flex flex-col gap-2">
+                 <label for="date" class="text-white" >Date</label>
+                 <input type="date" class="date datePicker border-gray-300 border rounded-md pl-3 py-1 w-full focus:ring-2 focus:border-none bg-gray-500 text-white" />
+              </div>
+              <div class="flex flex-row gap-3 mt-5 object-left-bottom">
+                 <button class="submit px-4 py-3 bg-green-400 rounded-md text-white font-semibold tracking-wider">submit</button>
+                 <a class="import px-4 py-3 bg-green-400 rounded-md text-white font-semibold tracking-wider">import</a>
+              </div>
+           </div>
+        </div>
+        <div class="col-span-1 students px-4 pt-2">
+           <div>
+              <div class="font-bold text-center text-white">
+                 lockedStudent
+              </div>
+              <div class="h-1 bg-gray-700 w-48 m-auto my-3">
+              </div>
+              <div class="flex justify-between flex-col h-full">
+                 <ul class="lockedStudent flex flex-col gap-2">
+                 </ul>
+              </div>
+           </div>
+        </div>
+     </div>
+</body>
+<script src="/addStudents.js"></script>
+   <script src="/fetch.js"></script>
+   <script src="/wheel.js"></script>
+   <script src="/lockStudent.js"></script>
+   <script src="/util/misc.js"></script>
+   <script src="/util/csvConverter.js"></script>
+</html>
