@@ -1,3 +1,7 @@
+## install node modules
+```
+npm install
+```
 ## install json server 
 ```
 npm install -g json-server
