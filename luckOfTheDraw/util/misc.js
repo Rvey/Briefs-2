@@ -14,9 +14,6 @@ datePicker.addEventListener("input", (e) => {
     return false;
   }
 });
-reload.addEventListener("click", (e) => {
-  yep.style.display='none'
-});
 const reloading = () => {
   location.reload();
 }

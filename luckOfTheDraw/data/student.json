@@ -1,4 +1,17 @@
 {
-  "students": [],
-  "lockedStudents": []
-} 
+  "students": [
+    {
+      "name": "asdasdas",
+      "color": "b58b78",
+      "id": 2
+    }
+  ],
+  "lockedStudents": [
+    {
+      "name": "reden",
+      "subject": "sadsd",
+      "date": "2021-11-23",
+      "id": 1
+    }
+  ]
+}

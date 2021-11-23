@@ -38,7 +38,7 @@ fetch(studentApi)
       studentList.innerHTML += `
       <li class="list">
           <div class="flex justify-between p-1 bg-indigo-50 rounded-md">
-            <div class="w-3 rounded" style="background-color: #${el.color};"></div>
+            <div class="w-3 rounded" style="background-color: #${el.color} ;"></div>
             <h2 class=" w-96 pl-2 ">${el.name}</h2>
             <button class="bg-red-300 px-3 rounded-md text-sm text-red-800 hover:bg-red-400 delete" id=${el.id}>delete</button>
           </div>
