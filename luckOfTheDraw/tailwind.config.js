@@ -11,7 +11,7 @@ module.exports = {
        'layout': '200px minmax(900px, 1fr) 100px',
       }
     },
-  },
+  }, 
   variants: {
     extend: {},
   },

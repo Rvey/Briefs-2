@@ -16,7 +16,7 @@ addName.addEventListener("submit", (e) => {
   };
 
   addStudents(studentName);
-  addName.reset();
+  addName.reset(); 
 });
 
 studentList.addEventListener("click", (e) => {

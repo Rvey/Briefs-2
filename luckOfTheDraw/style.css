@@ -12,7 +12,7 @@ body {
   background: #343536;
   border-bottom: 4px orange solid;
 }
-.students {
+.students { 
   height: 90%;
   grid-template-rows: repeat(12, minmax(0, 1fr));
   background: #343536;

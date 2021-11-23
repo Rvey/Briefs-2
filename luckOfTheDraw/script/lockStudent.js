@@ -22,8 +22,6 @@ submit.addEventListener("click", (e) => {
 });
 
 remove.addEventListener("click", (e) => {
-  // sessionStorage.setItem("students", JSON.stringify());
-  // sessionStorage.setItem("selectedStudent", JSON.stringify([]));
   fetch(selectedStudApi)
     .then((response) => response.json())
     .then((data) =>
