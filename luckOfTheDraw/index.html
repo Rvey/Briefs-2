@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link href="css/tailwind.css" rel="stylesheet" />
+      <link rel="stylesheet" href="style.css">
+      <title>lock of the draw</title>
+   </head>
+   <body >
+      <section class="w-11/12 m-auto mb-4">
+         <div class="h-full mt-5">
+            <div class="flex items-center justify-between px-4">
+            </div>
+         </div>
+         <h1 class="text-center w-full text-2xl font-bold text-gray-100 tracking-widest">Luck of the Draw</h1>
+         <div class="h-1 bg-yellow-700 w-48 m-auto my-8">
+         </div>
+         <div class="flex justify-between items-center">
+            <form class="add flex mt-4 items-center gap-4 bg-gray-400 px-1 py-1 rounded-md">
+               <label class="text-gray-700 pl-2">Add Name</label>
+               <input
+                  type="text"
+                  class="nameInput border-gray-300 border rounded-md pl-3 py-1 w-96 focus:ring-2 focus:border-none bg-gray-50"
+                  name="add" placeholder="Enter student Name" />
+            </form>
+            <a href="./wheel.html" class="reload bg-yellow-500 px-3 py-2 rounded-md font-semibold text-white">Confirm</a>
+         </div>
+         <ul class="studentList grid grid-cols-4 grid-template-rows gap-6 mt-8 bg-indigo-200 p-4 h-96 rounded-md ">
+         </ul>
+      </section>
+     
+   </body>
+   <script src="/script/addStudents.js"></script>
+   <script src="/script/fetch.js"></script>
+   <script src="/script/wheel.js"></script>
+   <script src="/script/lockStudent.js"></script>
+   <script src="/script/util/misc.js"></script>
+   <script src="/script/util/csvConverter.js"></script>
+</html>
