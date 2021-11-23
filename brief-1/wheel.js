@@ -10,7 +10,7 @@ const PI = Math.PI;
 const circle = 2 * PI;
 const arc = circle / length;
 
-const friction = 0.98; // 0.995=soft, 0.99=mid, 0.98=hard
+const friction = 0.995; // 0.995=soft, 0.99=mid, 0.98=hard
 let angVelocity = 0; // Angular velocity
 let angR = 0; // Angle in radians
 
@@ -43,7 +43,7 @@ const rotate = () => {
   student.innerHTML = sector.name;
   studentId.innerHTML = sector.id;
   start_spin.style.background = `#${sector.color}`;
-};
+};  
 
 const frame = () => {
   if (!angVelocity) return;

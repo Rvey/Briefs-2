@@ -4,6 +4,7 @@ const selectedStudent = document.querySelector(".selectedStudent");
 const lockedStudent = document.querySelector(".lockedStudent");
 const submit = document.querySelector(".submit");
 
+const remove = document.querySelector(".back");
 
 submit.addEventListener("click", (e) => {
   //   e.preventDefault();
@@ -20,3 +21,14 @@ submit.addEventListener("click", (e) => {
   sessionStorage.setItem("students", JSON.stringify(filtered));
 });
 
+remove.addEventListener("click", (e) => {
+  // sessionStorage.setItem("students", JSON.stringify());
+  // sessionStorage.setItem("selectedStudent", JSON.stringify([]));
+  fetch(selectedStudApi)
+    .then((response) => response.json())
+    .then((data) =>
+      data.map((el) => {
+        deleteAllSelected(el.id);
+      })
+    );
+});

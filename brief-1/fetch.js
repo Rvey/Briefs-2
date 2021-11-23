@@ -1,5 +1,5 @@
 const studentApi = "http://localhost:3000/students/";
-const selectedStudApi = "http://localhost:3000/lockedStudents";
+const selectedStudApi = "http://localhost:3000/lockedStudents/";
 
 const addStudents = (studentName) => {
   fetch(studentApi, {
@@ -16,6 +16,19 @@ const deleteStudents = (id) => {
   const filtered = students.filter((item) => item.id != id);
   sessionStorage.setItem("students", JSON.stringify(filtered));
 };
+const deleteAllStudents = (id) => {
+  fetch(studentApi + id, {
+    method: "DELETE",
+  }).then((res) => res.json());
+};
+
+const deleteAllSelected = (id) => {
+  fetch(selectedStudApi + id, {
+    method: "DELETE",
+  }).then((res) => res.json());
+};
+
+
 
 fetch(studentApi)
   .then((response) => response.json())

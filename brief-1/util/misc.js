@@ -20,3 +20,4 @@ reload.addEventListener("click", (e) => {
 const reloading = () => {
   location.reload();
 }
+

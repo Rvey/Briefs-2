@@ -13,7 +13,8 @@ const csvConverter = (locked) => {
         .join(",")
     ),
   ].join("\r\n");
-  
+
+ 
   let dataUri = "data:text/csv;charset=utf-8," + csv;
   let exportFileDefaultName = "data.csv";
 
