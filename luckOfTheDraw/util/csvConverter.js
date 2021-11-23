@@ -12,7 +12,7 @@ const csvConverter = (locked) => {
         .map((fieldName) => JSON.stringify(row[fieldName], replacer))
         .join(",")
     ),
-  ].join("\r\n");
+  ].join("\r\n"); 
 
  
   let dataUri = "data:text/csv;charset=utf-8," + csv;
