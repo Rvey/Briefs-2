@@ -1,1 +1,1 @@
-# Briefs-2
+# Projects stack
