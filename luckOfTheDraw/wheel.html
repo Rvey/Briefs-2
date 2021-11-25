@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="css/tailwind.css" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="css/tailwind.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css"/>
     <title>lock of the draw</title>
-  </head>
-  <body>
-     
-    <div class="grid grid-cols-3 gap-7 px-10 h-screen items-center">
-       <div class="sectionR col-span-2 gap-7 flex flex-col justify-center">
+</head>
+<body>
+
+<div class="grid grid-cols-3 gap-7 px-10 h-screen items-center">
+    <div class="sectionR col-span-2 gap-7 flex flex-col justify-center">
         <div class="m-auto">
-          <div class="wheelContainer">
-            <canvas class="wheel" width="500" height="500"></canvas>
-            <div class="spin">SPIN</div>
-          </div>
+            <div class="wheelContainer">
+                <canvas class="wheel" width="500" height="500"></canvas>
+                <div class="spin">SPIN</div>
+            </div>
         </div>
         <div class="flex flex-col gap-2 mb-4 w-11/12 m-auto">
-          <div 
-            class="
+            <div
+                    class="
               flex
               gap-2
               bg-white
@@ -30,20 +30,20 @@
               items-center
               rounded-md
             "
-          >
-            <div class="bg-gray-500 px-4 py-2 rounded-md w-full text-center">
+            >
+                <div class="bg-gray-500 px-4 py-2 rounded-md w-full text-center">
               <span
-                type="text"
-                class="selectedStudent text-xl font-semibold"
+                      type="text"
+                      class="selectedStudent text-xl font-semibold"
               ></span>
-              <span class="id opacity-0"></span>
+                    <span class="id opacity-0"></span>
+                </div>
             </div>
-          </div>
-          <div class="flex flex-col gap-3">
-            <label for="subject" class="text-white">Subject</label>
-            <input
-              type="text"
-              class="
+            <div class="flex flex-col gap-3">
+                <label for="subject" class="text-white">Subject</label>
+                <input
+                        type="text"
+                        class="
                 subject
                 border-gray-300 border
                 rounded-md
@@ -54,15 +54,15 @@
                 bg-gray-500
                 text-white
               "
-              name="add"
-              placeholder="Subject ..."
-            />
-          </div>
-          <div class="datepicker flex flex-col gap-2">
-            <label for="date" class="text-white">Date</label>
-            <input
-              type="date"
-              class="
+                        name="add"
+                        placeholder="Subject ..."
+                />
+            </div>
+            <div class="datepicker flex flex-col gap-2">
+                <label for="date" class="text-white">Date</label>
+                <input
+                        type="date"
+                        class="
                 date
                 datePicker
                 border-gray-300 border
@@ -74,14 +74,14 @@
                 bg-gray-500
                 text-white
               "
-            />
-          </div>
-          <div class="flex flex-row gap-3 mt-5 object-left-bottom justify-between items-center">
-         
+                />
+            </div>
+            <div class="flex flex-row gap-3 mt-5 object-left-bottom justify-between items-center">
+
                 <div class="flex gap-3">
 
-                   <a
-                     class="cursor-pointer
+                    <a
+                            class="cursor-pointer
                        submit
                        px-4
                        py-3
@@ -91,11 +91,11 @@
                        font-semibold
                        tracking-wider
                      "
-                   >
-                     submit
-                   </a>
-                   <a
-                     class="cursor-pointer
+                    >
+                        submit
+                    </a>
+                    <a
+                            class="cursor-pointer
                        import
                        px-4
                        py-3
@@ -105,12 +105,12 @@
                        font-semibold
                        tracking-wider
                      "
-                     >import</a
-                   >
-                   
+                    >import</a
+                    >
+
                 </div>
                 <div>
-                  <a href="./index.html" class="cursor-pointer  import
+                    <a href="./index.html" class="cursor-pointer  import
                   px-4
                   py-3
                   bg-yellow-500
@@ -118,30 +118,30 @@
                   text-white
                   font-semibold
                   tracking-wider">add More</a>
-                  </div>
-          </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="col-span-1 students px-4 pt-2">
-        <div>
-          <div class="flex justify-end">
-            <button class="bg-red-400 px-3 py-1 back rounded-md text-right">
-              delete all
-            </button>
-          </div>
-          <div class="font-bold text-center text-white">lockedStudent</div>
-          <div class="h-1 bg-gray-700 w-48 m-auto my-3"></div>
-          <div class="flex justify-between flex-col h-full">
-            <ul class="lockedStudent flex flex-col gap-2"></ul>
-          </div>
-        </div>
-      </div>
     </div>
-  </body>
-  <script src="/script/addStudents.js"></script>
-  <script src="/script/fetch.js"></script>
-  <script src="/script/wheel.js"></script>
-  <script src="/script/lockStudent.js"></script>
-  <script src="/util/misc.js"></script>
-  <script src="/util/csvConverter.js"></script>
+    <div class="col-span-1 students px-4 pt-2">
+        <div>
+            <div class="flex justify-end">
+                <button class="bg-red-400 px-3 py-1 back rounded-md text-right">
+                    delete all
+                </button>
+            </div>
+            <div class="font-bold text-center text-white">lockedStudent</div>
+            <div class="h-1 bg-gray-700 w-48 m-auto my-3"></div>
+            <div class="flex justify-between flex-col h-full">
+                <ul class="lockedStudent flex flex-col gap-2"></ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="/script/addStudents.js"></script>
+<script src="/script/fetch.js"></script>
+<script src="/script/wheel.js"></script>
+<script src="/script/lockStudent.js"></script>
+<script src="/util/misc.js"></script>
+<script src="/util/csvConverter.js"></script>
 </html>

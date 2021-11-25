@@ -1,5 +1,4 @@
 const reload = document.querySelector(".reload");
-const yep = document.querySelector(".yep");
 
 const datePicker = document.querySelector(".datePicker");
 datePicker.min = new Date().toLocaleDateString("en-ca");
