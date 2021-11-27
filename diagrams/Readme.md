@@ -4,7 +4,7 @@
 
 <details>
 
-![alt text](.\Assets\useCase_diagram.png)
+![alt text](./Assets/useCase_diagram.png)
 
 </details>
 
@@ -21,13 +21,13 @@
 <details>
 
 ### test online
-![alt text](.\Assets\diagramSequence_test_online.png)
+![alt text](./Assets/diagramSequence_test_online.png)
 ### sourcing
-![alt text](.\Assets\diagramSequence_sourcing.png)
+![alt text](./Assets/diagramSequence_sourcing.png)
 ### sas
-![alt text](.\Assets\diagramSequence_sas.png)
+![alt text](./Assets/diagramSequence_sas.png)
 ### 1rst & second year
-![alt text](.\Assets\diagramSequence.png)
+![alt text](./Assets/diagramSequence.png)
 
 </details>
 
@@ -37,7 +37,7 @@
 
 ### student
 
-![alt text](./Assets\diagram_d’étatTransition_apprenant.png)
+![alt text](./Assets/diagram_d’étatTransition_apprenant.png)
 
 ### Briefs
 
