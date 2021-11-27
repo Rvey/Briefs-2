@@ -25,7 +25,7 @@
 ### sourcing
 ![alt text](./Assets/diagramSequence_sourcing.png)
 ### sas
-![alt text](.\Assets\diagramSequence_sas.png)
+![alt text](./Assets/diagramSequence_sas.png)
 ### 1rst & second year
 ![alt text](./Assets/diagramSequence.png)
 
