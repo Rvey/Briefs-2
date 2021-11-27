@@ -41,6 +41,6 @@
 
 ### Briefs
 
-![alt text](.\Assets\diagramme_d’étattransition_briefs.png)
+![alt text](./Assets/diagramme_d’étattransition_briefs.png)
 
 </details>
