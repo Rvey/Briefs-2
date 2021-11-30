@@ -24,7 +24,7 @@ class Users {
 
 const ehe = "http://localhost:3000/users/";
 
-fetch("http://localhost:3000/user/")
+fetch("http://localhost:3000/users/")
   .then((response) => response.json())
   .then((data) => console.log(data));
 
@@ -32,7 +32,13 @@ document.querySelector(".botona").addEventListener("click", (e) => {
   e.preventDefault();
   const user = new Users("red@gg.com", 324234);
 
-  fetch("http://localhost:3000/user/", {
+  fetch("http://localhost:3000/users/", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(user),
+  });
+  
+  fetch("http://localhost:3000/candidates/", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(user),
