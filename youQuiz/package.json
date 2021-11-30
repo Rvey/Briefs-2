@@ -1,0 +1,21 @@
+{
+  "name": "luckofthedraw",
+  "version": "1.0.0",
+  "description": "```\r npm install -g json-server\r ```\r ## start json server \r ```\r json-server --watch data/student.json\r   ```\r   ### servers \r   `http://localhost:3000/students/`  \r   `http://localhost:3000/lockedStudents`",
+  "main": "postcss.config.js",
+  "scripts": {
+    "build": "tailwindcss build tailwind.css -o css/tailwind.css",
+    "prod": "NODE_ENV=production postcss tailwind.css -o css/tailwind.css"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.3.11",
+    "postcss-cli": "^9.0.2",
+    "tailwindcss": "^2.2.19"
+  },
+  "dependencies": {
+    "dayjs": "^1.10.7"
+  }
+}
