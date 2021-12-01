@@ -1,25 +1,31 @@
 {
   "candidates": [
     {
-      "email": "lqaqw4r@hehe.com",
-      "password": "hjaniq255",
+      "email": "redouane.bouabana@gmail.com",
+      "age": "22",
+      "genEmail": "0ubm@youQuiz.com",
+      "genPassword": "dpzc55w",
+      "date": "Wed Dec 01 2021",
       "id": 1
     },
     {
-      "email": "wyhlfmu@hehe.com",
-      "password": "zlw2x94m4",
+      "email": "red@gmail.com",
+      "age": "22",
+      "genEmail": "hwai@youQuiz.com",
+      "genPassword": "ugqr0x8",
+      "date": "Wed Dec 01 2021",
       "id": 2
     }
   ],
   "users": [
     {
-      "email": "rredouane348@gmail.com",
-      "age": 324234,
+      "email": "redouane.bouabana@gmail.com",
+      "age": "22",
       "id": 1
     },
     {
-      "email": "rredouane348@gmail.com",
-      "age": 324234,
+      "email": "red@gmail.com",
+      "age": "22",
       "id": 2
     }
   ],
