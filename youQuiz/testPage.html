@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/tailwind.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous"
+  />
+    <title>Test online</title>
+</head>
+<body>
+    <header class="user"></header>
+    <main>
+      <div id="wrapper">
+        <div class="container">
+          <h1 class="text-xl font-bold text-white ">JAVASCRIPT QUESTIONS</h1>
+          <div class="quiz">
+
+            <div id="quiz__question" class="hide ">
+              <div id="question"></div>
+              <div id="answers-btns" class="bg-indigo-300 p-3"></div>
+            </div>
+
+            <div class="quiz__controls">
+              <button id="start-btn" class="btn start-btn">START QUIZ</button>
+              <button id="nextChallenge" class="btn nextChallenge-btn hide">Next Challenge</button>
+              <button id="exit" class="btn exit hide">Next Challenge</button>
+              <button id="next-btn" class="btn next-btn hide">
+                NEXT QUESTION <i class="fas fa-chevron-right"></i>
+              </button>
+              <p id="result" class=""></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+  </body>
+<!-- <script src="./fetchQuestions.js"></script> -->
+<script src="./classes/testClass.js"></script>
+<script src="./testOnline.js"></script>
+<script src="./fetch.js"></script>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/tailwind.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Motivation Test</title>
+</head>
+<body class="w-full h-screen flex justify-center items-center">
+    <div class="flex flex-col gap-4">
+      <form class="flex flex-col items-center gap-10">
+        <label for="message" class="leading-7 text-2xl text-gray-300 font-medium">Serious Games
+        </label>
+        <p class="text-xl mt-3 text-white">How do you see yourself in 1/2/5/10 years</p>
+        <textarea  name="message" class="area bg-gray-200 rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out" placeholder="..." required></textarea>
+        <button type="submit" class="redirect text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded text-lg">Submit</button>
+    </form>
+    </div>
+</body>
+<script>
+const user = JSON.parse(sessionStorage.getItem('currentUser'))
+const redirect = document.querySelector('form')
+
+redirect.addEventListener('submit' , e  => {
+    e.preventDefault()
+const seriousGames  = {seriousGames : redirect.message.value}
+const merge = {
+    ...user , 
+    ...seriousGames
+  }
+  updateCandidate(merge , user.id)
+  sessionStorage.setItem('currentUser' , JSON.stringify(merge))
+  window.location.replace("./administrationTest.html");
+})
+const updateCandidate = (candidate, id) => {
+  fetch(`http://localhost:3000/candidates/${id}`, {
+    method: "PUT",
+    headers: { "content-Type": "application/json" },
+    body: JSON.stringify(candidate),
+  })
+};
+</script>
+</html>
+

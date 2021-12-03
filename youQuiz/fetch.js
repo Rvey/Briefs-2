@@ -1,10 +1,7 @@
+
 const UsersPort = "http://localhost:3000/users/";
 const CandidatePort = "http://localhost:3000/candidates/";
-const getUsers = () => {
-  fetch(UsersPort)
-    .then((response) => response.json())
-    .then((data) => console.log(data));
-};
+
 
 const addUser = (user) => {
   fetch(UsersPort, {
@@ -14,11 +11,14 @@ const addUser = (user) => {
   });
 };
 
+
+
 const getCandidate = () => {
   fetch(CandidatePort)
     .then((response) => response.json())
-    .then((data) => console.log(data));
+    .then((data) => sessionStorage.setItem("currentUser" ,  JSON.stringify(data.slice(-1)[0])));
 };
+
 
 const addCandidate = (candidate) => {
   fetch(CandidatePort, {
@@ -28,5 +28,12 @@ const addCandidate = (candidate) => {
   });
 };
 
+const updateCandidate = (candidate, id) => {
+  fetch(`http://localhost:3000/candidates/${id}`, {
+    method: "PUT",
+    headers: { "content-Type": "application/json" },
+    body: JSON.stringify(candidate),
+  })
+};
+
 getCandidate();
-getUsers();
