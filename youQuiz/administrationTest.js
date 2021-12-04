@@ -48,7 +48,7 @@ startBtnElement.addEventListener("click", () => quiz.startQuiz());
 nextChallenge.addEventListener("click", (e) => {
   e.preventDefault()
 quiz.updateUserAScore()
-window.location.replace("./home.html");
+// window.location.replace("./home.html");
 });
 nextBtnElement.addEventListener("click", () => quiz.showNextQuestion());
 

@@ -33,10 +33,16 @@ redirect.addEventListener('submit' , e  => {
       ...user , 
       ...Motivation
     }
-    console.log(merge);
-    updateCandidate(merge , user.id)
-    sessionStorage.setItem('currentUser' , JSON.stringify(merge))
+    // updateCandidate(merge , user.id)
+    // sessionStorage.setItem('currentUser',JSON.stringify(merge))
+    // window.location.replace("./testSeriousGames.html");
+    fetch(`http://localhost:3000/candidates/${user.id}`, {
+    method: "PATCH",
+    headers: { "content-Type": "application/json" },
+    body: JSON.stringify(Motivation),
+  }).then(() => {
     window.location.replace("./testSeriousGames.html");
+  })
 })
 </script>
   <script src="./fetch.js"></script>

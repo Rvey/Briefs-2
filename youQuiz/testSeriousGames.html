@@ -30,17 +30,24 @@ const merge = {
     ...user , 
     ...seriousGames
   }
-  updateCandidate(merge , user.id)
-  sessionStorage.setItem('currentUser' , JSON.stringify(merge))
+  // updateCandidate(merge , user.id)
+  fetch(`http://localhost:3000/candidates/${user.id}`, {
+    method: "PATCH",
+    headers: { "content-Type": "application/json" },
+    body: JSON.stringify(seriousGames),
+  }).then(() => {
+    window.location.replace("./home.html");
+  })
+  // sessionStorage.setItem('currentUser' , JSON.stringify(merge))
   window.location.replace("./administrationTest.html");
 })
-const updateCandidate = (candidate, id) => {
-  fetch(`http://localhost:3000/candidates/${id}`, {
-    method: "PUT",
-    headers: { "content-Type": "application/json" },
-    body: JSON.stringify(candidate),
-  })
-};
+// const updateCandidate = (candidate, id) => {
+//   fetch(`http://localhost:3000/candidates/${id}`, {
+//     method: "PUT",
+//     headers: { "content-Type": "application/json" },
+//     body: JSON.stringify(candidate),
+//   })
+// };
 </script>
 </html>
 

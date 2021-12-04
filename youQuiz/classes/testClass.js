@@ -92,7 +92,19 @@ class Quiz {
       ...user,
       ...userScore,
     };
-    updateCandidate(merge, user.id);
+    // updateCandidate(merge, user.id);
+    console.log(user.id);
+  
+      fetch(`http://localhost:3000/candidates/${user.id}`, {
+        method: "PUT",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(merge),
+      }).then(() => {
+        window.location.replace("./testMotivation.html");
+      })
+
+
+   
   }
 
   // -- showing question and answers from questions array
@@ -119,7 +131,7 @@ class Quiz {
   }
   // -- reseting "NEXT QUESTION" button and answer buttons (removing previous ones)
   resetState() {
-    this.nextBtnElement.classList.add("hide");
+    // this.nextBtnElement.classList.add("hide");
     while (this.answersBtnsElement.firstChild) {
       this.answersBtnsElement.removeChild(this.answersBtnsElement.firstChild);
     }

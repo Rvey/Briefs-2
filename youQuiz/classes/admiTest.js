@@ -89,7 +89,13 @@ class Quiz {
      ...AdministrationScore , 
      ...user
    }
-    updateCandidate(merge, user.id);
+   fetch(`http://localhost:3000/candidates/${user.id}`, {
+    method: "PUT",
+    headers: { "content-Type": "application/json" },
+    body: JSON.stringify(merge),
+  }).then(() => {
+    window.location.replace("./home.html");
+  })
 
   }
 

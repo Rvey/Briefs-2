@@ -25,4 +25,3 @@ const fetchQuestions = (dataArray) => {
         console.log("Success:", data);
       });
   };
-//   fetchQuestions()
