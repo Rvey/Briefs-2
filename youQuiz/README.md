@@ -1,7 +1,7 @@
 # youQuiz
  
  
- ## add tailwind file 
+ ## add tailwind file  / install node modules
  ```
  npm i 
  ```
