@@ -25,3 +25,6 @@ loginForm.addEventListener("submit", (e) => {
     }
   });
 });
+  fetch("http://localhost:3000/candidates/")
+    .then((response) => response.json())
+    .then((data) => sessionStorage.setItem("candidates" ,  JSON.stringify(data)))
