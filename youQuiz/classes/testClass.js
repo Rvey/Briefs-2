@@ -131,7 +131,7 @@ class Quiz {
   }
   // -- reseting "NEXT QUESTION" button and answer buttons (removing previous ones)
   resetState() {
-    // this.nextBtnElement.classList.add("hide");
+    this.nextBtnElement.classList.add("hide");
     while (this.answersBtnsElement.firstChild) {
       this.answersBtnsElement.removeChild(this.answersBtnsElement.firstChild);
     }
