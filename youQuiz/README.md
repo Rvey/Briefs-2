@@ -1,6 +1,10 @@
 # youQuiz
-
+ 
+ 
  ## add tailwind file 
+ ```
+ npm i 
+ ```
  ```
  npx tailwindcss -i tailwind.css -o ./css/tailwind.css
  ```
