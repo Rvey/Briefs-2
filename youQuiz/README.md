@@ -1,1 +1,15 @@
 # youQuiz
+
+ ## add tailwind file 
+ ```
+ npx tailwindcss -i tailwind.css -o ./css/tailwind.css
+ ```
+
+ ## install json server 
+```
+npm install -g json-server
+```
+
+## start json server 
+```
+json-server --watch data/users.json

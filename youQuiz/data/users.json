@@ -1,9 +1,40 @@
 {
   "candidates": [
-
+    {
+      "AdministrationScore": 3,
+      "email": "redouane.bouabana@gmail.com",
+      "age": "23",
+      "genEmail": "yk1bqeni@youQuiz.com",
+      "genPassword": "muj1mni",
+      "date": "Sat Dec 04 2021",
+      "id": 1,
+      "score": 5,
+      "Motivation": "dhhfgh"
+    },
+    {
+      "AdministrationScore": 3,
+      "email": "red@gmail.com",
+      "age": "23",
+      "genEmail": "f3tee97u@youQuiz.com",
+      "genPassword": "kv789ek",
+      "date": "Sat Dec 04 2021",
+      "id": 2,
+      "score": 5,
+      "Motivation": "sadasda",
+      "seriousGames": "asdasd"
+    }
   ],
   "users": [
-
+    {
+      "email": "redouane.bouabana@gmail.com",
+      "age": "23",
+      "id": 1
+    },
+    {
+      "email": "red@gmail.com",
+      "age": "23",
+      "id": 2
+    }
   ],
   "administrationQuestions": [
     {
