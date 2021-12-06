@@ -2,6 +2,7 @@ export class Quiz {
   constructor(
     startBtnElement,
     nextChallenge,
+    exitChallenge,
     nextBtnElement,
     quizQuestionElement,
     questionElement,
@@ -14,6 +15,7 @@ export class Quiz {
   ) {
     this.startBtnElement = startBtnElement;
     this.nextChallenge = nextChallenge;
+    this.exitChallenge = exitChallenge;
     this.nextBtnElement = nextBtnElement;
     this.quizQuestionElement = quizQuestionElement;
     this.questionElement = questionElement;
@@ -61,40 +63,37 @@ export class Quiz {
       this.nextBtnElement.classList.remove("hide");
     } else {
       this.nextChallenge.innerText = "TO THE NEXT CHALLENGE";
-
+      
       this.resultElement.classList.remove("hide");
-
+     
       if (this.score === this.questions.length) {
         this.resultElement.innerHTML = `
           <h1><i class="fas fa-trophy"></i></h1>
           <h3>Congrats! You are a champ and ansered ${this.questions.length} questions correct!</h3>
           `;
         this.nextChallenge.classList.remove("hide");
+
       } else {
         this.resultElement.innerHTML = `
+          <div>
             <h1><i class="fas fa-paper-plane"></i></h1>
             <h3>Sorry you are not eligible to pass the next challenge! your score is ${this.score}</h3>
-           <div>
-           <a class="mt-12 " href="./home.html" >Exit</a>
            </div>
             `;
         this.quizQuestionElement.classList.add("hide");
         this.nextBtnElement.classList.add("hide");
+        this.exitChallenge.classList.remove("hide")
       }
     }
   }
 
   updateUserScore() {
     const user = JSON.parse(sessionStorage.getItem("currentUser"));
-    
     const userScore = { score: this.score };
     const merge = {
       ...user,
       ...userScore,
-    };
-    // updateCandidate(merge, user.id);
-    console.log(user.id);
-  
+    };  
       fetch(`http://localhost:3000/candidates/${user.id}`, {
         method: "PUT",
         headers: { "content-Type": "application/json" },
@@ -102,7 +101,16 @@ export class Quiz {
       }).then(() => {
         window.location.replace("../sourcing/testMotivation.html");
       })
- 
+  }
+
+  removeCandidate() {
+    const user = JSON.parse(sessionStorage.getItem("currentUser"));
+    fetch(`http://localhost:3000/candidates/${user.id}`, {
+      method: "DELETE",
+      headers: { "content-Type": "application/json" },
+    }).then(() => {
+      window.location.replace("../home.html");
+    })
   }
 
   // -- showing question and answers from questions array

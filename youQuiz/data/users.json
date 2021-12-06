@@ -4,25 +4,27 @@
       "AdministrationScore": 3,
       "email": "redouane.bouabana@gmail.com",
       "age": "23",
-      "genEmail": "yk1bqeni@youQuiz.com",
-      "genPassword": "muj1mni",
-      "date": "Sat Dec 04 2021",
+      "genEmail": "vm61acmg@youQuiz.com",
+      "genPassword": "2274gbt",
+      "date": "Mon Dec 06 2021",
       "id": 1,
       "score": 5,
-      "Motivation": "dhhfgh"
+      "Motivation": "dsadas",
+      "seriousGames": "asdasd"
     },
     {
       "AdministrationScore": 3,
-      "email": "red@gmail.com",
-      "age": "23",
-      "genEmail": "f3tee97u@youQuiz.com",
-      "genPassword": "kv789ek",
-      "date": "Sat Dec 04 2021",
-      "id": 2,
+      "email": "redouane.bouabana@gmail.com",
+      "age": "34",
+      "genEmail": "k7btt66x@youQuiz.com",
+      "genPassword": "h0k64pm",
+      "date": "Mon Dec 06 2021",
+      "id": 3,
       "score": 5,
-      "Motivation": "sadasda",
-      "seriousGames": "asdasd"
+      "Motivation": "werwer",
+      "seriousGames": "werwer"
     }
+
   ],
   "users": [
     {
@@ -31,9 +33,14 @@
       "id": 1
     },
     {
-      "email": "red@gmail.com",
+      "email": "rredouane@gmail.com",
       "age": "23",
       "id": 2
+    },
+    {
+      "email": "red@gmail.com",
+      "age": "34",
+      "id": 3
     }
   ],
   "administrationQuestions": [
@@ -203,7 +210,7 @@
   "admin": [
     {
       "email": "rredouane348@gmail.com",
-      "password": 666,
+      "password": 777,
       "id": 69
     }
   ]

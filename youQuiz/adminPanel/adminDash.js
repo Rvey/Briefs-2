@@ -8,7 +8,7 @@ fetch(CandidatePort)
       tableBody.innerHTML += `
     <tr>
     <td class="px-6 py-4 whitespace-nowrap">
-       ${!el.email} 
+       ${el.email} 
     </td>
     <td class="px-6 py-4 whitespace-nowrap">
         ${el.age}
@@ -37,6 +37,6 @@ fetch(CandidatePort)
     `;
     })
   );
-  fetch(CandidatePort)
+  fetch("http://localhost:3000/candidates/")
     .then((response) => response.json())
     .then((data) => sessionStorage.setItem("candidates" ,  JSON.stringify(data)))

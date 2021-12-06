@@ -3,6 +3,7 @@ import { Quiz } from "../modules/testClass.js";
 // -- DOM elements
 const startBtnElement = document.querySelector("#start-btn");
 const nextChallenge = document.querySelector(".nextChallenge-btn");
+const exitChallenge = document.querySelector(".exitChallenge-btn");
 const nextBtnElement = document.querySelector("#next-btn");
 const quizQuestionElement = document.querySelector("#quiz__question");
 const questionElement = document.querySelector("#question");
@@ -12,7 +13,7 @@ const resultElement = document.querySelector("#result");
 //
 const user = JSON.parse(sessionStorage.getItem("currentUser"));
 
-const displayCurrent = (document.querySelector(
+(document.querySelector(
   ".user"
 ).innerHTML += `<h1>${user.id}</h1>`);
 // -- logic
@@ -35,6 +36,7 @@ fetchQuestions();
 const quiz = new Quiz(
   startBtnElement,
   nextChallenge,
+  exitChallenge,
   nextBtnElement,
   quizQuestionElement,
   questionElement,
@@ -53,4 +55,8 @@ startBtnElement.addEventListener("click", () => quiz.startQuiz());
 nextChallenge.addEventListener("click", (e) => {
   quiz.updateUserScore();
 });
+exitChallenge.addEventListener("click", (e) => {
+  quiz.removeCandidate()
+});
+
 nextBtnElement.addEventListener("click", () => quiz.showNextQuestion());
