@@ -2,44 +2,50 @@
   "candidates": [
     {
       "AdministrationScore": 3,
-      "email": "redouane.bouabana@gmail.com",
+      "email": "red@gmail.com",
       "age": "23",
-      "genEmail": "vm61acmg@youQuiz.com",
-      "genPassword": "2274gbt",
+      "genEmail": "d7r7vldm@youQuiz.com",
+      "genPassword": "o93xhaf",
       "date": "Mon Dec 06 2021",
-      "id": 1,
+      "id": 5,
       "score": 5,
-      "Motivation": "dsadas",
-      "seriousGames": "asdasd"
+      "Motivation": "asasdasd",
+      "seriousGames": "asdasdasdasda"
     },
     {
-      "AdministrationScore": 3,
-      "email": "redouane.bouabana@gmail.com",
-      "age": "34",
-      "genEmail": "k7btt66x@youQuiz.com",
-      "genPassword": "h0k64pm",
+      "email": "rredouane348@gmail.com",
+      "age": "23",
+      "genEmail": "kj3wibbn@youQuiz.com",
+      "genPassword": "ygqwfrh",
       "date": "Mon Dec 06 2021",
-      "id": 3,
+      "id": 6
+    },
+    {
+      "AdministrationScore": 2,
+      "email": "rredouane348@gmail.com",
+      "age": "23",
+      "genEmail": "6tbmjkfk@youQuiz.com",
+      "genPassword": "pcv8d87",
+      "date": "Mon Dec 06 2021",
+      "id": 7,
       "score": 5,
-      "Motivation": "werwer",
-      "seriousGames": "werwer"
+      "Motivation": "motivation"
     }
-
   ],
   "users": [
     {
-      "email": "redouane.bouabana@gmail.com",
+      "email": "rredouane348@gmail.com",
       "age": "23",
       "id": 1
     },
     {
-      "email": "rredouane@gmail.com",
+      "email": "rredouane348@gmail.com",
       "age": "23",
       "id": 2
     },
     {
-      "email": "red@gmail.com",
-      "age": "34",
+      "email": "rredouane@gmail.com",
+      "age": "23",
       "id": 3
     }
   ],
