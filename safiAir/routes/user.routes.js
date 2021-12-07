@@ -4,11 +4,11 @@ const con = require("../config/db.config");
 
 
 // get all users
-let getAll = `SELECT * FROM users`;
-con.query(getAll, (err, result, fields) => {
-  if (err) throw err;
-  console.log(result);
-});
+// let getAll = `SELECT * FROM users`;
+// con.query(getAll, (err, result, fields) => {
+//   if (err) throw err;
+//   console.log(result);
+// });
 
 // get all plans
 
@@ -24,13 +24,27 @@ const getPlans = () => {
 };
 
 // update plan available places
+// const updatePlaces = (planeName, placesCount) => {
+//   let update = `UPDATE plans SET availablePlaces=${placesCount} WHERE planName=${planeName}`;
+//   con.query(update, planeName, (err, result) => {
+//     if (err) throw err;
+//     console.log(JSON.stringify(result) + "  " + "RECORD UPDATED");
+//   });
+// };
+
+
+
+let planeName = con.escape("alpha");
+let placesCount = con.escape(23);
 const updatePlaces = (planeName, placesCount) => {
-  let update = `UPDATE plans SET availablePlaces=${placesCount} WHERE planName=${planeName}`;
-  con.query(update, planeName, (err, result) => {
+  let add = `INSERT INTO plans (planName, availablePlaces) VALUES (${planeName}, ${placesCount});`;
+  con.query(add ,  (err, result) => {
     if (err) throw err;
-    console.log(JSON.stringify(result) + "  " + "RECORD UPDATED");
+    console.log(JSON.stringify(result) + "  " + "userADDED !");
   });
 };
+
+updatePlaces(con.escape("yep") ,  con.escape(23))
 
 // get plan single record
 // let getPLan = ` SELECT * FROM plans WHERE planName=${planeName}`;
@@ -40,4 +54,4 @@ const updatePlaces = (planeName, placesCount) => {
 //   console.log(JSON.parse(re));
 // });
 
-getPlans()
+// getPlans()

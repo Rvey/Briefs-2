@@ -1,5 +1,5 @@
 const Users = require("../models/usersModel");
-
+const { v4: uuid } = require('uuid')
 // @desc Get all users
 // @route GET /api/users
 const getUsers = async (req, res) => {
@@ -13,7 +13,7 @@ const getUsers = async (req, res) => {
 };
 
 // @desc Get single user
-// @route GET /api/user/id
+// @route GET /api/users/id
 const getUser = async (req, res, id) => {
   try {
     const user = await Users.findById(id);
@@ -30,7 +30,24 @@ const getUser = async (req, res, id) => {
   }
 };
 
+// @desc ADD user
+// @route POST /api/user
+const addUser = async (req, res) => {
+  try {
+    const user = {
+      name: "ehehe",
+    };
+    const newUser = Users.createUser(user);
+
+    res.writeHead(201, { "Content-Type": "application/json" });
+    return res.end(JSON.stringify(newUser));
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 module.exports = {
   getUsers,
   getUser,
+  addUser,
 };
