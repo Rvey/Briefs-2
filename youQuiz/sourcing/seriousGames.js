@@ -9,7 +9,7 @@ const seriousGames  = {seriousGames : redirect.message.value}
     headers: { "content-Type": "application/json" },
     body: JSON.stringify(seriousGames),
   }).then(() => {
-    window.location.replace("./home.html");
+    // window.location.replace("./home.html");
+    window.location.replace("./administrationTest.html");
   })
-  window.location.replace("./administrationTest.html");
 })
