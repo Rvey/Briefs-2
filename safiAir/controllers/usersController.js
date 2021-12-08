@@ -1,5 +1,5 @@
 const Users = require("../models/usersModel");
-const { v4: uuid } = require('uuid')
+const { v4: uuid } = require("uuid");
 // @desc Get all users
 // @route GET /api/users
 const getUsers = async (req, res) => {
@@ -34,13 +34,22 @@ const getUser = async (req, res, id) => {
 // @route POST /api/user
 const addUser = async (req, res) => {
   try {
-    const user = {
-      name: "ehehe",
-    };
-    const newUser = Users.createUser(user);
+    let body = "";
+    req.on("data", (chunk) => {
+      body += chunk.toString();
+    });
+    req.on("end", async () => {
+        const {name ,bookedPlaces , selectedPlan } = JSON.parse(body)
+      const user = {
+        name,
+        bookedPlaces,
+        selectedPlan,
+      };
+      const newUser = await Users.createUser(user);
 
-    res.writeHead(201, { "Content-Type": "application/json" });
-    return res.end(JSON.stringify(newUser));
+      res.writeHead(201, { "Content-Type": "application/json" });
+      return res.end(JSON.stringify(newUser));
+    });
   } catch (error) {
     console.log(error);
   }

@@ -21,13 +21,19 @@ const findById = (id) => {
 };
 const createUser = (user) => {
   return new Promise((resolve, reject) => {
-    let add = `INSERT INTO plans (planName) VALUES (${JSON.stringify(user.name)});`;
-    con.query(add, (err, result) => {
+    // let ehe = JSON.stringify(user)
+    // let yep = JSON.parse(ehe)
+    // const name = user.name
+    // const bookedPlaces = user.bookedPlaces
+    // const selectedPlan = user.selectedPlan
+    // let add = `INSERT INTO users SET ?` , {name : user.name}
+    con.query('INSERT INTO users SET ?' , {name : user.name , bookedPlaces: user.bookedPlaces , selectedPlan: user.selectedPlan}, (err, result) => {
       if (err) throw err;
-      console.log(JSON.stringify(result) + "  " + "userADDED !");
+      console.log(JSON.stringify(result) + "userADDED !");
     });
-    resolve(user.name);
-    console.log(user.name);
+   
+    // console.log( bookedPlaces , 'asdasd');
+    resolve(user);
   });
 };
 
