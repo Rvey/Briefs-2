@@ -1,4 +1,4 @@
-const getUserData = (req) => {
+const getData = (req) => {
   return new Promise((resolve, reject) => {
     try {
       let body = "";
@@ -14,5 +14,5 @@ const getUserData = (req) => {
   });
 };
 module.exports = {
-    getUserData
+    getData
 }

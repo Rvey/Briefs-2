@@ -1,5 +1,5 @@
 const Users = require("../models/usersModel");
-const { getUserData } = require("../utils/utils");
+const { getData } = require("../utils/utils");
 
 // @desc Get all users
 // @route GET /api/users
@@ -35,7 +35,7 @@ const getUser = async (req, res, id) => {
 // @route POST /api/user
 const addUser = async (req, res) => {
   try {
-    const body = await getUserData(req);
+    const body = await getData(req);
 
     const { name, bookedPlaces, selectedPlan } = JSON.parse(body);
     const user = {
@@ -58,7 +58,7 @@ const updateUser = async (req, res, id) => {
     const target = await Users.findById(id);
 
     if (target) {
-      const body = await getUserData(req);
+      const body = await getData(req);
 
       const { name, bookedPlaces, selectedPlan } = JSON.parse(body);
       const user = {
