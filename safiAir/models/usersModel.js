@@ -21,19 +21,44 @@ const findById = (id) => {
 };
 const createUser = (user) => {
   return new Promise((resolve, reject) => {
-    // let ehe = JSON.stringify(user)
-    // let yep = JSON.parse(ehe)
-    // const name = user.name
-    // const bookedPlaces = user.bookedPlaces
-    // const selectedPlan = user.selectedPlan
-    // let add = `INSERT INTO users SET ?` , {name : user.name}
-    con.query('INSERT INTO users SET ?' , {name : user.name , bookedPlaces: user.bookedPlaces , selectedPlan: user.selectedPlan}, (err, result) => {
-      if (err) throw err;
-      console.log(JSON.stringify(result) + "userADDED !");
-    });
-   
-    // console.log( bookedPlaces , 'asdasd');
+    con.query(
+      "INSERT INTO users SET ?",
+      {
+        name: user.name,
+        bookedPlaces: user.bookedPlaces,
+        selectedPlan: user.selectedPlan,
+      },
+    //   (err, result) => {
+    //     if (err) throw err;
+    //     console.log(JSON.stringify({ message: "user has been added" }));
+    //   }
+    );
+
     resolve(user);
+  });
+};
+const updUser = (user, id) => {
+  return new Promise((resolve, reject) => {
+    con.query(
+      `UPDATE users SET ? WHERE id =${id}`,
+      {
+        name: user.name,
+        bookedPlaces: user.bookedPlaces,
+        selectedPlan: user.selectedPlan,
+      },
+    //   (err, result) => {
+    //     if (err) throw err;
+    //     console.log(JSON.stringify({ message: "user updated !" }));
+    //   }
+    );
+
+    resolve(user);
+  });
+};
+const removeUser = (id) => {
+  con.query(`DELETE FROM users WHERE id =${id}`, (err, result) => {
+    // if (err) throw err;
+    // console.log(JSON.stringify({ message: "userRemoved" }));
   });
 };
 
@@ -41,4 +66,6 @@ module.exports = {
   findAll,
   findById,
   createUser,
+  updUser,
+  removeUser,
 };
