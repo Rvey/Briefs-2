@@ -1,1 +1,9 @@
 <p class="text-center text-muted">&copy; Copyright 2020 The Awesome People</p>
+    <!-- <script src="ejs.min.js"></script> -->
+    <script>
+      let people = ["geddy", "neil", "alex"],
+        html = ejs.render('<%= people.join(", "); %>', { people: people });
+
+      // Vanilla JS:
+      document.getElementById("output").innerHTML = html;
+    </script>

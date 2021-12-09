@@ -43,10 +43,6 @@ const updPlan = (plan, id) => {
         planName: plan.planName,
         availablePlaces: plan.availablePlaces,
       }
-      //   (err, result) => {
-      //     if (err) throw err;
-      //     console.log(JSON.stringify({ message: "user updated !" }));
-      //   }
     );
 
     resolve(plan);
