@@ -1,0 +1,42 @@
+
+  <div class="md:grid md:grid-cols-3 md:gap-6">
+      
+    <!-- select flight form -->
+    <%- include('./forms/selectFlightForm.ejs'); %>
+
+    <!-- user form  -->
+    <%- include('./forms/userForm.ejs'); %>
+  </div>
+
+  <script>
+    const select = document.querySelector(".select");
+   
+    const flight = document.querySelector(".flight");
+    const divv = document.querySelector(".divv");
+
+    const form = document.querySelector(".form");
+   
+    fetch("http://localhost:5000/api/plans")
+      .then((response) => response.json())
+      .then((data) =>
+        data.map((el) => {
+          select.innerHTML += `<option class="option" value="${el.id}">${el.planName}</option>`;
+        })
+      );
+
+
+
+  
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      console.log(form.phone.value);
+      console.log(form.name.value);
+      console.log(form.email.value);
+      console.log(form.seats.value);
+      console.log(form.flight.value);
+      console.log(form.start.value);
+      
+    });
+  </script>
+  <script src="https://unpkg.com/@themesberg/flowbite@1.2.0/dist/datepicker.bundle.js"></script>
+
