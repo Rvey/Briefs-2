@@ -25,6 +25,8 @@ const server = http.createServer((req, res) => {
     redirect("./views/pages/reservation.ejs", res);
   } else if (req.url === "/" && req.method === "GET") {
     redirect("./views/index.ejs", res);
+  } else if (req.url === "/adminPanel" && req.method === "GET") {
+    redirect("./views/pages/adminPanel.ejs", res);
   } else if (req.url.match(/\api\/plan\/([0-9]+)/) && req.method === "GET") {
     const id = req.url.split("/")[3];
     getPlan(req, res, id);
