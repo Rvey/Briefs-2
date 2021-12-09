@@ -1,5 +1,5 @@
 //! TODO OPTIMIZED WAY TO MANAGE API END-POINT
-const { redirect } = require("./utils/utils");
+const { redirect , redirectJS } = require("./utils/utils");
 const http = require("http");
 const {
   getUsers,
@@ -21,12 +21,21 @@ const server = http.createServer((req, res) => {
     getPlans(req, res);
   } else if (req.url === "/api/users" && req.method === "GET") {
     getUsers(req, res);
-  } else if (req.url === "/reservation" && req.method === "GET") {
+    // reservation path
+  }  else if (req.url === "/reservation") {
     redirect("./views/pages/reservation.ejs", res);
-  } else if (req.url === "/" && req.method === "GET") {
+    // hpme path
+  } else if (req.url === "/") {
     redirect("./views/index.ejs", res);
-  } else if (req.url === "/adminPanel" && req.method === "GET") {
+    // admin page
+  }
+  else if (req.url === "main.js") {
+    redirectJS("./views/main.js" , res)
+
+  }
+  else if (req.url === "/adminPanel" ) {
     redirect("./views/pages/adminPanel.ejs", res);
+    // crud
   } else if (req.url.match(/\api\/plan\/([0-9]+)/) && req.method === "GET") {
     const id = req.url.split("/")[3];
     getPlan(req, res, id);
