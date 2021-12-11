@@ -1,49 +1,18 @@
-<div class="grid grid-cols-3">
+<div class="grid grid-cols-3 h-full">
   <div class="bg-white rounded-lg col-span-2">
-    <div class="px-4 py-8 sm:px-10">
-      <div class="relative mt-6">
-        <div class="absolute inset-0 flex items-center">
-          <div class="w-full border-t border-gray-300"></div>
+    <div class="px-4 py-8 sm:px-10 h-full flex flex-col justify-between">
+      <div class="mt-6 flex flex-col gap-[4em]">
+        <div class="relative mt-6">
+          <div class="absolute inset-0 flex items-center">
+            <div class="w-full border-t border-gray-300"></div>
+          </div>
+          <div class="relative flex justify-center text-sm leading-5">
+            <span class="px-2 text-gray-500 bg-white">Reservation </span>
+          </div>
         </div>
-        <div class="relative flex justify-center text-sm leading-5">
-          <span class="px-2 text-gray-500 bg-white">Reservation </span>
-        </div>
-      </div>
-      <div class="mt-6">
         <div class="w-full space-y-6">
-          <div class="w-full space-y-6">
-            <form class="searchForm">
-              <div class="mt-4">
-                <span class="text-gray-700 font-medium text-xl">Stopover</span>
-                <div class="mt-2">
-                  <label class="inline-flex items-center">
-                    <input
-                      type="radio"
-                      class="form-radio"
-                      value="true"
-                      name="yes"
-                    />
-                    <span class="ml-2">yes</span>
-                  </label>
-                  <label class="inline-flex items-center ml-6">
-                    <input
-                      type="radio"
-                      class="form-radio"
-                      value="false"
-                      name="yes"
-                    />
-                    <span class="ml-2">no</span>
-                  </label>
-                </div>
-              </div>
-
-              <div class="flex items-center">
-                <input type="date" name="start" id="" format="MM-DD-YYYY" />
-                <span class="mx-4 text-gray-500">to</span>
-                <input type="date" format="MM-DD-YYYY" name="end" id="" />
-              </div>
-            </form>
-            <!-- select direction -->
+          <form class="timeForm">
+            <!-- select date -->
             <div class="mb-4 flex gap-6">
               <div class="md:ml-2 w-full">
                 <label
@@ -52,40 +21,7 @@
                 >
                   where From ?
                 </label>
-                <select
-                  class="
-                    selectTo
-                    w-full
-                    px-3
-                    py-2
-                    mb-3
-                    text-sm
-                    leading-tight
-                    text-gray-700
-                    border
-                    rounded
-                    shadow
-                    appearance-none
-                    focus:outline-none focus:shadow-outline
-                  "
-                  value=""
-                  name=""
-                  id=""
-                >
-                  <option value="safi">safi</option>
-                  <option value="tanger">tanger</option>
-                  <option value="essaouira">essaouira</option>
-                </select>
-              </div>
-
-              <div class="md:ml-2 w-full">
-                <label
-                  class="block mb-2 text-sm font-bold text-gray-700"
-                  for="c_password"
-                >
-                  where To ?
-                </label>
-                <select
+                <input
                   class="
                     selectFrom
                     w-full
@@ -101,155 +37,354 @@
                     appearance-none
                     focus:outline-none focus:shadow-outline
                   "
-                  name=""
-                  id=""
+                  type="date"
+                  name="departure_date"
+                />
+              </div>
+              <div class="md:ml-2 w-full">
+                <label
+                  class="block mb-2 text-sm font-bold text-gray-700"
+                  for="c_password"
                 >
-                  <option value="rabat">rabat</option>
-                  <option value="casablanca">casablanca</option>
-                  <option value="marrakech">marrakech</option>
-                </select>
+                  where To ?
+                </label>
+                <input
+                  class="
+                    selectFrom
+                    w-full
+                    px-3
+                    py-2
+                    mb-3
+                    text-sm
+                    leading-tight
+                    text-gray-700
+                    border
+                    rounded
+                    shadow
+                    appearance-none
+                    focus:outline-none focus:shadow-outline
+                  "
+                  type="date"
+                  name="arrival_date"
+                />
               </div>
             </div>
-            <!-- matched flight test  -->
-            <div class="">
-              <label class="text-gray-700">
-                <span class="font-medium text-xl"> Pick Plan </span>
-                <select
-                  id="filght"
+            <!-- select time  -->
+            <div class="mb-4 flex gap-6">
+              <div class="md:ml-2 w-full">
+                <label
+                  class="block mb-2 text-sm font-bold text-gray-700"
+                  for="c_password"
+                >
+                  Departure time
+                </label>
+                <input
                   class="
-                    select
-                    block
+                    selectFrom
                     w-full
-                    py-2
                     px-3
-                    border border-gray-300
-                    bg-white
-                    rounded-md
-                    shadow-sm
-                    focus:outline-none
-                    focus:ring-primary-500
-                    focus:border-primary-500
-                  "
-                  name="flight"
-                >
-                  <option value="">Select an option</option>
-                </select>
-              </label>
-            </div>
-            <!-- search btn -->
-            <div>
-              <span class="block w-full rounded-md shadow-sm">
-                <button
-                  type="button"
-                  class="
-                    search
                     py-2
-                    px-4
-                    bg-indigo-600
-                    hover:bg-indigo-700
-                    focus:ring-indigo-500 focus:ring-offset-indigo-200
-                    text-white
-                    w-full
-                    transition
-                    ease-in
-                    duration-200
-                    text-center text-base
-                    font-semibold
-                    shadow-md
-                    focus:outline-none focus:ring-2 focus:ring-offset-2
-                    rounded-lg
+                    mb-3
+                    text-sm
+                    leading-tight
+                    text-gray-700
+                    border
+                    rounded
+                    shadow
+                    appearance-none
+                    focus:outline-none focus:shadow-outline
                   "
+                  type="time"
+                  name="departure_time"
+                />
+              </div>
+              <div class="md:ml-2 w-full">
+                <label
+                  class="block mb-2 text-sm font-bold text-gray-700"
+                  for="c_password"
                 >
-                  Search
-                </button>
-              </span>
+                  Arrival time
+                </label>
+                <input
+                  class="
+                    selectFrom
+                    w-full
+                    px-3
+                    py-2
+                    mb-3
+                    text-sm
+                    leading-tight
+                    text-gray-700
+                    border
+                    rounded
+                    shadow
+                    appearance-none
+                    focus:outline-none focus:shadow-outline
+                  "
+                  type="time"
+                  name="arrival_time"
+                />
+              </div>
+            </div>
+
+            <!-- set stopover  -->
+            <div class="mb-4 flex gap-6">
+              <div
+                class="md:ml-2 block text-md font-bold text-gray-700 my-[1em]"
+              >
+                stop over
+              </div>
+              <div class="flex gap-6">
+                <div class="md:ml-2 flex items-center gap-2">
+                  <label class="block text-sm font-bold text-gray-700">
+                    Yes
+                  </label>
+                  <input class="" type="radio" name="stopover" value="yes" />
+                </div>
+                <div class="md:ml-2 flex items-center gap-2">
+                  <label class="block text-sm font-bold text-gray-700">
+                    No
+                  </label>
+                  <input
+                    class="form-radio"
+                    type="radio"
+                    name="stopover"
+                    value="no"
+                  />
+                </div>
+              </div>
+            </div>
+          </form>
+          <!-- select direction -->
+          <div class="mb-4 flex gap-6">
+            <div class="md:ml-2 w-full">
+              <label class="block mb-2 text-sm font-bold text-gray-700">
+                where From ?
+              </label>
+              <select
+                class="
+                  select
+                  w-full
+                  px-3
+                  py-2
+                  mb-3
+                  text-sm
+                  leading-tight
+                  text-gray-700
+                  border
+                  rounded
+                  shadow
+                  appearance-none
+                  focus:outline-none focus:shadow-outline
+                "
+                value=""
+              >
+                <option value="safi">safi</option>
+                <option value="tanger">tanger</option>
+                <option value="essaouira">essaouira</option>
+              </select>
+            </div>
+
+            <div class="md:ml-2 w-full">
+              <label class="block mb-2 text-sm font-bold text-gray-700">
+                where To ?
+              </label>
+              <select
+                class="
+                  selectTo
+                  w-full
+                  px-3
+                  py-2
+                  mb-3
+                  text-sm
+                  leading-tight
+                  text-gray-700
+                  border
+                  rounded
+                  shadow
+                  appearance-none
+                  focus:outline-none focus:shadow-outline
+                "
+                value=""
+              >
+                <option value="rabat">rabat</option>
+                <option value="casablanca">casablanca</option>
+                <option value="marrakech">marrakech</option>
+              </select>
             </div>
           </div>
+          <!-- matched flight test  -->
+          <!-- <div class="">
+            <label class="text-gray-700">
+              <span class="font-medium text-xl"> Pick Plan </span>
+              <select
+                id="filght"
+                class="
+                  select
+                  block
+                  w-full
+                  py-2
+                  px-3
+                  border border-gray-300
+                  bg-white
+                  rounded-md
+                  shadow-sm
+                  focus:outline-none
+                  focus:ring-primary-500
+                  focus:border-primary-500
+                "
+                name="flight"
+              >
+                <option value="">Select an option</option>
+              </select>
+            </label>
+          </div> -->
         </div>
       </div>
-      <div class="px-4 py-6 border-t-2 border-gray-200 bg-gray-50 sm:px-10">
-        <ul class="html"></ul>
+      <div class="px-4 py-6 bg-gray-50 rounded-md sm:px-10">
+        <!-- search btn -->
+        <div>
+          <span class="block w-full rounded-md shadow-sm">
+            <button
+              type="button"
+              class="
+                search
+                py-2
+                px-4
+                bg-indigo-600
+                hover:bg-indigo-700
+                focus:ring-indigo-500 focus:ring-offset-indigo-200
+                text-white
+                w-full
+                transition
+                ease-in
+                duration-200
+                text-center text-base
+                font-semibold
+                shadow-md
+                focus:outline-none focus:ring-2 focus:ring-offset-2
+                rounded-lg
+              "
+            >
+              Search
+            </button>
+          </span>
+        </div>
       </div>
     </div>
   </div>
 
   <!-- flight info template -->
-  <div class="mr-3 col-span-1">
-    <div class="container">
-      <div
-        class="
-          w-full
-          bg-white
-          h-auto
-          tracking-wide
-          border border-black-800
-          rounded-lg
-          relative
-        "
-      >
+  <div class="mr-3 col-span-1 bg-blue-50 p-4 rounded-md flight">
+   
+  </div>
+
+  <script>
+    const search = document.querySelector(".search");
+    const selected = document.querySelector(".selected");
+    const timeForm = document.querySelector(".timeForm");
+
+    const selectFrom = document.querySelector(".select");
+    const selectTo = document.querySelector(".selectTo");
+
+    const flight = document.querySelector(".flight");
+
+    search.addEventListener("click", (e) => {
+      // fetch(`http://localhost:5000/api/plan/${select.value}`)
+      //   .then((response) => response.json())
+      //   .then((data) => (flight.value = data.planName));
+
+      // // .then(() => divv.classList.remove("hidden"));
+      e.preventDefault();
+      // console.log(searchForm.yes.value);
+      // console.log(searchForm.start.value);
+      flight.innerHTML = ``;
+      // console.log(timeForm.departure_date.value);
+      // console.log(timeForm.arrival_date.value);
+      // console.log(timeForm.departure_time.value);
+      // console.log(timeForm.arrival_time.value);
+      // console.log(timeForm.stopover.value);
+
+      // console.log(selectFrom.value);
+
+      // console.log(selectTo.value);
+
+      // console.log(selectWhere.value);
+      // console.log( searchForm.yes.value);
+      // console.log(selectWhere.value);
+      // console.log(selectFrom.value);
+      fetch("http://localhost:5000/api/plans")
+        .then((response) => response.json())
+        .then((data) =>
+          data.map((el) => {
+            if (
+              // el.stopover == timeForm.stopover.value &&
+              // el.departure_date == timeForm.departure_date.value &&
+              // el.arrival_date == timeForm.arrival_date.value &&
+              // el.arrival_time === timeForm.arrival_time.value &&
+              // el.departure_time === timeForm.departure_time.value &&
+              el.from === selectFrom.value &&
+              el.where === selectTo.value
+            ) {
+              flight.innerHTML += `
+    <div
+      class="
+        w-full
+        bg-white
+        h-auto
+        tracking-wide
+        border border-black-800
+        rounded-lg
+        relative
+        mt-2
+      "
+    >
+      <div>
         <div
           class="small-banner w-1 h-10 bg-blue-600 absolute rounded-tl-md"
         ></div>
         <div class="flex items-center px-3 py-3 justify-between">
-          <div class="text-md font-semibold">FLIGHT CODE</div>
-          <div class="px-3 bg-yellow-400 rounded-md">stopover</div>
+          <div class="text-md font-semibold">${el.flightCode}</div>
+        ${el.stopover == "true" ?   `<div class="px-3 bg-red-200 rounded-md text-sm text-red-800">stop-over</div>` : `<div class="px-3 bg-green-200 rounded-md text-sm text-green-800">non-stop</div>`}
         </div>
-        <!-- flight info container -->
+
         <div class="flex justify-between pr-[2em]">
-          <!-- direction -->
           <div class="flex gap-6 pl-[2em] pb-6">
-            <div>from</div>
+            <div>${el.from}</div>
             <div><%- include('../../icons/rightArrow.ejs'); %></div>
-            <div>to</div>
+            <div>${el.where}</div>
           </div>
-          <!-- time -->
+
           <div class="flex gap-6">
             <div><%- include('../../icons/clock.ejs'); %></div>
-            <div>departure</div>
+            <div>
+              <div>
+                ${el.departure_date}
+                </div>
+                <div class="font-bold text-sm">
+                ${el.departure_time}
+                </div>
+              </div>
             <div><%- include('../../icons/dots.ejs'); %></div>
-            <div>arrivals</div>
+            <div>
+              <div>
+                ${el.arrival_date}
+                </div>
+                <div class="font-bold text-sm">
+                ${el.arrival_time}
+                </div>
+              </div>
           </div>
-        </div>
+          </div>
+          <div class="w-full grid justify-items-end mt-3 p-3">
+            <a class="text-amber-500 border-amber-600 border-[2px] p-1 rounded-md w-[5em] text-center cursor-pointer">select</a>
+          </div>
       </div>
     </div>
-  </div>
+            `;
+            }
+          })
+        );
+    });
+  </script>
 </div>
-
-<script>
-  const search = document.querySelector(".search");
-  const selected = document.querySelector(".selected");
-  const searchForm = document.querySelector(".searchForm");
-  const selectFrom = document.querySelector(".selectFrom");
-  const selectWhere = document.querySelector(".selectTo");
-  const select = document.querySelector(".select");
-
-  search.addEventListener("click", (e) => {
-    // fetch(`http://localhost:5000/api/plan/${select.value}`)
-    //   .then((response) => response.json())
-    //   .then((data) => (flight.value = data.planName));
-
-    // // .then(() => divv.classList.remove("hidden"));
-    e.preventDefault();
-    console.log(searchForm.yes.value);
-    select.innerHTML = "";
-    console.log(searchForm.start.value);
-    // console.log(selectTo.value);
-    fetch("http://localhost:5000/api/plans")
-      .then((response) => response.json())
-      .then((data) =>
-        data.map((el) => {
-          if (
-            el.stopover === searchForm.yes.value &&
-            el.departure_date == searchForm.start.value 
-            && el.where === selectWhere.value && el.from === selectFrom.value
-          ) {
-            select.innerHTML += `<option class="option flex justify-between w-full" value="${el.id}">
-            <div>
-              ${el.flightCode}
-              </div>
-            </option>`;
-          }
-        })
-      );
-  });
-</script>
