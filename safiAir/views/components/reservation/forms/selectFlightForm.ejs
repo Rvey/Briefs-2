@@ -275,102 +275,123 @@
   </div>
 
   <!-- flight info template -->
-  <div
-    class="mr-3 col-span-1 bg-blue-50 p-4 rounded-md flight overflow-auto"
-  ></div>
+  <form
+    class="mr-3 col-span-1 bg-gray-50 p-4 rounded-md flight overflow-auto"
+  ></form>
 
   <script>
     const search = document.querySelector(".search");
     const selected = document.querySelector(".selected");
     const timeForm = document.querySelector(".timeForm");
-
+    const element = document.querySelector(".click");
     const selectFrom = document.querySelector(".select");
     const selectTo = document.querySelector(".selectTo");
 
     const flight = document.querySelector(".flight");
-
+    flight.addEventListener("click", (e) => {
+      if (e.target.classList.contains("click")) {
+        sessionStorage.setItem("selectedFlight", JSON.stringify(e.target.id));
+        window.location.replace("/");
+      }
+    });
     search.addEventListener("click", (e) => {
       e.preventDefault();
       flight.innerHTML = ``;
-      console.log(timeForm.stopover.value);
+
       fetch("http://localhost:5000/api/plans")
         .then((response) => response.json())
         .then((data) =>
           data.map((el) => {
-            if (
-              el.stopover === timeForm.stopover.value
-              // &&
-              // el.departure_date == timeForm.departure_date.value &&
-              // el.arrival_date == timeForm.arrival_date.value &&
-              // el.arrival_time === timeForm.arrival_time.value &&
-              // el.departure_time === timeForm.departure_time.value &&
-              // el.from === selectFrom.value &&
-              // el.where === selectTo.value
-            ) {
+            if (el.stopover === timeForm.stopover.value) {
               flight.innerHTML += `
-            </div>
-      <div
-        class="w-full
+              <div
+      class="
+        w-full
         bg-white
         h-auto
         tracking-wide
         border border-black-800
         rounded-lg
         relative
-        mt-2">
-        <div>
-          <div class="w-1 h-10 bg-blue-600 absolute rounded-tl-md"></div>
-          <div class="flex items-center px-3 py-3 justify-between bg-red-500 rounded-md">
-            <div class="text-md font-semibold">${el.flightCode}</div>
-            <div class="flex gap-6">
-              <div>${el.from}</div>
-              <div><%- include('../../icons/rightArrow.ejs'); %></div>
-                <div>${el.where}</div>
-              </div>
+        mt-2
+      "
+    >
+      <div>
+        <div class="w-1 h-10 bg-blue-600 absolute rounded-tl-md"></div>
+        <div
+          class="
+            flex
+            items-center
+            px-3
+            py-3
+            justify-between
+            bg-indigo-100
+            rounded-md
+          "
+        >
 
-              ${
-                el.stopover == "true"
-                  ? `
-              <div class="px-3 bg-red-200 rounded-md text-sm text-red-800">
-                stop-over
-              </div>
-              `
-                  : `
-              <div class="px-3 bg-green-200 rounded-md text-sm text-green-800">
-                non-stop
-              </div>
-              `
-              }
+          <div class="text-md font-semibold">${el.flightCode}</div>
+          <div class="flex gap-6">
+            <div class="font-bold">${el.from}</div>
+            <div><%- include('../../icons/rightArrow.ejs'); %></div>
+            <div class="font-bold">${el.where}</div>
+          </div>
+
+          ${
+            el.stopover == "true"
+              ? `
+          <div class="px-3 bg-red-200 rounded-md text-sm text-red-800">
+            stop-over
+          </div>
+          `
+              : `
+          <div class="px-3 bg-green-200 rounded-md text-sm text-green-800">
+            non-stop
+          </div>
+          `
+          }
+        </div>
+
+        <div class="flex justify-between items-center pr-5 py-3">
+          <div class="flex gap-6 pl-5 items-center">
+            <div><%- include('../../icons/clock.ejs'); %></div>
+
+            <div>
+              <div>${el.departure_date}</div>
+              <div class="font-bold text-sm">${el.departure_time}</div>
             </div>
 
-            <div class="flex pr-[2em]">
-              <div class="flex gap-6 pl-5 pt-4">
-                <div><%- include('../../icons/clock.ejs'); %></div>
-                  <div>
-                    <div>${el.departure_date}</div>
-                    <div class="font-bold text-sm">${el.departure_time}</div>
-                  </div>
-                  <div><%- include('../../icons/dots.ejs'); %></div>
-                    <div>
-                      <div>${el.arrival_date}</div>
-                      <div class="font-bold text-sm">${el.arrival_time}</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="w-full grid justify-items-end pb-3 pr-3">
-                  <a
-                    class="text-amber-500
-                    border-amber-600 border-[2px]
-                    p-1
-                    rounded-md
-                    w-[5em]
-                    text-center
-                    cursor-pointer">select</a>
-                </div>
-              </div>
-            </div>
+            <div><%- include('../../icons/dots.ejs'); %></div>
 
-          `;
+            <div>
+              <div>${el.arrival_date}</div>
+              <div class="font-bold text-sm">${el.arrival_time}</div>
+            </div>
+          </div>
+       
+        <div class="">
+          <input type="hidden" value="${el.id}">
+          <input
+          class="
+              click
+              text-indigo-500
+              border-indigo-600 border-[2px]
+              p-1
+              rounded-md
+              w-[5em]
+              text-center
+              cursor-pointer
+              hover:bg-indigo-600 hover:text-white
+            "
+            type="button"
+            value="select"
+            id="${el.id}"
+            />
+            
+        </div>
+      </div>
+    </div>
+              `;
             }
           })
         );
