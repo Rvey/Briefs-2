@@ -139,7 +139,7 @@
                   <label class="block text-sm font-bold text-gray-700">
                     Yes
                   </label>
-                  <input class="" type="radio" name="stopover" value="yes" />
+                  <input class="" type="radio" name="stopover" value="true" />
                 </div>
                 <div class="md:ml-2 flex items-center gap-2">
                   <label class="block text-sm font-bold text-gray-700">
@@ -149,7 +149,7 @@
                     class="form-radio"
                     type="radio"
                     name="stopover"
-                    value="no"
+                    value="false"
                   />
                 </div>
               </div>
@@ -275,9 +275,9 @@
   </div>
 
   <!-- flight info template -->
-  <div class="mr-3 col-span-1 bg-blue-50 p-4 rounded-md flight">
-   
-  </div>
+  <div
+    class="mr-3 col-span-1 bg-blue-50 p-4 rounded-md flight overflow-auto"
+  ></div>
 
   <script>
     const search = document.querySelector(".search");
@@ -290,98 +290,87 @@
     const flight = document.querySelector(".flight");
 
     search.addEventListener("click", (e) => {
-      // fetch(`http://localhost:5000/api/plan/${select.value}`)
-      //   .then((response) => response.json())
-      //   .then((data) => (flight.value = data.planName));
-
-      // // .then(() => divv.classList.remove("hidden"));
       e.preventDefault();
-      // console.log(searchForm.yes.value);
-      // console.log(searchForm.start.value);
       flight.innerHTML = ``;
-      // console.log(timeForm.departure_date.value);
-      // console.log(timeForm.arrival_date.value);
-      // console.log(timeForm.departure_time.value);
-      // console.log(timeForm.arrival_time.value);
-      // console.log(timeForm.stopover.value);
-
-      // console.log(selectFrom.value);
-
-      // console.log(selectTo.value);
-
-      // console.log(selectWhere.value);
-      // console.log( searchForm.yes.value);
-      // console.log(selectWhere.value);
-      // console.log(selectFrom.value);
+      console.log(timeForm.stopover.value);
       fetch("http://localhost:5000/api/plans")
         .then((response) => response.json())
         .then((data) =>
           data.map((el) => {
             if (
-              // el.stopover == timeForm.stopover.value &&
+              el.stopover === timeForm.stopover.value
+              // &&
               // el.departure_date == timeForm.departure_date.value &&
               // el.arrival_date == timeForm.arrival_date.value &&
               // el.arrival_time === timeForm.arrival_time.value &&
               // el.departure_time === timeForm.departure_time.value &&
-              el.from === selectFrom.value &&
-              el.where === selectTo.value
+              // el.from === selectFrom.value &&
+              // el.where === selectTo.value
             ) {
               flight.innerHTML += `
-    <div
-      class="
-        w-full
+            </div>
+      <div
+        class="w-full
         bg-white
         h-auto
         tracking-wide
         border border-black-800
         rounded-lg
         relative
-        mt-2
-      "
-    >
-      <div>
-        <div
-          class="small-banner w-1 h-10 bg-blue-600 absolute rounded-tl-md"
-        ></div>
-        <div class="flex items-center px-3 py-3 justify-between">
-          <div class="text-md font-semibold">${el.flightCode}</div>
-        ${el.stopover == "true" ?   `<div class="px-3 bg-red-200 rounded-md text-sm text-red-800">stop-over</div>` : `<div class="px-3 bg-green-200 rounded-md text-sm text-green-800">non-stop</div>`}
-        </div>
+        mt-2">
+        <div>
+          <div class="w-1 h-10 bg-blue-600 absolute rounded-tl-md"></div>
+          <div class="flex items-center px-3 py-3 justify-between bg-red-500 rounded-md">
+            <div class="text-md font-semibold">${el.flightCode}</div>
+            <div class="flex gap-6">
+              <div>${el.from}</div>
+              <div><%- include('../../icons/rightArrow.ejs'); %></div>
+                <div>${el.where}</div>
+              </div>
 
-        <div class="flex justify-between pr-[2em]">
-          <div class="flex gap-6 pl-[2em] pb-6">
-            <div>${el.from}</div>
-            <div><%- include('../../icons/rightArrow.ejs'); %></div>
-            <div>${el.where}</div>
-          </div>
+              ${
+                el.stopover == "true"
+                  ? `
+              <div class="px-3 bg-red-200 rounded-md text-sm text-red-800">
+                stop-over
+              </div>
+              `
+                  : `
+              <div class="px-3 bg-green-200 rounded-md text-sm text-green-800">
+                non-stop
+              </div>
+              `
+              }
+            </div>
 
-          <div class="flex gap-6">
-            <div><%- include('../../icons/clock.ejs'); %></div>
-            <div>
-              <div>
-                ${el.departure_date}
+            <div class="flex pr-[2em]">
+              <div class="flex gap-6 pl-5 pt-4">
+                <div><%- include('../../icons/clock.ejs'); %></div>
+                  <div>
+                    <div>${el.departure_date}</div>
+                    <div class="font-bold text-sm">${el.departure_time}</div>
+                  </div>
+                  <div><%- include('../../icons/dots.ejs'); %></div>
+                    <div>
+                      <div>${el.arrival_date}</div>
+                      <div class="font-bold text-sm">${el.arrival_time}</div>
+                    </div>
+                  </div>
                 </div>
-                <div class="font-bold text-sm">
-                ${el.departure_time}
+                <div class="w-full grid justify-items-end pb-3 pr-3">
+                  <a
+                    class="text-amber-500
+                    border-amber-600 border-[2px]
+                    p-1
+                    rounded-md
+                    w-[5em]
+                    text-center
+                    cursor-pointer">select</a>
                 </div>
               </div>
-            <div><%- include('../../icons/dots.ejs'); %></div>
-            <div>
-              <div>
-                ${el.arrival_date}
-                </div>
-                <div class="font-bold text-sm">
-                ${el.arrival_time}
-                </div>
-              </div>
-          </div>
-          </div>
-          <div class="w-full grid justify-items-end mt-3 p-3">
-            <a class="text-amber-500 border-amber-600 border-[2px] p-1 rounded-md w-[5em] text-center cursor-pointer">select</a>
-          </div>
-      </div>
-    </div>
-            `;
+            </div>
+
+          `;
             }
           })
         );
