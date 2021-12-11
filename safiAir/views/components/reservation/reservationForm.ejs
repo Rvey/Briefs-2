@@ -1,42 +1,29 @@
+<div class="">
+  <!-- select flight form -->
+  <%- include('./forms/selectFlightForm.ejs'); %>
 
-  <div class="md:grid md:grid-cols-3 md:gap-6">
-      
-    <!-- select flight form -->
-    <%- include('./forms/selectFlightForm.ejs'); %>
+  <!-- user form  -->
 
-    <!-- user form  -->
-    <%- include('./forms/userForm.ejs'); %>
-  </div>
+</div>
 
-  <script>
-    const select = document.querySelector(".select");
-   
-    const flight = document.querySelector(".flight");
-    const divv = document.querySelector(".divv");
+<script>
+ 
 
-    const form = document.querySelector(".form");
-   
-    fetch("http://localhost:5000/api/plans")
-      .then((response) => response.json())
-      .then((data) =>
-        data.map((el) => {
-          select.innerHTML += `<option class="option" value="${el.id}">${el.planName}</option>`;
-        })
-      );
+  // const flight = document.querySelector(".flight");
+ 
+
+  // const form = document.querySelector(".form");
 
 
 
-  
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      console.log(form.phone.value);
-      console.log(form.name.value);
-      console.log(form.email.value);
-      console.log(form.seats.value);
-      console.log(form.flight.value);
-      console.log(form.start.value);
-      
-    });
-  </script>
-  <script src="https://unpkg.com/@themesberg/flowbite@1.2.0/dist/datepicker.bundle.js"></script>
-
+  // form.addEventListener("submit", (e) => {
+  //   e.preventDefault();
+  //   console.log(form.phone.value);
+  //   console.log(form.name.value);
+  //   console.log(form.email.value);
+  //   console.log(form.seats.value);
+  //   console.log(form.flight.value);
+  //   console.log(form.start.value);
+  // });
+</script>
+<!-- <script src="https://unpkg.com/@themesberg/flowbite@1.2.0/dist/datepicker.bundle.js"></script> -->

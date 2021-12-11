@@ -37,10 +37,17 @@ const addPlan = async (req, res) => {
   try {
     const body = await getData(req);
 
-    const { planName, availablePlaces } = JSON.parse(body);
+    const { flightCode, seats ,stopover, from , where , departure_date ,arrival_date , departure_time ,arrival_time }  = JSON.parse(body);
     const plan = {
-      planName,
-      availablePlaces,
+      flightCode,
+      seats,
+      stopover,
+      from,
+      where,
+      departure_date,
+      arrival_date,
+      departure_time,
+      arrival_time,
     };
     const newPlan = await Plans.createPlan(plan);
 
@@ -59,10 +66,17 @@ const updatePlan = async (req, res, id) => {
     if (target) {
       const body = await getData(req);
 
-      const { planName, availablePlaces } = JSON.parse(body);
+      const { flightCode, seats ,stopover, from , where , departure_date ,arrival_date , departure_time ,arrival_time } = JSON.parse(body);
       const plan = {
-        planName: planName || target.planName,
-        availablePlaces: availablePlaces || target.availablePlaces,
+        flightCode: flightCode || target.flightCode,
+        seats: seats || target.seats,
+        stopover: stopover || target.stopover,
+        from: from || target.from,
+        where: where || target.where,
+        departure_date: departure_date || target.departure_date,
+        arrival_date: arrival_date || target.arrival_date,
+        departure_time: departure_time || target.departure_time,
+        arrival_time: arrival_time || target.arrival_time,
       };
       const updPlan = await Plans.updPlan(plan, id);
 

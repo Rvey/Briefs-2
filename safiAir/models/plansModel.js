@@ -23,8 +23,15 @@ const createPlan = (plan) => {
     con.query(
       "INSERT INTO plans SET ?",
       {
-        planName: plan.planName,
-        availablePlaces: plan.availablePlaces,
+        flightCode: plan.flightCode,
+        seats: plan.seats,
+        stopover: plan.stopover,
+        from: plan.from,
+        where: plan.where,
+        departure_date: plan.departure_date,
+        arrival_date: plan.arrival_date,
+        departure_time: plan.departure_time,
+        arrival_time: plan.arrival_time,
       }
       //   (err, result) => {
       //     if (err) throw err;
@@ -37,13 +44,17 @@ const createPlan = (plan) => {
 };
 const updPlan = (plan, id) => {
   return new Promise((resolve, reject) => {
-    con.query(
-      `UPDATE plans SET ? WHERE id =${id}`,
-      {
-        planName: plan.planName,
-        availablePlaces: plan.availablePlaces,
-      }
-    );
+    con.query(`UPDATE plans SET ? WHERE id =${id}`, {
+      flightCode: plan.flightCode,
+      seats: plan.seats,
+      stopover: plan.stopover,
+      from: plan.from,
+      where: plan.where,
+      departure_date: plan.departure_date,
+      arrival_date: plan.arrival_date,
+      departure_time: plan.departure_time,
+      arrival_time: plan.arrival_time,
+    });
 
     resolve(plan);
   });

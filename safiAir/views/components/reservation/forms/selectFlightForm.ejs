@@ -1,5 +1,5 @@
-<div class="md:col-span-1">
-  <div class="bg-white rounded-lg">
+<div class="grid grid-cols-3">
+  <div class="bg-white rounded-lg col-span-2">
     <div class="px-4 py-8 sm:px-10">
       <div class="relative mt-6">
         <div class="absolute inset-0 flex items-center">
@@ -12,140 +12,107 @@
       <div class="mt-6">
         <div class="w-full space-y-6">
           <div class="w-full space-y-6">
-            <form class="daten">
-            <div class="mt-4">
-              <span class="text-gray-700 font-medium text-xl">Stopover</span>
-              <div class="mt-2">
-                <label class="inline-flex items-center">
-                  <input
-                    type="radio"
-                    class="form-radio"
-                    value="true"
-                    name="yes"
-                  />
-                  <span class="ml-2">yes</span>
+            <form class="searchForm">
+              <div class="mt-4">
+                <span class="text-gray-700 font-medium text-xl">Stopover</span>
+                <div class="mt-2">
+                  <label class="inline-flex items-center">
+                    <input
+                      type="radio"
+                      class="form-radio"
+                      value="true"
+                      name="yes"
+                    />
+                    <span class="ml-2">yes</span>
+                  </label>
+                  <label class="inline-flex items-center ml-6">
+                    <input
+                      type="radio"
+                      class="form-radio"
+                      value="false"
+                      name="yes"
+                    />
+                    <span class="ml-2">no</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="flex items-center">
+                <input type="date" name="start" id="" format="MM-DD-YYYY" />
+                <span class="mx-4 text-gray-500">to</span>
+                <input type="date" format="MM-DD-YYYY" name="end" id="" />
+              </div>
+            </form>
+            <!-- select direction -->
+            <div class="mb-4 flex gap-6">
+              <div class="md:ml-2 w-full">
+                <label
+                  class="block mb-2 text-sm font-bold text-gray-700"
+                  for="c_password"
+                >
+                  where From ?
                 </label>
-                <label class="inline-flex items-center ml-6">
-                  <input
-                    type="radio"
-                    class="form-radio"
-                    value="false"
-                    name="yes"
-                  />
-                  <span class="ml-2">no</span>
+                <select
+                  class="
+                    selectTo
+                    w-full
+                    px-3
+                    py-2
+                    mb-3
+                    text-sm
+                    leading-tight
+                    text-gray-700
+                    border
+                    rounded
+                    shadow
+                    appearance-none
+                    focus:outline-none focus:shadow-outline
+                  "
+                  value=""
+                  name=""
+                  id=""
+                >
+                  <option value="safi">safi</option>
+                  <option value="tanger">tanger</option>
+                  <option value="essaouira">essaouira</option>
+                </select>
+              </div>
+
+              <div class="md:ml-2 w-full">
+                <label
+                  class="block mb-2 text-sm font-bold text-gray-700"
+                  for="c_password"
+                >
+                  where To ?
                 </label>
+                <select
+                  class="
+                    selectFrom
+                    w-full
+                    px-3
+                    py-2
+                    mb-3
+                    text-sm
+                    leading-tight
+                    text-gray-700
+                    border
+                    rounded
+                    shadow
+                    appearance-none
+                    focus:outline-none focus:shadow-outline
+                  "
+                  name=""
+                  id=""
+                >
+                  <option value="rabat">rabat</option>
+                  <option value="casablanca">casablanca</option>
+                  <option value="marrakech">marrakech</option>
+                </select>
               </div>
             </div>
-
-           
-              <div date-rangepicker class="flex items-center">
-                <div class="relative">
-                  <div
-                    class="
-                      absolute
-                      inset-y-0
-                      left-0
-                      pl-3
-                      flex
-                      items-center
-                      pointer-events-none
-                    "
-                  >
-                    <svg
-                      class="w-5 h-5 text-gray-500 dark:text-gray-400"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M6 2a1 1 0 00-1
-                                                1v1H4a2 2 0 00-2 2v10a2
-                                                2 0 002 2h12a2 2 0
-                                                002-2V6a2 2 0
-                                                00-2-2h-1V3a1 1 0 10-2
-                                                0v1H7V3a1 1 0 00-1-1zm0
-                                                5a1 1 0 000 2h8a1 1 0
-                                                100-2H6z"
-                        clip-rule="evenodd"
-                      ></path>
-                    </svg>
-                  </div>
-                  <input
-                    name="start"
-                    type="text"
-                    class="
-                      bg-gray-50
-                      border border-gray-300
-                      text-gray-900
-                      sm:text-sm
-                      rounded-lg
-                      focus:ring-blue-500 focus:border-blue-500
-                      block
-                      w-full
-                      pl-10
-                      p-2.5
-                    "
-                    placeholder="Select date start"
-                  />
-                </div>
-                <span class="mx-4 text-gray-500">to</span>
-                <div class="relative">
-                  <div
-                    class="
-                      absolute
-                      inset-y-0
-                      left-0
-                      pl-3
-                      flex
-                      items-center
-                      pointer-events-none
-                    "
-                  >
-                    <svg
-                      class="w-5 h-5 text-gray-500 dark:text-gray-400"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M6 2a1 1 0 00-1
-                                                1v1H4a2 2 0 00-2 2v10a2
-                                                2 0 002 2h12a2 2 0
-                                                002-2V6a2 2 0
-                                                00-2-2h-1V3a1 1 0 10-2
-                                                0v1H7V3a1 1 0 00-1-1zm0
-                                                5a1 1 0 000 2h8a1 1 0
-                                                100-2H6z"
-                        clip-rule="evenodd"
-                      ></path>
-                    </svg>
-                  </div>
-                  <input
-                    name="end"
-                    type="text"
-                    class="
-                      bg-gray-50
-                      border border-gray-300
-                      text-gray-900
-                      sm:text-sm
-                      rounded-lg
-                      focus:ring-blue-500 focus:border-blue-500
-                      block
-                      w-full
-                      pl-10
-                      p-2.5
-                    "
-                    placeholder="Select date end"
-                  />
-                </div>
-              </div>
-              <button type="submit">wefwe</button>
-            </form>
-
+            <!-- matched flight test  -->
             <div class="">
-              <label class="text-gray-700" for="animals">
+              <label class="text-gray-700">
                 <span class="font-medium text-xl"> Pick Plan </span>
                 <select
                   id="filght"
@@ -169,7 +136,7 @@
                 </select>
               </label>
             </div>
-
+            <!-- search btn -->
             <div>
               <span class="block w-full rounded-md shadow-sm">
                 <button
@@ -201,31 +168,88 @@
         </div>
       </div>
       <div class="px-4 py-6 border-t-2 border-gray-200 bg-gray-50 sm:px-10">
-        <p class="text-xs leading-5 text-gray-500 text-center selected">
-          confirm to enter your credential
-        </p>
         <ul class="html"></ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- flight info template -->
+  <div class="mr-3 col-span-1">
+    <div class="container">
+      <div
+        class="
+          w-full
+          bg-white
+          h-auto
+          tracking-wide
+          border border-black-800
+          rounded-lg
+          relative
+        "
+      >
+        <div
+          class="small-banner w-1 h-10 bg-blue-600 absolute rounded-tl-md"
+        ></div>
+        <div class="flex items-center px-3 py-3 justify-between">
+          <div class="text-md font-semibold">FLIGHT CODE</div>
+          <div class="px-3 bg-yellow-400 rounded-md">stopover</div>
+        </div>
+        <!-- flight info container -->
+        <div class="flex justify-between pr-[2em]">
+          <!-- direction -->
+          <div class="flex gap-6 pl-[2em] pb-6">
+            <div>from</div>
+            <div><%- include('../../icons/rightArrow.ejs'); %></div>
+            <div>to</div>
+          </div>
+          <!-- time -->
+          <div class="flex gap-6">
+            <div><%- include('../../icons/clock.ejs'); %></div>
+            <div>departure</div>
+            <div><%- include('../../icons/dots.ejs'); %></div>
+            <div>arrivals</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
 <script>
-    const search = document.querySelector(".search");
+  const search = document.querySelector(".search");
   const selected = document.querySelector(".selected");
-  const end = document.querySelector(".daten");
-
-  end.addEventListener("submit", (e) => {
-    e.preventDefault();
-    console.log(end.start.value.replace("/", ""));
-    console.log(end.yes.value);
-  });
-
+  const searchForm = document.querySelector(".searchForm");
+  const selectFrom = document.querySelector(".selectFrom");
+  const selectWhere = document.querySelector(".selectTo");
+  const select = document.querySelector(".select");
 
   search.addEventListener("click", (e) => {
-    fetch(`http://localhost:5000/api/plan/${select.value}`)
+    // fetch(`http://localhost:5000/api/plan/${select.value}`)
+    //   .then((response) => response.json())
+    //   .then((data) => (flight.value = data.planName));
+
+    // // .then(() => divv.classList.remove("hidden"));
+    e.preventDefault();
+    console.log(searchForm.yes.value);
+    select.innerHTML = "";
+    console.log(searchForm.start.value);
+    // console.log(selectTo.value);
+    fetch("http://localhost:5000/api/plans")
       .then((response) => response.json())
-      .then((data) => (flight.value = data.planName))
-      .then(() => divv.classList.remove("hidden"));
+      .then((data) =>
+        data.map((el) => {
+          if (
+            el.stopover === searchForm.yes.value &&
+            el.departure_date == searchForm.start.value 
+            && el.where === selectWhere.value && el.from === selectFrom.value
+          ) {
+            select.innerHTML += `<option class="option flex justify-between w-full" value="${el.id}">
+            <div>
+              ${el.flightCode}
+              </div>
+            </option>`;
+          }
+        })
+      );
   });
 </script>
