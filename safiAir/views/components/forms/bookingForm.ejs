@@ -16,7 +16,6 @@
       ></div> -->
       <!-- Col -->
       <div class="w-full bg-white p-5 rounded-lg lg:rounded-l-none">
-       
         <form
           class="
             flex flex-col
@@ -27,18 +26,15 @@
             mb-4
             bg-white
             rounded
-            adminForm
+            userForm
             h-[28em]
           "
         >
           <!-- user information -->
           <div>
-            
             <div class="mb-4 flex gap-6">
               <div class="mb-4 md:mr-2 md:mb-0 w-full">
-                <label
-                  class="block mb-2 text-sm font-bold text-gray-700"
-                >
+                <label class="block mb-2 text-sm font-bold text-gray-700">
                   firstName
                 </label>
                 <input
@@ -52,19 +48,15 @@
                     text-gray-700
                     border
                     rounded
-                   
                     appearance-none
                     focus:outline-none focus:ring-2
                   "
-                  type="email"
-                  name="email"
-                  
+                  type="text"
+                  name="fname"
                 />
               </div>
               <div class="md:ml-2 w-full">
-                <label
-                  class="block mb-2 text-sm font-bold text-gray-700"
-                >
+                <label class="block mb-2 text-sm font-bold text-gray-700">
                   Last Name
                 </label>
                 <input
@@ -78,22 +70,18 @@
                     text-gray-700
                     border
                     rounded
-                    
                     appearance-none
                     focus:outline-none focus:ring-2
                   "
                   type="text"
-                  name="lName"
+                  name="lname"
                 />
               </div>
             </div>
-            
+
             <div class="mb-4 flex gap-6">
               <div class="mb-4 md:mr-2 md:mb-0 w-full">
-                <label
-                  class="block mb-2 text-sm font-bold text-gray-700"
-                 
-                >
+                <label class="block mb-2 text-sm font-bold text-gray-700">
                   Phone Number
                 </label>
                 <input
@@ -107,20 +95,15 @@
                     text-gray-700
                     border
                     rounded
-                    
                     appearance-none
                     focus:outline-none focus:ring-2
                   "
                   type="number"
                   name="phone"
-                 
                 />
               </div>
               <div class="md:ml-2 w-full">
-                <label
-                  class="block mb-2 text-sm font-bold text-gray-700"
-                 
-                >
+                <label class="block mb-2 text-sm font-bold text-gray-700">
                   Email
                 </label>
                 <input
@@ -134,13 +117,11 @@
                     text-gray-700
                     border
                     rounded
-                   
                     appearance-none
                     focus:outline-none focus:ring-2
                   "
                   type="email"
                   name="email"
-                 
                 />
               </div>
             </div>
@@ -170,3 +151,41 @@
     </div>
   </div>
 </div>
+
+<script>
+  const userForm = document.querySelector(".userForm");
+  const planID = JSON.parse(sessionStorage.getItem("selectedFlight"));
+  const seat = JSON.parse(sessionStorage.getItem("seats"));
+  const planSeats = JSON.parse(sessionStorage.getItem("flightSeats"));
+  const seats =  {seats : parseInt(planSeats - seat)};
+  // fetch(`http://localhost:5000/api/plan/${planID}`)
+  //   .then((response) => response.json())
+  //   .then((data) => console.log(data));
+  userForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    // console.log(userForm.email.value , userForm.phone.value , userForm.lname.value , userForm.fname.value);
+    const user = {
+      fname: userForm.fname.value,
+      lname: userForm.lname.value,
+      email: userForm.email.value,
+      phone: userForm.phone.value,
+      seats: seat,
+      planID: planID,
+    };
+    fetch("http://localhost:5000/api/user", {
+      method: "POST", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    }).then(() => {
+      fetch(`http://localhost:5000/api/plan/${planID}`, {
+        method: "PUT", // or 'PUT'
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(seats),
+      });
+    });
+  });
+</script>

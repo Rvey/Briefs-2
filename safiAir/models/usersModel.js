@@ -24,14 +24,17 @@ const createUser = (user) => {
     con.query(
       "INSERT INTO users SET ?",
       {
-        name: user.name,
-        bookedPlaces: user.bookedPlaces,
-        selectedPlan: user.selectedPlan,
-      },
-    //   (err, result) => {
-    //     if (err) throw err;
-    //     console.log(JSON.stringify({ message: "user has been added" }));
-    //   }
+        fname: user.fname,
+        lname: user.lname,
+        email: user.email,
+        phone: user.phone,
+        seats: user.seats,
+        planID: user.planID,
+      }
+      //   (err, result) => {
+      //     if (err) throw err;
+      //     console.log(JSON.stringify({ message: "user has been added" }));
+      //   }
     );
 
     resolve(user);
@@ -42,14 +45,17 @@ const updUser = (user, id) => {
     con.query(
       `UPDATE users SET ? WHERE id =${id}`,
       {
-        name: user.name,
-        bookedPlaces: user.bookedPlaces,
-        selectedPlan: user.selectedPlan,
-      },
-    //   (err, result) => {
-    //     if (err) throw err;
-    //     console.log(JSON.stringify({ message: "user updated !" }));
-    //   }
+        fname: user.fname,
+        lname: user.lname,
+        email: user.email,
+        phone: user.phone,
+        seats: user.seats,
+        planID: user.planID,
+      }
+      //   (err, result) => {
+      //     if (err) throw err;
+      //     console.log(JSON.stringify({ message: "user updated !" }));
+      //   }
     );
 
     resolve(user);

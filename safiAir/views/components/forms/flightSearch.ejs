@@ -329,7 +329,8 @@
     flight.addEventListener("click", (e) => {
       if (e.target.classList.contains("click")) {
         sessionStorage.setItem("selectedFlight", JSON.stringify(e.target.id));
-        sessionStorage.setItem("seats" ,JSON.stringify(seatsInput.value) )
+        sessionStorage.setItem("flightSeats", JSON.stringify(e.target.name));
+        sessionStorage.setItem("seats" ,JSON.stringify(seatsInput.value))
         window.location.replace("/confirm");
       }
     });
@@ -439,6 +440,9 @@
             type="button"
             value="select"
             id="${el.id}"
+            name="${el.seats}"
+            
+
             />
             
         </div>

@@ -30,8 +30,7 @@
   <script>
     const flight = document.querySelector(".flight");
     const id = JSON.parse(sessionStorage.getItem("selectedFlight"));
-    const seats = JSON.parse(sessionStorage.getItem("seats"))
-    console.log(id);
+    const UserSeats = JSON.parse(sessionStorage.getItem("seats"))
     fetch(`http://localhost:5000/api/plan/${id}`)
       .then((response) => response.json())
       .then(
@@ -51,7 +50,7 @@
         <div class="flex">
           <div class="px-[3em] py-4">
             <div class="text-sm">From</div>
-            <div class="text-2xl font-bold">${data.from}</div>
+            <div class="text-2xl font-bold date">${data.from}</div>
           </div>
 
           <div class="px-5 mt-5">
@@ -98,9 +97,9 @@
         </div>
         </div>
         <div class="h-[5em] w-1 bg-gray-200"></div>
-        <div class="pr-5 flex gap-4 items-center"> <%- include('../components/icons/user.ejs'); %> <span class="font-bold text-lg">${seats}</span></div>
+        <div class="pr-5 flex gap-4 items-center"> <%- include('../components/icons/user.ejs'); %> <span class="font-bold text-lg">${UserSeats}</span></div>
       
       `)
-      );
+      )
   </script>
 </html>

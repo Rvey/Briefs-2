@@ -2,7 +2,6 @@ const con = require("../config/db.config");
 // let username = con.escape("redone");
 // let planeName = con.escape("alpha");
 
-
 // get all users
 // let getAll = `SELECT * FROM users`;
 // con.query(getAll, (err, result, fields) => {
@@ -32,19 +31,17 @@ const getPlans = () => {
 //   });
 // };
 
-
-
 let planeName = con.escape("alpha");
 let placesCount = con.escape(23);
 const updatePlaces = (planeName, placesCount) => {
   let add = `INSERT INTO plans (planName, availablePlaces) VALUES (${planeName}, ${placesCount});`;
-  con.query(add ,  (err, result) => {
+  con.query(add, (err, result) => {
     if (err) throw err;
     console.log(JSON.stringify(result) + "  " + "userADDED !");
   });
 };
 
-updatePlaces(con.escape("yep") ,  con.escape(23))
+updatePlaces(con.escape("yep"), con.escape(23));
 
 // get plan single record
 // let getPLan = ` SELECT * FROM plans WHERE planName=${planeName}`;
@@ -55,3 +52,9 @@ updatePlaces(con.escape("yep") ,  con.escape(23))
 // });
 
 // getPlans()
+const cock = () => {
+  console.log("cock");
+};
+module.exports = {
+  cock,
+};

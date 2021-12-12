@@ -37,11 +37,14 @@ const addUser = async (req, res) => {
   try {
     const body = await getData(req);
 
-    const { name, bookedPlaces, selectedPlan } = JSON.parse(body);
+    const { fname, email, lname, phone, seats, planID } = JSON.parse(body);
     const user = {
-      name,
-      bookedPlaces,
-      selectedPlan,
+      fname,
+      lname,
+      email,
+      phone,
+      seats,
+      planID,
     };
     const newUser = await Users.createUser(user);
 
