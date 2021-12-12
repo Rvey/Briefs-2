@@ -329,6 +329,7 @@
     flight.addEventListener("click", (e) => {
       if (e.target.classList.contains("click")) {
         sessionStorage.setItem("selectedFlight", JSON.stringify(e.target.id));
+        sessionStorage.setItem("seats" ,JSON.stringify(seatsInput.value) )
         window.location.replace("/confirm");
       }
     });
@@ -343,8 +344,8 @@
         .then((data) =>
           data.map((el) => {
             if (
-              el.stopover == timeForm.stopover.value &&
-              seatsInput.value >= el.seats
+              // el.stopover == timeForm.stopover.value &&
+              parseInt(seatsInput.value) <= parseInt(el.seats)
               //  && el.departure_date == timeForm.departure_date.value &&
               //   el.arrival_date ==  timeForm.arrival_date.value &&
               //   el.arrival_time === timeForm.arrival_time.value &&
@@ -448,5 +449,6 @@
           })
         );
     });
+
   </script>
 </div>
