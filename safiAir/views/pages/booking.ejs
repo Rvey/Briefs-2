@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head'); %>
+  </head>
+
+  <body>
+    <header><%- include('../partials/header'); %></header>
+    <h3 class="pt-4 text-2xl text-center">Book Your Flight</h3>
+    <div class="w-[4em] bg-indigo-50 p-3 rounded-full">
+      <%- include('../components/icons/flight.ejs'); %>
+    </div>
+    <div
+      class="
+        flex
+        items-center
+        gap-[5em]
+        justify-center
+        bg-indigo-50
+        max-w-max
+        mx-auto
+        p-3
+        rounded-md
+        flight
+      "
+    ></div>
+
+    <main><%- include('../components/forms/bookingForm.ejs'); %></main>
+  </body>
+  <script>
+    const flight = document.querySelector(".flight");
+    const id = JSON.parse(sessionStorage.getItem("selectedFlight"));
+    console.log(id);
+    fetch(`http://localhost:5000/api/plan/${id}`)
+      .then((response) => response.json())
+      .then(
+        (data) =>
+          (flight.innerHTML = `
+      <div class="flex flex-col gap-2">
+        <div class="text-center">DIRECT FLIGHT</div>
+        <div class="flex">
+          <div class="px-[3em] py-4">
+            <div class="text-sm">From</div>
+            <div class="text-2xl font-bold">${data.from}</div>
+          </div>
+
+          <div class="px-5 mt-5">
+            <%- include('../components/icons/narrowArrowR.ejs'); %>
+          </div>
+
+          <div class="px-[3em] py-4">
+            <div class="text-sm">To</div>
+            <div class="text-2xl font-bold">${data.where}</div>
+          </div>
+        </div>
+      </div>
+      <div class="h-[5em] w-1 bg-gray-200"></div>
+      <!-- flight time -->
+      <div class="flex">
+        <div class="px-[3em] py-4">
+          <div class="text-sm">DEPARTURE</div>
+          <div class="text-2xl font-bold">${new Date(
+            data.departure_date
+          ).toLocaleDateString("en-us", {
+            weekday: "long",
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+          })}</div>
+          <div class="text-2xl font-bold">${data.departure_time}</div>
+        </div>
+
+        <div class="px-5 mt-[4em]">
+          <%- include('../components/icons/dots.ejs'); %>
+        </div>
+
+        <div class="px-[3em] py-4">
+          <div class="text-sm">ARRIVAL</div>
+          <div class="text-2xl font-bold">${new Date(
+            data.arrival_date
+          ).toLocaleDateString("en-us", {
+            weekday: "long",
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+          })}</div>
+          <div class="text-2xl font-bold">${data.arrival_time}</div>
+        </div>
+      </div>
+      
+      `)
+      );
+  </script>
+</html>

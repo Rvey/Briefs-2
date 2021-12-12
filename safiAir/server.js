@@ -1,5 +1,5 @@
 //! TODO OPTIMIZED WAY TO MANAGE API END-POINT
-const { redirect , redirectJS } = require("./utils/utils");
+const { redirect, redirectJS } = require("./utils/utils");
 const http = require("http");
 const {
   getUsers,
@@ -17,25 +17,32 @@ const {
 } = require("./controllers/plansController");
 
 const server = http.createServer((req, res) => {
-  if (req.url === "/api/plans" && req.method === "GET") {
-    getPlans(req, res);
-  } else if (req.url === "/api/users" && req.method === "GET") {
-    getUsers(req, res);
-    // reservation path
-  }  else if (req.url === "/reservation") {
-    redirect("./views/pages/reservation.ejs", res);
+  /**
+   * Path ROUTES
+   *
+   */
+
+  // reservation path
+  if (req.url === "/explore") {
+    redirect("./views/pages/explore.ejs", res);
     // hpme path
   } else if (req.url === "/") {
     redirect("./views/index.ejs", res);
     // admin page
-  }
-  else if (req.url === "main.js") {
-    redirectJS("./views/main.js" , res)
-
-  }
-  else if (req.url === "/adminPanel" ) {
+  } else if (req.url === "/adminPanel") {
     redirect("./views/pages/adminPanel.ejs", res);
+  } else if (req.url === `/confirm`) {
+    redirect("./views/pages/booking.ejs", res);
+    /**
+     * API ROUTES
+     *
+     */
+
     // crud
+  } else if (req.url === "/api/plans" && req.method === "GET") {
+    getPlans(req, res);
+  } else if (req.url === "/api/users" && req.method === "GET") {
+    getUsers(req, res);
   } else if (req.url.match(/\api\/plan\/([0-9]+)/) && req.method === "GET") {
     const id = req.url.split("/")[3];
     getPlan(req, res, id);

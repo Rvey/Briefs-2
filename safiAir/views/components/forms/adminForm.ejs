@@ -1,0 +1,294 @@
+<div class="container m-auto">
+  <div class="flex justify-center px-6 my-12">
+    <!-- Row -->
+    <div class="w-full flex">
+      <!-- Col -->
+      <div
+        class="w-full
+        h-auto
+        bg-gray-400
+        hidden
+        lg:block lg:w-5/12
+        bg-cover
+        rounded-l-lg"></div>
+      <!-- Col -->
+      <div class="w-full bg-white p-5 rounded-lg lg:rounded-l-none">
+        <h3 class="pt-4 text-2xl text-center">Create an Account!</h3>
+        <form class="flex flex-col justify-between px-8 pt-6 pb-8 mb-4 bg-white
+          rounded adminForm h-full">
+
+          <div>
+
+            <div class="mb-4 flex">
+              <div class="mb-4 md:mr-2 md:mb-0">
+                <label
+                  class="block mb-2 text-sm font-bold text-gray-700"
+                  for="firstName">
+                  Flight code
+                </label>
+                <input
+                  class="w-full
+                  px-3
+                  py-2
+                  text-sm
+                  leading-tight
+                  text-gray-700
+                  border
+                  rounded
+                  shadow
+                  appearance-none
+                  focus:outline-none focus:shadow-outline"id="firstName"
+                  type="text"
+                  name="flightCode"
+                  placeholder="flight code"
+                  />
+              </div>
+              <div class="md:ml-2">
+                <label
+                  class="block mb-2 text-sm font-bold text-gray-700"
+                  for="lastName">
+                  seats
+                </label>
+                <input
+                  class="w-full
+                  px-3
+                  py-2
+                  text-sm
+                  leading-tight
+                  text-gray-700
+                  border
+                  rounded
+                  shadow
+                  appearance-none
+                  focus:outline-none focus:shadow-outline"id="lastName"
+                  name="seats"
+                  type="number"
+                  />
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <label
+                class="block mb-2 text-sm font-bold text-gray-700"
+                for="email">
+                stopOver
+              </label>
+              <div class="flex gap-3 items-center">
+                <div class="flex items-center gap-2">
+                  <label class="inline-flex items-center">
+                    <input
+                      type="radio"
+                      class="form-radio"
+                      name="radio"
+                      value="true"
+                      />
+                    <span class="ml-2">yes</span>
+                  </label>
+                </div>
+                <div class="flex items-center gap-2">
+                  <label class="inline-flex items-center">
+                    <input
+                      type="radio"
+                      class="form-radio"
+                      name="radio"
+                      value="false"
+                      />
+                    <span class="ml-2">no</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="mb-4 flex gap-6">
+              <div class="mb-4 md:mr-2 md:mb-0 w-full">
+                <label
+                  class="block mb-2 text-sm font-bold text-gray-700"
+                  for="c_password">
+                  departure date
+                </label>
+                <input
+                  class="w-full
+                  px-3
+                  py-2
+                  mb-3
+                  text-sm
+                  leading-tight
+                  text-gray-700
+                  border
+                  rounded
+                  shadow
+                  appearance-none
+                  focus:outline-none focus:shadow-outline"type="date"
+                  name="departure"
+                  />
+                <input
+                  class="w-full
+                  px-3
+                  py-2
+                  mb-3
+                  text-sm
+                  leading-tight
+                  text-gray-700
+                  border
+                  rounded
+                  shadow
+                  appearance-none
+                  focus:outline-none focus:shadow-outline"type="time"
+                  name="departureTime"
+                  />
+              </div>
+              <div class="md:ml-2 w-full">
+                <label
+                  class="block mb-2 text-sm font-bold text-gray-700"
+                  for="c_password">
+                  Arriving date
+                </label>
+                <input
+                  class="w-full
+                  px-3
+                  py-2
+                  mb-3
+                  text-sm
+                  leading-tight
+                  text-gray-700
+                  border
+                  rounded
+                  shadow
+                  appearance-none
+                  focus:outline-none focus:shadow-outline"type="date"
+                  name="Arriving"
+                  />
+                <input
+                  class="w-full
+                  px-3
+                  py-2
+                  mb-3
+                  text-sm
+                  leading-tight
+                  text-gray-700
+                  border
+                  rounded
+                  shadow
+                  appearance-none
+                  focus:outline-none focus:shadow-outline"type="time"
+                  name="ArrivingTime"
+                  />
+              </div>
+            </div>
+
+            <!-- select direction -->
+            <div class="mb-4 flex gap-6">
+              <div class="md:ml-2 w-full">
+                <label
+                  class="block mb-2 text-sm font-bold text-gray-700"
+                  for="c_password">
+                  where From ?
+                </label>
+                <select
+                  class="selectTo
+                  w-full
+                  px-3
+                  py-2
+                  mb-3
+                  text-sm
+                  leading-tight
+                  text-gray-700
+                  border
+                  rounded
+                  shadow
+                  appearance-none
+                  focus:outline-none focus:shadow-outline"value=""
+                  name=""
+                  id="">
+                  <option value="safi">safi</option>
+                  <option value="tanger">tanger</option>
+                  <option value="essaouira">essaouira</option>
+                </select>
+              </div>
+
+              <div class="md:ml-2 w-full">
+                <label
+                  class="block mb-2 text-sm font-bold text-gray-700"
+                  for="c_password">
+                  where To ?
+                </label>
+                <select
+                  class="selectFrom
+                  w-full
+                  px-3
+                  py-2
+                  mb-3
+                  text-sm
+                  leading-tight
+                  text-gray-700
+                  border
+                  rounded
+                  shadow
+                  appearance-none
+                  focus:outline-none focus:shadow-outline"name=""
+                  id="">
+                  <option value="rabat">rabat</option>
+                  <option value="casablanca">casablanca</option>
+                  <option value="marrakech">marrakech</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="text-center">
+            <hr class="border-t" />
+            <button
+              class="w-full
+              px-4
+              py-2
+              font-bold
+              text-white
+              bg-blue-500
+              rounded-md
+              hover:bg-blue-700
+              focus:outline-none focus:shadow-outline"type="submit">
+              Add Flight
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const adminForm = document.querySelector(".adminForm");
+  const selectFrom = document.querySelector(".selectFrom");
+  const selectTo = document.querySelector(".selectTo");
+  adminForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    // console.log(adminForm.flightCode.value);
+    // console.log(adminForm.seats.value);
+    // console.log("stopover : " + adminForm.radio.value);
+    // console.log(
+    //   "selected date " + adminForm.departure.value,
+    //   adminForm.Arriving.value
+    // );
+    // console.log("selected from " + selectTo.value, selectFrom.value);
+
+    const flight = {
+      flightCode: adminForm.flightCode.value,
+      seats: adminForm.seats.value,
+      stopover: adminForm.radio.value,
+      from: selectFrom.value,
+      where: selectTo.value,
+      departure_date: adminForm.departure.value,
+      arrival_date: adminForm.Arriving.value,
+      departure_time: adminForm.ArrivingTime.value,
+      arrival_time: adminForm.departureTime.value,
+    };
+
+    fetch("http://localhost:5000/api/plan", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(flight),
+    });
+  });
+</script>
