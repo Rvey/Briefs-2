@@ -261,14 +261,6 @@
         </div>
       </div>
     </div>
-  </div>  <!-- not found toast  -->
-  <div
-    class="
-      notfound
-      hidden
-    "
-  >
-    NO FLIGHT fOUND
   </div>
 
   <!-- flight info template -->
@@ -276,59 +268,107 @@
     class="mr-3 col-span-1 bg-gray-50 p-4 rounded-md flight overflow-auto"
   ></form>
 
-  <script>
-    const search = document.querySelector(".search");
-    const selected = document.querySelector(".selected");
-    const timeForm = document.querySelector(".timeForm");
-    const element = document.querySelector(".click");
-    const selectFrom = document.querySelector(".select");
-    const selectTo = document.querySelector(".selectTo");
-    const seatsInput = document.querySelector(".seats");
-    const notfound = document.querySelector(".notfound");
+  <!-- not found toast  -->
+</div>
+<div class="p-2 toast hidden">
+  <div
+    class="
+      fixed
+      top-0
+      transform
+      translate-x-[22em]
+      transition-opacity
+      inset-x-0
+      mx-auto
+      max-w-max
+      mt-10
+      inline-flex
+      items-center
+      bg-zinc-700
+      leading-none
+      text-white
+      rounded-full
+      p-2
+      shadow
+      text-teal text-sm
+      shadow
+    "
+  >
+    <span
+      class="
+        inline-flex
+        bg-red-600
+        text-white
+        rounded-full
+        h-6
+        px-3
+        justify-center
+        items-center
+      "
+      >Oops!</span
+    >
+    <span class="inline-flex px-2"
+      >Flight are not currently available for the date/time requested</span
+    >
+  </div>
+</div>
+<script>
+  const search = document.querySelector(".search");
+  const selected = document.querySelector(".selected");
+  const timeForm = document.querySelector(".timeForm");
+  const element = document.querySelector(".click");
+  const selectFrom = document.querySelector(".select");
+  const selectTo = document.querySelector(".selectTo");
+  const seatsInput = document.querySelector(".seats");
+  const toast = document.querySelector(".toast");
 
-    // cap the number of seats
-    seatsInput.oninput = () => {
-      let max = parseInt(seatsInput.max);
+  // cap the number of seats
+  seatsInput.oninput = () => {
+    let max = parseInt(seatsInput.max);
 
-      if (parseInt(seatsInput.value) > max) {
-        seatsInput.value = max;
-      }
-    };
+    if (parseInt(seatsInput.value) > max) {
+      seatsInput.value = max;
+    }
+  };
 
-    // store the selected flight in session storage and redirect
-    const flight = document.querySelector(".flight");
-    flight.addEventListener("click", (e) => {
-      if (e.target.classList.contains("click")) {
-        sessionStorage.setItem("selectedFlight", JSON.stringify(e.target.id));
-        sessionStorage.setItem("flightSeats", JSON.stringify(e.target.name));
-        sessionStorage.setItem("seats", JSON.stringify(seatsInput.value));
-        window.location.replace("/confirm");
-      }
-    });
+  // store the selected flight in session storage and redirect
+  const flight = document.querySelector(".flight");
+  flight.addEventListener("click", (e) => {
+    if (e.target.classList.contains("click")) {
+      sessionStorage.setItem("selectedFlight", JSON.stringify(e.target.id));
+      sessionStorage.setItem("flightSeats", JSON.stringify(e.target.name));
+      sessionStorage.setItem("seats", JSON.stringify(seatsInput.value));
+      window.location.replace("/confirm");
+    }
+  });
 
-    // get the wanted flight
-    search.addEventListener("click", (e) => {
-      e.preventDefault();
-      flight.innerHTML = ``;
-      // console.log(seatsInput.value);
-      fetch("http://localhost:5000/api/plans")
-        .then((response) => response.json())
-        .then((data) =>
-          data.map((el) => {
-            if (
-              el.stopover == timeForm.stopover.value  
-              // parseInt(seatsInput.value) <= parseInt(el.seats) &&
-              // el.departure_date == timeForm.departure_date.value &&
-              // el.arrival_date == timeForm.arrival_date.value &&
-              // el.arrival_time === timeForm.arrival_time.value &&
-              // el.departure_time === timeForm.departure_time.value &&
-              // el.from === selectFrom.value &&
-              // el.where === selectTo.value
-            ) {
-              notfound.classList.add("hidden");
-              // flight.classList.remove("hidden")
-              console.log(el.stopover == timeForm.stopover.value);
-              flight.innerHTML += `
+  // get the wanted flight
+  search.addEventListener("click", (e) => {
+    e.preventDefault();
+    flight.innerHTML = ``;
+
+    // console.log(seatsInput.value);
+    fetch("http://localhost:5000/api/plans")
+      .then((response) => response.json())
+      .then((data) => {
+        // filter array
+        const matchedFlight = data.filter(
+          (el) =>
+            el.stopover == timeForm.stopover.value &&
+            parseInt(seatsInput.value) <= parseInt(el.seats) &&
+            el.departure_date == timeForm.departure_date.value &&
+            el.arrival_date == timeForm.arrival_date.value &&
+            el.arrival_time === timeForm.arrival_time.value &&
+            el.departure_time === timeForm.departure_time.value &&
+            el.from === selectFrom.value &&
+            el.where === selectTo.value
+        );
+        // console.log(matchedFlight);
+        if (matchedFlight.length > 0) {
+          console.log(matchedFlight);
+          matchedFlight.map((el) => {
+            toast.classList.add("hidden");
+            flight.innerHTML += `
               <div
       class="
         w-full
@@ -423,12 +463,27 @@
       </div>
     </div>
               `;
-            } else {
-              
-              notfound.classList.remove("hidden")
-            }
-          })
-        );
-    });
-  </script>
-</div>
+          });
+        } else {
+          console.log("not found");
+          toast.classList.remove("hidden");
+          setTimeout(() => {
+            toast.classList.add("hidden");
+          }, 2000);
+        }
+      });
+  });
+</script>
+<style>
+  .toast {
+    animation: toast 0.3s forwards;
+  }
+  @keyframes toast {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+</style>

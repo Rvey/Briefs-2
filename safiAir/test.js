@@ -150,3 +150,126 @@ server.listen(3000, "localhost", () => {
     </div>
   </div>
 </section>
+
+
+
+.then((data) =>{
+          const matchedFlight = data.filter(el => el.stopover == timeForm.stopover.value)
+          console.log(matchedFlight);
+    //       data.map((el) => {
+
+            if (
+              el.stopover == timeForm.stopover.value  
+              // parseInt(seatsInput.value) <= parseInt(el.seats) &&
+              el.departure_date == timeForm.departure_date.value &&
+              el.arrival_date == timeForm.arrival_date.value &&
+              el.arrival_time === timeForm.arrival_time.value &&
+              el.departure_time === timeForm.departure_time.value &&
+              el.from === selectFrom.value &&
+              el.where === selectTo.value
+            ) {
+              notfound.classList.add("hidden");
+              // flight.classList.remove("hidden")
+              console.log(el.stopover == timeForm.stopover.value);
+              flight.innerHTML += `
+              <div
+      class="
+        w-full
+        bg-white
+        h-auto
+        tracking-wide
+        border border-black-800
+        rounded-lg
+        relative
+        mt-2
+      "
+    >
+      <div>
+        <div class="w-1 h-10 bg-blue-600 absolute rounded-tl-md"></div>
+        <div
+          class="
+            flex
+            items-center
+            px-3
+            py-3
+            justify-between
+            bg-indigo-100
+            rounded-md
+          "
+        >
+        <div class="flex gap-2 bg-indigo-200 text-indigo-800 px-2 py-2 rounded-md">
+          
+          <div><%- include('../icons/user.ejs'); %></div>
+            <div class="text-md font-medium">${el.seats}</div>
+        </div>
+          <div class="flex gap-6">
+            <div class="font-bold">${el.from}</div>
+            <div><%- include('../icons/rightArrow.ejs'); %></div>
+            <div class="font-bold">${el.where}</div>
+          </div>
+
+          ${
+            el.stopover == "true"
+              ? `
+          <div class="px-3 bg-red-200 rounded-md text-sm text-red-800">
+            stop-over
+          </div>
+          `
+              : `
+          <div class="px-3 bg-green-200 rounded-md text-sm text-green-800">
+            non-stop
+          </div>
+          `
+          }
+        </div>
+
+        <div class="flex justify-between items-center pr-5 py-3">
+          <div class="flex gap-6 pl-5 items-center">
+            <div><%- include('../icons/clock.ejs'); %></div>
+
+            <div>
+              <div>${el.departure_date}</div>
+              <div class="font-bold text-sm">${el.departure_time}</div>
+            </div>
+
+            <div><%- include('../icons/dots.ejs'); %></div>
+
+            <div>
+              <div>${el.arrival_date}</div>
+              <div class="font-bold text-sm">${el.arrival_time}</div>
+            </div>
+          </div>
+       
+        <div class="">
+          <input type="hidden" value="${el.id}">
+          <input
+          class="
+              click
+              text-indigo-500
+              border-indigo-600 border-[2px]
+              p-1
+              rounded-md
+              w-[5em]
+              text-center
+              cursor-pointer
+              hover:bg-indigo-600 hover:text-white
+            "
+            type="button"
+            value="select"
+            id="${el.id}"
+            name="${el.seats}"
+            
+
+            />
+            
+        </div>
+      </div>
+    </div>
+              `;
+            } else {
+              
+              notfound.classList.remove("hidden")
+            }
+          })
+        
+        });
