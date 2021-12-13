@@ -37,7 +37,8 @@ const addUser = async (req, res) => {
   try {
     const body = await getData(req);
 
-    const { fname, email, lname, phone, seats, planID } = JSON.parse(body);
+    const { fname, email, lname, phone, seats, planID, hotel, spa } =
+      JSON.parse(body);
     const user = {
       fname,
       lname,
@@ -45,6 +46,8 @@ const addUser = async (req, res) => {
       phone,
       seats,
       planID,
+      hotel,
+      spa,
     };
     const newUser = await Users.createUser(user);
 
@@ -63,11 +66,17 @@ const updateUser = async (req, res, id) => {
     if (target) {
       const body = await getData(req);
 
-      const { name, bookedPlaces, selectedPlan } = JSON.parse(body);
+      const { fname, email, lname, phone, seats, planID, hotel, spa } =
+        JSON.parse(body);
       const user = {
-        name: name || target.name,
-        bookedPlaces: bookedPlaces || target.bookedPlaces,
-        selectedPlan: selectedPlan || target.selectedPlan,
+        fname: fname || target.fname,
+        lname: lname || target.lname,
+        email: email || target.email,
+        phone: phone || target.phone,
+        seats: seats || target.seats,
+        planID: planID || target.planID,
+        hotel: hotel || target.hotel,
+        spa: spa || target.spa,
       };
       const updUser = await Users.updUser(user, id);
 

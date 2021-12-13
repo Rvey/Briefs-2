@@ -30,6 +30,8 @@ const createUser = (user) => {
         phone: user.phone,
         seats: user.seats,
         planID: user.planID,
+        hotel: user.hotel, 
+        spa: user.spa
       }
       //   (err, result) => {
       //     if (err) throw err;
@@ -51,6 +53,8 @@ const updUser = (user, id) => {
         phone: user.phone,
         seats: user.seats,
         planID: user.planID,
+        hotel: user.hotel, 
+        spa: user.spa
       }
       //   (err, result) => {
       //     if (err) throw err;
