@@ -5,7 +5,6 @@
   </head>
   <body>
     <header><%- include('./partials/header.ejs'); %></header>
-    <span class="id"></span>
     <%- include('./partials/hero.ejs') %>
     <%- include('./partials/ourstandard.ejs') %>
     <footer>
@@ -14,12 +13,3 @@
   </body>
   <!-- <script  src="../main.js"></script> -->
 </html>
-
-<script>
-  const id = JSON.parse( sessionStorage.getItem('selectedFlight'))
-  document.querySelector(".id").innerHTML = id 
- fetch(`http://localhost:5000/api/plan/${id}`)
-        .then((response) => response.json())
-        .then((data) => console.log(data))
-console.log(id);
-</script>
