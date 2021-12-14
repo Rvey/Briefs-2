@@ -1,5 +1,9 @@
 //! TODO OPTIMIZED WAY TO MANAGE API END-POINT
-const { redirect, redirectJS } = require("./utils/utils");
+const {
+  redirect,
+  redirectJS
+} = require("./utils/utils");
+const fs = require('fs')
 const http = require("http");
 const {
   getUsers,
@@ -15,7 +19,9 @@ const {
   updatePlan,
   deletePlan,
 } = require("./controllers/plansController");
-
+const {
+  getAdmin
+} = require("./controllers/adminController");
 const server = http.createServer((req, res) => {
   /**
    * Path ROUTES
@@ -33,12 +39,17 @@ const server = http.createServer((req, res) => {
     redirect("./views/pages/adminPanel.ejs", res);
   } else if (req.url === `/confirm`) {
     redirect("./views/pages/booking.ejs", res);
+  } else if (req.url === `/login`) {
+    redirect("./views/pages/loginPage.ejs", res);
+
     /**
      * API ROUTES
      *
      */
 
     // crud
+  } else if (req.url === "/api/admins" && req.method === "GET") {
+    getAdmin(req, res);
   } else if (req.url === "/api/plans" && req.method === "GET") {
     getPlans(req, res);
   } else if (req.url === "/api/users" && req.method === "GET") {
@@ -66,8 +77,12 @@ const server = http.createServer((req, res) => {
     const id = req.url.split("/")[3];
     updateUser(req, res, id);
   } else {
-    res.writeHead(404, { "Content-Type": "application/json" });
-    res.end(JSON.stringify({ message: "Route not Found" }));
+    res.writeHead(404, {
+      "Content-Type": "application/json"
+    });
+    res.end(JSON.stringify({
+      message: "Route not Found"
+    }));
   }
 });
 

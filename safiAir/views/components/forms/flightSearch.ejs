@@ -52,7 +52,7 @@
               </div>
             </div>
             <!-- select time  -->
-            <div class="mb-4 flex gap-6">
+            <!-- <div class="mb-4 flex gap-6">
               <div class="md:ml-2 w-full">
                 <label class="block mb-2 text-sm font-bold text-gray-700">
                   Departure time from
@@ -89,7 +89,7 @@
                   appearance-none
                   focus:outline-none focus:ring-2" type="time" name="arrival_time" />
               </div>
-            </div>
+            </div> -->
 
             <!-- set stopover  -->
             <div class="mb-4 flex gap-6">
@@ -262,8 +262,11 @@
     return i;
   }
   timeForm.departure_date.value = date.toISOString().substring(0, 10);
+
   timeForm.departure_time.value = addZero(date.getHours()) + ':' + addZero(date.getMinutes());
+
   timeForm.departure_date.setAttribute('min', date.toISOString().substring(0, 10));
+  
   timeForm.arrival_date.setAttribute('min', date.toISOString().substring(0, 10));
 
   timeForm.arrival_date.value = addZero(date.getFullYear()) + '-' + addZero(date.getMonth() + 1) + '-' + addZero(date.getDate() + 1);
@@ -302,15 +305,14 @@
           el.stopover == timeForm.stopover.value &&
           parseInt(seatsInput.value) <= parseInt(el.seats) &&
           el.departure_date >= timeForm.departure_date.value &&
-          el.departure_date <= timeForm.arrival_date.value &&
-          el.departure_time >= timeForm.departure_time.value &&
-          el.departure_time <= timeForm.arrival_time.value &&
-          el.from === selectFrom.value &&
+          el.departure_date <= timeForm.arrival_date.value 
+        // &&  el.departure_time >= timeForm.departure_time.value &&
+        //   el.departure_time <= timeForm.arrival_time.value &&
+         && el.from === selectFrom.value &&
           el.where === selectTo.value
         );
         // console.log(matchedFlight);
         if (matchedFlight.length > 0) {
-          console.log(matchedFlight);
           matchedFlight.map((el) => {
             toast.classList.add("hidden");
             flight.innerHTML += `
@@ -409,7 +411,6 @@
               `;
           });
         } else {
-          console.log("not found");
           toast.classList.remove("hidden");
           setTimeout(() => {
             toast.classList.add("hidden");

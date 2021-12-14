@@ -28,20 +28,20 @@ const redirect = (path, res) => {
   });
 };
 
-const redirectJS = (path, res) => {
-  res.writeHead(200, { "Content-type": "application/javascript" });
-  ejs.renderFile(path, function (err, str) {
-    // str => Rendered HTML string
-    if (err) {
-      console.log(err);
-      res.end();
-    } else {
-      res.setHeader("X-Content-Type-Options", "nosniff");
-    }
-  });
-};
+// const redirectJS = (path, res) => {
+//   res.writeHead(200, { "Content-type": "application/javascript" });
+//   ejs.renderFile(path, function (err, str) {
+//     // str => Rendered HTML string
+//     if (err) {
+//       console.log(err);
+//       res.end();
+//     } else {
+//       res.setHeader("X-Content-Type-Options", "nosniff");
+//     }
+//   });
+// };
 module.exports = {
   getData,
   redirect,
-  redirectJS
+  // redirectJS
 };
