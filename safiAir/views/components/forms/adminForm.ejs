@@ -324,6 +324,6 @@
         "Content-Type": "application/json",
       },
       body: JSON.stringify(flight),
-    });
+    }).then(() => location.replace('/adminPanel'));
   });
 </script>
