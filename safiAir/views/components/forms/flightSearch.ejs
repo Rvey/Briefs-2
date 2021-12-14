@@ -16,7 +16,7 @@
             <div class="mb-4 flex gap-6">
               <div class="md:ml-2 w-full">
                 <label class="block mb-2 text-sm font-bold text-gray-700">
-                  where From ?
+                  Departure Day from
                 </label>
                 <input
                   class="
@@ -36,11 +36,12 @@
                   "
                   type="date"
                   name="departure_date"
+                  
                 />
               </div>
               <div class="md:ml-2 w-full">
                 <label class="block mb-2 text-sm font-bold text-gray-700">
-                  where To ?
+                  to
                 </label>
                 <input
                   class="
@@ -67,7 +68,7 @@
             <div class="mb-4 flex gap-6">
               <div class="md:ml-2 w-full">
                 <label class="block mb-2 text-sm font-bold text-gray-700">
-                  Departure time
+                  Departure time from
                 </label>
                 <input
                   class="
@@ -91,7 +92,7 @@
               </div>
               <div class="md:ml-2 w-full">
                 <label class="block mb-2 text-sm font-bold text-gray-700">
-                  Arrival time
+                  to
                 </label>
                 <input
                   class="
@@ -318,6 +319,11 @@
   const seatsInput = document.querySelector(".seats");
   const toast = document.querySelector(".toast");
 
+
+  // show the current day and block the previous days 
+  timeForm.departure_date.value =  new Date().toISOString().substring(0,10);
+  timeForm.departure_date.setAttribute('min', new Date().toISOString().substring(0,10));
+
   // cap the number of seats
   seatsInput.oninput = () => {
     let max = parseInt(seatsInput.max);
@@ -352,10 +358,10 @@
           (el) =>
             el.stopover == timeForm.stopover.value &&
             parseInt(seatsInput.value) <= parseInt(el.seats) &&
-            el.departure_date == timeForm.departure_date.value &&
-            el.arrival_date == timeForm.arrival_date.value &&
-            el.arrival_time === timeForm.arrival_time.value &&
-            el.departure_time === timeForm.departure_time.value &&
+            el.departure_date >= timeForm.departure_date.value &&
+            el.departure_date <= timeForm.arrival_date.value &&
+            el.departure_time <= timeForm.arrival_time.value &&
+            el.departure_time >= timeForm.departure_time.value &&
             el.from === selectFrom.value &&
             el.where === selectTo.value
         );
@@ -434,7 +440,6 @@
           </div>
        
         <div class="">
-          <input type="hidden" value="${el.id}">
           <input
           class="
               click
