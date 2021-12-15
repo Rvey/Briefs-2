@@ -1,8 +1,10 @@
 //! TODO OPTIMIZED WAY TO MANAGE API END-POINT
 const {
-  redirect,
-  redirectJS
+  redirect
 } = require("./utils/utils");
+const {
+sendMail
+} = require("./utils/ticket");
 const fs = require('fs')
 const http = require("http");
 const {
@@ -27,6 +29,7 @@ const server = http.createServer((req, res) => {
    * Path ROUTES
    *
    */
+  
 
   // reservation path
   if (req.url === "/explore") {
@@ -41,7 +44,9 @@ const server = http.createServer((req, res) => {
     redirect("./views/pages/booking.ejs", res);
   } else if (req.url === `/login`) {
     redirect("./views/pages/loginPage.ejs", res);
-
+  } else if (req.url === "/api/ticket" && req.method === 'POST') {
+    sendMail(req , res)
+    // console.log('dsdsdds');
     /**
      * API ROUTES
      *

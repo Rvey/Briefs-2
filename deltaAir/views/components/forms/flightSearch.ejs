@@ -51,46 +51,6 @@
                   focus:outline-none focus:ring-2" type="date" name="arrival_date" />
               </div>
             </div>
-            <!-- select time  -->
-            <!-- <div class="mb-4 flex gap-6">
-              <div class="md:ml-2 w-full">
-                <label class="block mb-2 text-sm font-bold text-gray-700">
-                  Departure time from
-                </label>
-                <input class="selectFrom
-                  w-full
-                  px-3
-                  py-2
-                  mb-3
-                  text-sm
-                  leading-tight
-                  text-gray-700
-                  border
-                  rounded
-                  cursor-pointer
-                  appearance-none
-                  focus:outline-none focus:ring-2" type="time" name="departure_time" />
-              </div>
-              <div class="md:ml-2 w-full">
-                <label class="block mb-2 text-sm font-bold text-gray-700">
-                  to
-                </label>
-                <input class="selectFrom
-                  w-full
-                  px-3
-                  py-2
-                  mb-3
-                  text-sm
-                  leading-tight
-                  text-gray-700
-                  border
-                  rounded
-                  cursor-pointer
-                  appearance-none
-                  focus:outline-none focus:ring-2" type="time" name="arrival_time" />
-              </div>
-            </div> -->
-
             <!-- set stopover  -->
             <div class="mb-4 flex gap-6">
               <div class="md:ml-2 block text-md font-bold text-gray-700 my-[1em]">
@@ -311,7 +271,6 @@
          && el.from === selectFrom.value &&
           el.where === selectTo.value
         );
-        // console.log(matchedFlight);
         if (matchedFlight.length > 0) {
           matchedFlight.map((el) => {
             toast.classList.add("hidden");

@@ -1,3 +1,6 @@
+<input type="text" class="from" value="" hidden>
+<input type="text" class="to" value="" hidden>
+
 <div class="container m-auto">
   <div class="flex justify-center px-6 my-12">
     <!-- Row -->
@@ -16,7 +19,7 @@
       ></div> -->
       <!-- Col -->
       <div class="w-full bg-white p-5 rounded-lg lg:rounded-l-none">
-        <form class="
+        <form action="/ticket" method="POST" class="
             flex flex-col
             justify-between
             px-8
@@ -274,6 +277,7 @@
   </div>
 </div>
 
+
 <script>
   const userForm = document.querySelector(".userForm");
   const modal = document.querySelector(".modal");
@@ -285,10 +289,23 @@
   const hotel = document.querySelector(".hotel");
   const spa = document.querySelector(".spaForm");
 
+  const from = document.querySelector('.from')
+  const to = document.querySelector('.to')
+
+
+  fetch(`http://localhost:5000/api/plan/${planID}`)
+    .then((response) => response.json())
+    .then((data) => {
+      from.value = data.from
+      to.value = data.where
+
+    })
 
   userForm.addEventListener("submit", (e) => {
     e.preventDefault();
     modal.classList.remove("hidden");
+    // location.replace('/ticket')
+
   });
 
   cancel.addEventListener("click", (e) => {
@@ -307,6 +324,10 @@
       hotel: hotel.value,
       spa: spa.Spa.value,
     };
+    const ticket = {
+      from: from.value,
+      to: to.value
+    }
     const seats = {
       seats: JSON.stringify(parseInt(planSeats - seat))
     }
@@ -326,7 +347,19 @@
           body: JSON.stringify(seats),
         });
       })
-      .then(() => modal.classList.add("hidden")).then(() => JSON.stringify(seats));
+      .then(() => modal.classList.add("hidden"))
+      .then(() => {
+
+        fetch("http://localhost:5000/api/ticket", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(ticket),
+        })
+      }
+        )
+        .then(() => location.replace('/'));
   });
 </script>
 <!-- location.replace('/') -->
