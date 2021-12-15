@@ -263,7 +263,7 @@
   }
   timeForm.departure_date.value = date.toISOString().substring(0, 10);
 
-  timeForm.departure_time.value = addZero(date.getHours()) + ':' + addZero(date.getMinutes());
+  // timeForm.departure_time.value = addZero(date.getHours()) + ':' + addZero(date.getMinutes());
 
   timeForm.departure_date.setAttribute('min', date.toISOString().substring(0, 10));
   
