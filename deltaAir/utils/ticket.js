@@ -9,15 +9,15 @@ const sendMail = async ( req , res)  => {
     let mailTransporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: "*****",
-        pass: "*****",
+        user: "******",
+        pass: "*******",
       },
     });
     let mailDetails = {
-      from: "*****",
-      to:   "*****",
+      from: "********",
+      to:   `${ticket.email}`,
       subject: "deltaAir flight confirmation",
-       html : `your flight from ${ticket.from} to  ${ticket.to} has been booked successfully` 
+       html : `hello ${ticket.email} your flight at <h3> departure : ${ticket.departure_date} - arrival : ${ticket.arrival_date}</h3> <br/> <h3> from :${ticket.from} to ${ticket.to}</h3> <br/> has been booked successfully` 
     };
   
     mailTransporter.sendMail(mailDetails, function (err, data) {

@@ -1,5 +1,7 @@
 <input type="text" class="from" value="" hidden>
 <input type="text" class="to" value="" hidden>
+<input type="text" class="date-to" value="" hidden>
+<input type="text" class="date-from" value="" hidden>
 
 <div class="container m-auto">
   <div class="flex justify-center px-6 my-12">
@@ -291,6 +293,9 @@
 
   const from = document.querySelector('.from')
   const to = document.querySelector('.to')
+  const date_departure = document.querySelector('.date-to')
+  const date_arrival = document.querySelector('.date-to')
+  const email = document.querySelector('.email')
 
 
   fetch(`http://localhost:5000/api/plan/${planID}`)
@@ -298,6 +303,8 @@
     .then((data) => {
       from.value = data.from
       to.value = data.where
+      date_departure.value = data.departure_date
+      date_arrival.value = data.arrival_date
 
     })
 
@@ -326,7 +333,10 @@
     };
     const ticket = {
       from: from.value,
-      to: to.value
+      to: to.value , 
+      departure_date : date_departure.value , 
+      arrival_date : date_arrival.value , 
+      email : userForm.email.value
     }
     const seats = {
       seats: JSON.stringify(parseInt(planSeats - seat))
