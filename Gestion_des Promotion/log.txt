@@ -1,0 +1,7 @@
+adminCenter  has been approve promotion ${promotion} , rayon id ${id_rayon} 
+adminCenter  has been approve promotion ${promotion} , rayon id ${id_rayon} 
+adminCenter 2   has been approve promotion , rayon id null 
+adminCenter 2   has been approve promotion of 50% on rayon id null product id 1 
+adminCenter 2   has been approve promotion of 50% on rayon id null product id 1 
+adminCenter 2   has been approve promotion of 50% on rayon id null product id 1 
+adminCenter 2   has been approve promotion of 50% on rayon id 1 product id 1 
