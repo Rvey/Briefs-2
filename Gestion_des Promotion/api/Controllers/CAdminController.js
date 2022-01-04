@@ -100,6 +100,8 @@ const EmailLogin = async (req, res) => {
     if (CAdmin) {
       await sendMail.sendMail(email, CAdmin.password);
       res.json({ message: "Email has been send with your password" });
+    }else {
+      res.json({ message: "wrong creds !" })
     }
 
     // create token

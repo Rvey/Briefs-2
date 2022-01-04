@@ -26,13 +26,13 @@ class centerAdmin {
       token: admin_center.token,
     });
   };
-  static async update(RayonAdmin, id) {
+  static async update(admin_center, id) {
     con.query(`UPDATE admin_center SET ? WHERE id = ${id}`, {
-      firstName: RayonAdmin.firstName,
-      lastName: RayonAdmin.lastName,
-      email: RayonAdmin.email,
-      password: RayonAdmin.password,
-      token: RayonAdmin.token,
+      firstName: admin_center.firstName,
+      lastName: admin_center.lastName,
+      email: admin_center.email,
+      password: admin_center.password,
+      token: admin_center.token,
     });
   }
   static async destroy(id) {

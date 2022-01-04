@@ -30,7 +30,6 @@ const createPromotion = async (req, res) => {
     // const product = await Product.getProductById(req.body.id_product);
 
     const rayon = await Rayon.getRayonById(req.body.id_rayon);
-
     if (parseInt(req.body.promotion) <= 50) {
       if (rayon[0].nom == "multimedia" && req.body.promotion <= 20) {
         req.body.loyalty_points = (req.body.promotion / 5) * 50;
@@ -79,7 +78,7 @@ const updatePromotion = async (req, res) => {
       let date = new Date();
       let hours = date.getHours();
 
-      if (hours <= 8 || hours > 16) {
+      if (hours <= 8 || hours > 12) {
         // promo.status = "Not Processed";
         // await Promotion.update(promo, req.params.id);
         res.json({ message: "you cannot update status" });
@@ -90,7 +89,7 @@ const updatePromotion = async (req, res) => {
         // write the action to txt file
         fs.appendFileSync(
           "log.txt",
-          `adminCenter ${id_admin_center}   has been approve promotion of ${promotion} on rayon id ${id_rayon} product id ${id_product} \n`,
+          `adminCenter ${id_admin_center}   has been approve promotion of ${promotion}% on rayon id ${id_rayon} product id ${id_product} \n`,
           "UTF-8",
           { flags: "a+" }
         );
