@@ -2,9 +2,9 @@ module.exports = (app) => {
   const promotionController = require("../api/Controllers/PromotionController");
   const CAdminController = require("../api/Controllers/CAdminController");
   const RAdminController = require("../api/Controllers/RAdminController");
-  const Admin = require("../api/Controllers/AdminAuthController")
+  const Admin = require("../api/Controllers/AdminAuthController");
 
-  // admin 
+  // admin
   app.post("/login", Admin.login);
 
   // PROMOTION
@@ -32,13 +32,14 @@ module.exports = (app) => {
   app.post("/validation/RA", RAdminController.EmailLogin);
   app.post("/login/RA", RAdminController.login);
 
-
   // view routes
-  app.get('/', function(req, res) {
-    res.render('../public/views/pages/index.ejs');
+  app.get("/", (req, res) => {
+    res.render("../public/views/pages/login.ejs");
   });
-  app.get('/about', function(req, res) {
-    res.render('../public/views/pages/about.ejs');
+  app.get("/about", (req, res) => {
+    res.render("../public/views/pages/about.ejs");
+  });
+  app.get("/GAdminLogin", (req, res) => {
+    res.render("../public/views/pages/GAdmin/login.ejs");
   });
 };
-
