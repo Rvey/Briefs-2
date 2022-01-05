@@ -77,7 +77,7 @@ const updateCenterAdmin = async (req, res) => {
 const deleteCenterAdmin = async (req, res) => {
   try {
     await CenterAdmin.destroy(req.params.id);
-    res.json({ message: "well deleted" });
+    res.status(201).json({ message: "center admin deleted successfully" });
   } catch (error) {
     res.json({ message: error.message });
   }

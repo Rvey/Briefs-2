@@ -3,6 +3,7 @@ const vocation = document.querySelector('.vacation')
 // modals
 const AddModal = document.querySelector('.addForm')
 const UpdateModal = document.querySelector('.updateForm')
+const confirmDModal = document.querySelector('.confirmModal')
 // btn modal trigger
 const ShowAddModal = document.querySelector('.add')
 const ShowUpdateModal = document.querySelector('.edit')
@@ -12,6 +13,8 @@ const overlay = document.querySelector('.click')
 const overlayA = document.querySelector('.clickov')
 
 // modals btn
+const confirmDelete = document.querySelector('.deleteConfirm')
+const cancelDelete = document.querySelector('.cancelDelete')
 const remove = document.querySelector('.delete')
 const update = document.querySelector('.update')
 const save = document.querySelector('.save')
@@ -53,7 +56,8 @@ tbody.addEventListener('click', e => {
                     UpdateModal.email.value = data.email,
                     UpdateModal.password.value = data.password,
                     vocation.value = data.vocation
-
+                update.setAttribute("id", data.id);
+                remove.setAttribute("id", data.id);
             })
     UpdateModal.classList.remove('hidden')
 })
@@ -69,15 +73,37 @@ update.addEventListener('click', e => {
         vocation: vocation.value
 
     }
-    console.log(admin);
-
+    fetch(`http://localhost:8082/UpdateAdminCenter/${e.target.id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(admin),
+    }).then((res) => {
+        if (res.status == 200) {
+            location.replace('/GAdminDash')
+        } else {
+            console.log('wrong creds');
+        }
+    })
 })
 
 // remove admin 
 remove.addEventListener('click', e => {
-    console.log('remove');
+    confirmDelete.setAttribute("id", e.target.id);
+    confirmDModal.classList.remove('hidden')
+    UpdateModal.classList.add('hidden')
 })
 
+confirmDelete.addEventListener('click', e => {
+    fetch(`http://localhost:8082/DeleteAdminCenter/${e.target.id}`, {
+        method: 'DELETE',
+    }).then(() => location.replace('/GAdminDash'))
+        .catch((err) => console.log(err))
+})
+cancelDelete.addEventListener('click', e => {
+    confirmDModal.classList.add('hidden')
+})
 
 
 // Center admin table
@@ -103,4 +129,5 @@ fetch('http://localhost:8082/AdminCenter/')
       </tr>
         `
         })
+
     })
