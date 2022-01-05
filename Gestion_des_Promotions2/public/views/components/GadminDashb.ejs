@@ -2,7 +2,7 @@
     <div class="bg-blueGray-50">
       <!-- Header -->
       <div class="relative bg-blue-900 md:pt-32 pb-32 pt-12">
-        <div class="px-4 md:px-10 mx-auto w-full">
+        FF
         </div>
       </div>
       <div class="px-4 md:px-10 mx-auto w-full -m-24">
@@ -122,68 +122,7 @@
         </div>
         <div class="flex flex-wrap mt-4">
             <!-- center admin table  -->
-          <div class="w-full xl:w-8/12 mb-12 xl:mb-0 px-4">
-            <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
-              <div class="rounded-t mb-0 px-4 py-3 border-0">
-                <div class="flex flex-wrap items-center">
-                  <div class="relative w-full px-4 max-w-full flex-grow flex-1">
-                    <h3 class="font-semibold text-base text-blueGray-700">
-                      Centers Admin
-                    </h3>
-                  </div>
-                  <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
-                    <button
-                      class="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                      type="button">
-                      Add Center Admin
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="block w-full overflow-x-auto">
-                <!-- center admins table -->
-                <table class="items-center w-full bg-transparent border-collapse">
-                  <thead>
-                    <tr>
-                      <th
-                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                         name
-                      </th>
-                      <th
-                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                        email
-                      </th>
-                      <th
-                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                        on Vocation
-                      </th>
-                      <th
-                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                        Edit
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th
-                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                        redone
-                      </th>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        cadmin@gmail.com
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        yes
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                          <button class="px-3 py-1 bg-indigo-500 rounded-md text-white font-semibold">edit</button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
+            <%- include('./CadminTable.ejs') %>
           <!-- Promotion Handled today -->
           <div class="w-full xl:w-4/12 px-4">
             <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
@@ -306,29 +245,39 @@
             </div>
             <!-- extra services  -->
             <div class="mt-2 ">
-              <!-- name -->
-              <div class="mt-5">Name</div>
+              <!-- name --> 
+              <div class="mt-5">fistName</div>
               <div>
-                <input type="name" name="name" class="text-sm text-gray-900 name" />
+                <input type="name" name="firstName" class="text-sm text-gray-900 name w-full p-1 border-2 border-l-indigo-200 rounded-md" />
               </div>
-              <!-- email -->
+              <!-- name --> 
+              <div class="mt-5">lastName</div>
+              <div>
+                <input type="name" name="lastName" class="text-sm text-gray-900 name w-full p-1 border-2 border-l-indigo-200 rounded-md" />
+              </div>
+              <!-- name --> 
               <div class="mt-5">Email</div>
               <div>
-                <input type="email" name="email" class="text-sm text-gray-900 email" />
+                <input type="email" name="email" class="text-sm text-gray-900 name w-full p-1 border-2 border-l-indigo-200 rounded-md" />
+              </div>
+              <!-- email -->
+              <div class="mt-5">Password</div>
+              <div>
+                <input type="password" name="password" class="text-sm text-gray-900 email w-full p-1 border-2 border-l-indigo-200 rounded-md" />
               </div>
               <!-- vacation -->
               <div class="mt-5">
                 <div>work vacation</div>
                 <select class="vacation border rounded-md w-full">
-                  <option value="true">Yes</option>
-                  <option value="false">No</option>
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
                 </select>
               </div>
             </div>
           </div>
         </div>
         <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-          <input type="button" value="update" id="" class="
+          <input type="button" value="update" class="
               update
               w-full
               inline-flex
@@ -351,7 +300,7 @@
             " />
   
   
-          <input type="button" id="" value="delete" class="
+          <input type="button" value="delete" class="
               delete
               mt-3
               w-full
@@ -376,4 +325,102 @@
         </div>
       </div>
     </div>
+  </form>
+
+
+
+  <!-- add admin center modal -->
+  <form class="fixed z-10 inset-0 overflow-y-auto modal addForm hidden">
+    <div class="
+        flex
+        items-end
+        justify-center
+        min-h-screen
+        pt-4
+        px-4
+        pb-20
+        text-center
+        sm:block sm:p-0
+      ">
+      <div class="fixed inset-0 bg-gray-500 bg-opacity-75 clickov" aria-hidden="true"></div>
+      
+      <!-- This element is to trick the browser into centering the modal contents. -->
+      <span class="hidden sm:inline-block sm:align-middle sm:h-screen " aria-hidden="true">&#8203;</span>
+  
+      <div class="
+          inline-block
+          align-bottom
+          bg-white
+          rounded-lg
+          text-left
+          overflow-hidden
+          shadow-xl
+          transform
+          transition-all
+          sm:my-8 sm:align-middle
+          max-w-lg
+          w-full
+        ">
+        <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+          <!-- modal body  -->
+          <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+            <div class="flex items-center gap-5 mb-4">
+              <div class="
+                  mx-auto
+                  flex-shrink-0 flex
+                  items-center
+                  justify-center
+                  h-12
+                  w-12
+                  rounded-full
+                  bg-indigo-100
+                  sm:mx-0 sm:h-10 sm:w-10
+                ">
+                <!-- Heroicon name: outline/exclamation -->
+              </div>
+              <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
+                Add Center Admin
+              </h3>
+            </div>
+            <!-- extra services  -->
+            <div class="mt-2 ">
+              <!-- name -->
+              <div class="mt-5">Name</div>
+              <div>
+                <input type="name" name="name" class="text-sm text-gray-900 name w-full p-1 border-2 border-l-indigo-200 rounded-md" />
+              </div>
+              <!-- email -->
+              <div class="mt-5">Email</div>
+              <div>
+                <input type="email" name="email" class="text-sm text-gray-900 email w-full p-1 border-2 border-l-indigo-200 rounded-md" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+          <input type="button" value="Save" id="" class="
+              save
+              w-full
+              inline-flex
+              justify-center
+              rounded-md
+              border border-transparent
+              shadow-sm
+              px-4
+              py-2
+              bg-green-500
+              text-base
+              font-medium
+              text-white
+              hover:bg-green-700
+              focus:outline-none
+              focus:ring-2
+              focus:ring-offset-2
+              focus:ring-indigo-500
+              sm:ml-3 sm:w-auto sm:text-sm
+            " />
+        </div>
+      </div>
+    </div>
+  </form>
     </div>
