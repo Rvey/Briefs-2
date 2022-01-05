@@ -50,11 +50,13 @@ const createPromotion = async (req, res) => {
       res.json({
         message: "promotion not created",
       });
+    } else {
+
+      res.json({
+        message: "Promotion Not Created",
+      });
     }
 
-    res.json({
-      message: "Promotion Not Created",
-    });
   } catch (error) {
     res.json({ message: error.message });
   }

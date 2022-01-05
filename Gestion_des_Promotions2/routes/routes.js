@@ -33,13 +33,16 @@ module.exports = (app) => {
   app.post("/login/RA", RAdminController.login);
 
   // view routes
+  app.get("/GAdminLogin", (req, res) => {
+    res.render("../public/views/pages/GAdmin/login.ejs");
+  });
+  app.get("/GAdminDash", (req, res) => {
+    res.render("../public/views/pages/GAdmin/GAdminPage.ejs");
+  });
   app.get("/", (req, res) => {
-    res.render("../public/views/pages/login.ejs");
+    res.render("../public/views/pages/about.ejs");
   });
   app.get("/about", (req, res) => {
     res.render("../public/views/pages/about.ejs");
-  });
-  app.get("/GAdminLogin", (req, res) => {
-    res.render("../public/views/pages/GAdmin/login.ejs");
   });
 };

@@ -83,7 +83,6 @@ const createAdminRayon = async (req, res) => {
 
 const updateRayonAdmin = async (req, res) => {
   try {
-    
     await RayonAdmin.update(req.body, req.params.id);
     res.json({
       message: "well updated",
@@ -169,8 +168,9 @@ const login = async (req, res) => {
       await RayonAdmin.update(RAdmin, RAdmin.id);
 
       res.status(200).json(`welcome ${hours}`);
+    } else {
+      res.status(400).send("Invalid Credentials");
     }
-    res.status(400).send("Invalid Credentials");
     // create token
   } catch (error) {
     res.json({

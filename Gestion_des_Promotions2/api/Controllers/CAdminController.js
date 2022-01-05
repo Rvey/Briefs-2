@@ -142,8 +142,10 @@ const login = async (req, res) => {
       // res.cookie("centerAdmin", true, { maxAge: 1 });
 
       res.status(200).json({ message: "logged in " });
+    }else {
+
+      res.status(400).send("Invalid Credentials");
     }
-    res.status(400).send("Invalid Credentials");
     // create token
   } catch (error) {
     res.json({ message: error.message });
