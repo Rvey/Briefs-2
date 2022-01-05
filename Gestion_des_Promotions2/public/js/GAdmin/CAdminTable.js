@@ -1,16 +1,15 @@
 const tbody = document.querySelector('.tbody')
 const vocation = document.querySelector('.vacation')
 // modals
-const AddModal = document.querySelector('.addForm')
+
 const UpdateModal = document.querySelector('.updateForm')
 const confirmDModal = document.querySelector('.confirmModal')
 // btn modal trigger
-const ShowAddModal = document.querySelector('.add')
 const ShowUpdateModal = document.querySelector('.edit')
 
 // modals overlay
 const overlay = document.querySelector('.click')
-const overlayA = document.querySelector('.clickov')
+
 
 // modals btn
 const confirmDelete = document.querySelector('.deleteConfirm')
@@ -19,29 +18,8 @@ const remove = document.querySelector('.delete')
 const update = document.querySelector('.update')
 const save = document.querySelector('.save')
 
-
-// 
-
-overlayA.addEventListener('click', e => {
-    AddModal.classList.add('hidden')
-})
 overlay.addEventListener('click', e => {
     UpdateModal.classList.add('hidden')
-})
-
-ShowAddModal.addEventListener('click', e => {
-    AddModal.classList.remove('hidden')
-})
-
-// add mew admin
-save.addEventListener('click', e => {
-    const admin = {
-        firstName: 'redone',
-        lastName: 'one',
-        email: 'rredouane342@gmail.com',
-        vocation: 'no'
-    }
-    console.log(admin);
 })
 
 // show selected admin data in modal 
