@@ -66,33 +66,9 @@ const login = async (req, res) => {
   }
 };
 
-const UpdatePasswordLogin = async (req, res) => {
-  try {
-    const Admins = await Auth.findAllCenterAdmins();
-
-    const { email, password } = req.body;
-
-    // validate user creds
-    if (!(email && password)) {
-      return res.status(400).send("All input is required");
-    }
-
-    // validate if user exist in our database
-    const CAdmin = Admins.find((admin) => admin.email == req.body.email);
-
-    if (CAdmin) {
-      await Auth.updatePassword(password, CAdmin.id);
-      return res.json({ message: `password updated successfully${CAdmin.id}` });
-    }
-
-    // create token
-  } catch (error) {
-    res.json({ message: error.message });
-  }
-};
 
 module.exports = {
   login,
   EmailLogin,
-  UpdatePasswordLogin,
+  // UpdatePasswordLog  in,
 };

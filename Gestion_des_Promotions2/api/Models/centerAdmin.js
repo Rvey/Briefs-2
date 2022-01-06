@@ -39,6 +39,11 @@ class centerAdmin {
       center: admin_center.center
     });
   }
+  static async updatePassword(admin_center, password) {
+    con.query(`UPDATE admin_center SET ? WHERE password = ${password}`, {
+      password: admin_center.password,
+    });
+  }
   static async destroy(id) {
     con.query(`DELETE FROM admin_center WHERE id =${id}`, (err, result) => {
       if (err) {

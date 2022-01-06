@@ -21,6 +21,7 @@ module.exports = (app) => {
   app.put("/UpdateAdminCenter/:id", CAdminController.updateCenterAdmin);
   app.delete("/DeleteAdminCenter/:id", CAdminController.deleteCenterAdmin);
   app.post("/validation/CA", CAdminController.EmailLogin);
+  app.put("/updatePass/CA", CAdminController.UpdatePasswordLogin);
   app.post("/login/CA", CAdminController.login);
 
   // RayonAdmin routes
@@ -47,6 +48,12 @@ module.exports = (app) => {
   });
 
   // view center admin routes
+  app.get("/CAChangePass", (req, res) => {
+    res.render("../public/views/pages/CAdmin/changePassword.ejs");
+  });
+  app.get("/CAGetPassword", (req, res) => {
+    res.render("../public/views/pages/CAdmin/getPassword.ejs");
+  });
   app.get("/CAdminLogin", (req, res) => {
     res.render("../public/views/pages/CAdmin/login.ejs");
   });

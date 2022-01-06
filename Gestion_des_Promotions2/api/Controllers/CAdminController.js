@@ -89,6 +89,32 @@ const deleteCenterAdmin = async (req, res) => {
   }
 };
 
+const UpdatePasswordLogin = async (req, res) => {
+  try {
+    const Admins = await CenterAdmin.getAll();
+
+    const { password , newPassword } = req.body;
+
+    // validate user creds
+    if (!(password)) {
+      return res.status(400).send("All input is required");
+    }
+
+    // validate if user exist in our database
+    const CAdmin = Admins.find((admin) => admin.password == password);
+
+    if (CAdmin) {
+      CAdmin.password = newPassword
+      await CenterAdmin.update(CAdmin, CAdmin.id);
+      return res.json({ message: `password updated successfully${CAdmin.id}` });
+    }
+
+  //   // create token
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+};
+
 const EmailLogin = async (req, res) => {
   try {
     const Admins = await CenterAdmin.getAll();
@@ -164,5 +190,6 @@ module.exports = {
   createAdminCenter,
   deleteCenterAdmin,
   EmailLogin,
+  UpdatePasswordLogin,
   login,
 };
