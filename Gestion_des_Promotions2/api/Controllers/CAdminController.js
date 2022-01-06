@@ -106,7 +106,9 @@ const UpdatePasswordLogin = async (req, res) => {
     if (CAdmin) {
       CAdmin.password = newPassword
       await CenterAdmin.update(CAdmin, CAdmin.id);
-      return res.json({ message: `password updated successfully${CAdmin.id}` });
+      return res.status(201).json({ message: `password updated successfully` });
+    }else {
+      res.status(404).send("incorrect password" )
     }
 
   //   // create token
