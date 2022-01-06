@@ -24,6 +24,8 @@ class centerAdmin {
       email: admin_center.email,
       password: admin_center.password,
       token: admin_center.token,
+      vocation: admin_center.vocation,
+      center: admin_center.center
     });
   };
   static async update(admin_center, id) {
@@ -33,6 +35,8 @@ class centerAdmin {
       email: admin_center.email,
       password: admin_center.password,
       token: admin_center.token,
+      vocation: admin_center.vocation,
+      center: admin_center.center
     });
   }
   static async destroy(id) {

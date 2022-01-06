@@ -54,8 +54,8 @@
                               <h5 class="text-blueGray-400 uppercase font-bold text-xs">
                                 Center Admins
                               </h5>
-                              <span class="font-semibold text-xl text-blueGray-700">
-                                350,897
+                              <span class="font-semibold text-xl text-blueGray-700 totalCAdmin">
+                                0000
                               </span>
                             </div>
                             <div class="relative w-auto pl-4 flex-initial">
@@ -128,18 +128,10 @@
             <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
               <div class="rounded-t mb-0 px-4 py-3 border-0">
                   <div class="w-full px-4 max-w-full  flex-grow flex-1">
-                    <h3 class="font-semibold text-base text-blueGray-700">
-                      Social traffic
+                    <h3 class="font-semibold text-base text-blueGray-700 my-3">
+                      Responsables de rayon
                     </h3>
                   </div>
-                  <div class="w-full px-4 max-w-full flex-grow flex-1 text-right">
-                    <button
-                      class="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                      type="button">
-                      See all
-                    </button>
-                  </div>
-        
               <div class="block w-full overflow-x-auto">
                 <!-- Projects table -->
                 <table class="items-center w-full bg-transparent border-collapse">
@@ -147,39 +139,19 @@
                     <tr>
                       <th
                         class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                        Referral
+                        Email
                       </th>
+                      <th
+                      class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                      rayon
+                    </th>
                       <th
                         class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                        Visitors
-                      </th>
-                      <th
-                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">
+                        handled Promo
                       </th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <th
-                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                        twitter
-                      </th>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        2,645
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <div class="flex items-center">
-                          <span class="mr-2">30%</span>
-                          <div class="relative w-full">
-                            <div class="overflow-hidden h-2 text-xs flex rounded bg-orange-200">
-                              <div style="width: 30%"
-                                class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-emerald-500">
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
+                  <tbody class="RAtbody">
                   </tbody>
                 </table>
               </div>
@@ -469,6 +441,7 @@
                 Add Center Admin
               </h3>
             </div>
+            <div class="text-red-500 hidden error ">user already exist</div>
             <!-- extra services  -->
             <div class="mt-2 ">
               <!-- name -->
@@ -486,6 +459,35 @@
               <div>
                 <input type="email" name="email" class="text-sm text-gray-900 email w-full p-1 border-2 border-l-indigo-200 rounded-md" />
               </div>
+               <!-- center -->
+               <div class="mt-5">Center</div>
+               <div>
+               
+              <select
+                class="
+                  center
+                  w-full
+                  px-3
+                  py-2
+                  mb-3
+                  text-sm
+                  leading-tight
+                  text-gray-700
+                  border
+                  rounded
+                  cursor-pointer
+                  appearance-none
+                  focus:outline-none focus:ring-2
+                "
+                value=""
+                name=""
+                id=""
+              >
+                <option value="safi">safi</option>
+                <option value="casablanca">casablanca</option>
+                <option value="marrakesh">marrakesh</option>
+              </select>
+               </div>
             </div>
           </div>
         </div>
@@ -515,5 +517,44 @@
       </div>
     </div>
   </form>
-  
+  <div class="p-2 toast hidden">
+    <div class="fixed
+      top-0
+      inset-x-0
+      mx-auto
+      max-w-max
+      mt-10
+      inline-flex
+      items-center
+      bg-zinc-700
+      leading-none
+      text-white
+      rounded-full
+      p-2
+      shadow
+      text-teal text-sm">
+      <span class="inline-flex
+        bg-red-600
+        text-white
+        rounded-full
+        h-6
+        px-3
+        justify-center
+        items-center">Oops!</span>
+      <span class="inline-flex px-2">incorrect credentials</span>
     </div>
+  </div>
+    </div>
+    <style>
+      .toast {
+        animation: toast 0.3s forwards;
+      }
+      @keyframes toast {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    </style>

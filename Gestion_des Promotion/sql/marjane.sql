@@ -64,6 +64,9 @@ ADD FOREIGN KEY (id_product) REFERENCES products(id) ON DELETE CASCADE;
 ALTER TABLE promotions
 ADD FOREIGN KEY (id_rayon) REFERENCES rayon(id) ON DELETE CASCADE;
 
+ALTER TABLE chef_rayon
+ADD FOREIGN KEY (rayon) REFERENCES rayon(id) ON DELETE CASCADE;
+
 ALTER TABLE promotions
 ADD FOREIGN KEY (id_admin_center) REFERENCES admin_center(id) ON DELETE CASCADE;
 

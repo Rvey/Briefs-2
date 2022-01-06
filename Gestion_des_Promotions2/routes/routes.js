@@ -32,7 +32,7 @@ module.exports = (app) => {
   app.post("/validation/RA", RAdminController.EmailLogin);
   app.post("/login/RA", RAdminController.login);
 
-  // view routes
+  // view general admin  routes
   app.get("/GAdminLogin", (req, res) => {
     res.render("../public/views/pages/GAdmin/login.ejs");
   });
@@ -44,5 +44,10 @@ module.exports = (app) => {
   });
   app.get("/about", (req, res) => {
     res.render("../public/views/pages/about.ejs");
+  });
+
+  // view center admin routes
+  app.get("/CAdminLogin", (req, res) => {
+    res.render("../public/views/pages/CAdmin/login.ejs");
   });
 };

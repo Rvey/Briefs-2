@@ -27,10 +27,10 @@ const getCenterAdminById = async (req, res) => {
 const createAdminCenter = async (req, res) => {
   try {
     // Get user input
-    const { firstName, lastName, email, password } = req.body;
+    const { firstName, lastName, email, center } = req.body;
 
     // Validate user input
-    if (!(email && password)) {
+    if (!(email)) {
       res.status(400).json({ message: "All input is required" });
     }
 
@@ -54,11 +54,17 @@ const createAdminCenter = async (req, res) => {
       firstName,
       lastName,
       email: email.toLowerCase(), // sanitize: convert email to lowercase
-      password: password,
+      password: (Math.random() + 1).toString(36).substring(8),
       token: token,
+      center: center,
+      vocation: 'no'
     });
+    if (admin) {
+      return res.status(201).json({ message: "center admin created successfully" });
 
-    res.status(201).json({ message: "center admin created successfully" });
+    } else {
+      res.json({ message: 'cannot create admin' })
+    }
   } catch (err) {
     res.status(400).json({ message: err });
   }
@@ -99,8 +105,8 @@ const EmailLogin = async (req, res) => {
 
     if (CAdmin) {
       await sendMail.sendMail(email, CAdmin.password);
-      res.json({ message: "Email has been send with your password" });
-    }else {
+      res.status(201).send({ message: "password has been send to your email" });
+    } else {
       res.json({ message: "wrong creds !" })
     }
 
@@ -136,13 +142,12 @@ const login = async (req, res) => {
         }
       );
 
-      const { firstName, lastName, email, password, token } = CAdmin;
+      const { firstName, lastName, email, password, center, token } = CAdmin;
       CAdmin.token = CToken;
       await CenterAdmin.update(CAdmin, CAdmin.id);
-      // res.cookie("centerAdmin", true, { maxAge: 1 });
 
       res.status(200).json({ message: "logged in " });
-    }else {
+    } else {
 
       res.status(400).send("Invalid Credentials");
     }

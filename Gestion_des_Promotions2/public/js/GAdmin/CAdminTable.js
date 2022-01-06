@@ -93,11 +93,14 @@ fetch('http://localhost:8082/AdminCenter/')
         <tr>
         <th
           class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-          ${admin.firstName}
+          ${admin.firstName} ${admin.lastName}
         </th>
         <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
           ${admin.email}
         </td>
+        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+        ${admin.center}
+      </td>
         <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
           ${admin.vocation}
         </td>
