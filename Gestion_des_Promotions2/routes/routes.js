@@ -40,12 +40,13 @@ module.exports = (app) => {
   app.get("/GAdminDash", (req, res) => {
     res.render("../public/views/pages/GAdmin/GAdminPage.ejs");
   });
-  app.get("/", (req, res) => {
-    res.render("../public/views/pages/about.ejs");
+  app.get("/Statistics", (req, res) => {
+    res.render("../public/views/pages/GAdmin/Statisctics.ejs");
   });
-  app.get("/about", (req, res) => {
-    res.render("../public/views/pages/about.ejs");
+  app.get("/ManagePromotion", (req, res) => {
+    res.render("../public/views/pages/GAdmin/MPromotion.ejs");
   });
+
 
   // view center admin routes
   app.get("/CAChangePass", (req, res) => {

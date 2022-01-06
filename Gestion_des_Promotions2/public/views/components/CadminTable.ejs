@@ -1,51 +1,65 @@
-<div class="w-full xl:w-8/12 mb-12 xl:mb-0 px-4">
-    <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
-      <div class="rounded-t mb-0 px-4 py-3 border-0">
-        <div class="flex flex-wrap items-center">
-          <div class="relative w-full px-4 max-w-full flex-grow flex-1">
-            <h3 class="font-semibold text-base text-blueGray-700">
-              Centers Admin
-            </h3>
-          </div>
-          <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
-            <button
-              class="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 add"
-              type="button">
-              Add Center Admin
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="block w-full overflow-x-auto">
-        <!-- center admins table -->
-        <table class="items-center w-full bg-transparent border-collapse">
-          <thead>
-            <tr>
-              <th
-                class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                 name
-              </th>
-              <th
-                class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                email
-              </th>
-              <th
-                class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                center
-              </th>
-              <th
-              class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-              on Vocation
-            </th>
-              <th
-                class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                Edit
-              </th>
-            </tr>
-          </thead>
-          <tbody class="tbody">
-          </tbody>
-        </table>
-      </div>
-    </div>
+<div class="mx-auto py-6 sm:px-6 lg:px-8">
+  <!-- Replace with your content -->
+  <div class="px-4 py-6 sm:px-0">
+    <table class="w-full flex flex-row flex-no-wrap sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-5">
+      <thead class="text-white">
+        <tr class="bg-gray-500 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
+          <th class="p-3 text-left">Name</th>
+          <th class="p-3 text-left">Email</th>
+          <th class="p-3 text-left">Vocation</th>
+          <th class="p-3 text-left">Center</th>
+          <th class="p-3 text-left" width="110px">Actions</th>
+        </tr>
+        <tr class="bg-gray-500 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
+          <th class="p-3 text-left">Name</th>
+          <th class="p-3 text-left">Email</th>
+          <th class="p-3 text-left">Vocation</th>
+          <th class="p-3 text-left">Center</th>
+          <th class="p-3 text-left" width="110px">Actions</th>
+        </tr>
+                <tr class="bg-gray-500 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
+                  <th class="p-3 text-left">Name</th>
+                  <th class="p-3 text-left">Email</th>
+                  <th class="p-3 text-left">Vocation</th>
+                  <th class="p-3 text-left">Center</th>
+                  <th class="p-3 text-left" width="110px">Actions</th>
+              </tr>
+                <tr class="bg-gray-500 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
+                  <th class="p-3 text-left">Name</th>
+                  <th class="p-3 text-left">Email</th>
+                  <th class="p-3 text-left">Vocation</th>
+                  <th class="p-3 text-left">Center</th>
+                  <th class="p-3 text-left" width="110px">Actions</th>
+              </tr>
+      </thead>
+      <tbody class="flex-1 sm:flex-none tbody">
+              
+      </tbody>
+    </table>
   </div>
+  <!-- /End replace -->
+</div>
+<style>
+  html,
+  body {
+    height: 100%;
+  }
+
+  @media (min-width: 640px) {
+    table {
+      display: inline-table !important;
+    }
+
+    thead tr:not(:first-child) {
+      display: none;
+    }
+  }
+
+  td:not(:last-child) {
+    border-bottom: 0;
+  }
+
+  th:not(:last-child) {
+    border-bottom: 2px solid rgba(0, 0, 0, .1);
+  }
+</style>
