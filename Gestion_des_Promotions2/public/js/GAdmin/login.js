@@ -18,5 +18,4 @@ loginForm.addEventListener("submit", (e) => {
           console.log('wrong creds');
       }
   })
-
 });

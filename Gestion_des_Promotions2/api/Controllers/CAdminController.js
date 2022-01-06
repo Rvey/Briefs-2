@@ -60,7 +60,7 @@ const createAdminCenter = async (req, res) => {
       vocation: 'no'
     });
     if (admin) {
-      return res.status(201).json({ message: "center admin created successfully" });
+      return res.status(200).json({ message: "center admin created successfully" });
 
     } else {
       res.json({ message: 'cannot create admin' })

@@ -32,7 +32,7 @@ save.addEventListener("click", (e) => {
         body: JSON.stringify(admin),
     })
         .then((res) => {
-            if (res.status == 201) {
+            if (res.status == 200) {
 
                 fetch(`http://localhost:8082/validation/CA`, {
                     method: "POST",
