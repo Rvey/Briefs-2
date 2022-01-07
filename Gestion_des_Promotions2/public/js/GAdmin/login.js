@@ -12,7 +12,7 @@ loginForm.addEventListener("submit", (e) => {
     },
     body: JSON.stringify(body),
   }).then((res) =>  {
-      if(res.status == 200) {
+      if(res.status == 201) {
           location.replace('/GAdminDash')
       }else{
           console.log('wrong creds');

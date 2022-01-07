@@ -1,4 +1,6 @@
+
 module.exports = (app) => {
+  const { requireGAAuth } = require("../middleware/GAdmin");
   const promotionController = require("../api/Controllers/PromotionController");
   const CAdminController = require("../api/Controllers/CAdminController");
   const RAdminController = require("../api/Controllers/RAdminController");
@@ -37,7 +39,7 @@ module.exports = (app) => {
   app.get("/GAdminLogin", (req, res) => {
     res.render("../public/views/pages/GAdmin/login.ejs");
   });
-  app.get("/GAdminDash", (req, res) => {
+  app.get("/GAdminDash",requireGAAuth , (req, res) => {
     res.render("../public/views/pages/GAdmin/GAdminPage.ejs");
   });
   app.get("/Statistics", (req, res) => {

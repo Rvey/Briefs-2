@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require('path')
 const app = express();
-
+const cookieParser = require('cookie-parser')
 const cors = require("cors");
 
 // set the view engine to ejs
@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(cors());
 app.use(express.json());
-
+app.use(cookieParser())
 app.use(express.static('public'));
 
 require("./routes/routes")(app);

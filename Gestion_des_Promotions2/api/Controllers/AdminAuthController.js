@@ -53,8 +53,11 @@ const login = async (req, res) => {
         }
       );
       await Auth.update(token, Admin.id);
-
-      return  res.status(200).json({ welcome: Admin });
+        res.cookie('jwt', token, { httpOnly: true })
+        res.status(201).send({
+        ok: true,
+        message: "Login successful"
+       })
 
     } else {
 
