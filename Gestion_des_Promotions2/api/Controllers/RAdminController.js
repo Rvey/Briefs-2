@@ -69,6 +69,7 @@ const createAdminRayon = async (req, res) => {
       email: email.toLowerCase(), // sanitize: convert email to lowercase
       password: password,
       token: token,
+      role: RA
     });
 
     // Create token

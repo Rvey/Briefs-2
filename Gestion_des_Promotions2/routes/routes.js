@@ -8,6 +8,7 @@ module.exports = (app) => {
 
   // admin
   app.post("/login", Admin.login);
+  app.get('/logout', Admin.logout);
 
   // PROMOTION
   app.get("/promotion", promotionController.getAllPromotions);
@@ -39,7 +40,7 @@ module.exports = (app) => {
   app.get("/GAdminLogin", (req, res) => {
     res.render("../public/views/pages/GAdmin/login.ejs");
   });
-  app.get("/GAdminDash",requireGAAuth , (req, res) => {
+  app.get("/GAdminDash", requireGAAuth, (req, res) => {
     res.render("../public/views/pages/GAdmin/GAdminPage.ejs");
   });
   app.get("/Statistics", (req, res) => {

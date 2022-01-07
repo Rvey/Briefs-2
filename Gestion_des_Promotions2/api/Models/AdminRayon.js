@@ -25,6 +25,7 @@ class AdminRayon {
       id_admin_center: admin_rayon.id_admin_center,
       password: admin_rayon.password,
       rayon: admin_rayon.rayon,
+      role: admin_rayon.role,
       token: admin_rayon.token,
     });
   };
@@ -34,6 +35,7 @@ class AdminRayon {
       lastName: RayonAdmin.lastName,
       email: RayonAdmin.email,
       password: RayonAdmin.password,
+      role: RayonAdmin.role,
       token: RayonAdmin.token,
     });
   }

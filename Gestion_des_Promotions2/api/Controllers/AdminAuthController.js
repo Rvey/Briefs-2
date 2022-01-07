@@ -53,11 +53,12 @@ const login = async (req, res) => {
         }
       );
       await Auth.update(token, Admin.id);
-        res.cookie('jwt', token, { httpOnly: true })
-        res.status(201).send({
+      res.cookie('jwt', token, { httpOnly: true })
+      res.cookie('role', Admin.role, { httpOnly: true })
+      res.status(201).send({
         ok: true,
         message: "Login successful"
-       })
+      })
 
     } else {
 
@@ -67,11 +68,17 @@ const login = async (req, res) => {
   } catch (error) {
     res.json({ message: error.message });
   }
-};
 
+};
+const logout = async (req, res) => {
+  res.cookie('jwt', '', { maxAge: 1 })
+  res.cookie('role', '')
+  res.redirect('/login')
+}
 
 module.exports = {
   login,
   EmailLogin,
+  logout
   // UpdatePasswordLog  in,
 };

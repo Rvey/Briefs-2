@@ -57,7 +57,8 @@ const createAdminCenter = async (req, res) => {
       password: (Math.random() + 1).toString(36).substring(8),
       token: token,
       center: center,
-      vocation: 'no'
+      vocation: 'no',
+      role: 'CA'
     });
     if (admin) {
       return res.status(200).json({ message: "center admin created successfully" });
@@ -173,7 +174,8 @@ const login = async (req, res) => {
       const { firstName, lastName, email, password, center, token } = CAdmin;
       CAdmin.token = CToken;
       await CenterAdmin.update(CAdmin, CAdmin.id);
-
+      res.cookie('jwt', token, { httpOnly: true })
+      res.cookie('role' , CAdmin.role, { httpOnly:true })
       res.status(200).json({ message: "logged in " });
     } else {
 

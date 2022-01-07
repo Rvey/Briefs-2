@@ -3,8 +3,9 @@ const jwt = require('jsonwebtoken')
 const requireGAAuth = (req, res, next) => {
 
     const token =req.cookies.jwt;
+    const role = req.cookies.role;
     // check jwt exist
-    if (token) {
+    if (token && role == 'GA') {
         jwt.verify(token, `${process.env.JWT_SECRET_KEY}`, (err, decodedToken) => {
             if (err) {
                 console.log(err.message);
