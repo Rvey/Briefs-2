@@ -45,6 +45,7 @@ tbody.addEventListener('click', e => {
 // update admin info 
 
 update.addEventListener('click', e => {
+    
     const admin = {
         firstName: UpdateModal.firstName.value,
         lastName: UpdateModal.lastName.value,
@@ -99,7 +100,7 @@ fetch('http://localhost:8082/AdminCenter/')
             <td class="  p-3 truncate">${admin.vocation}</td>
             <td class="  p-3 truncate">${admin.center}</td>
             <td class="  p-3 text-red-400 text-center font-bold hover:text-red-600 hover:font-medium cursor-pointer">
-            <input type="button" class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 cursor-pointer" value="Edit" id="${admin.id}"/>
+            <input type="button" class="edit inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 cursor-pointer" value="Edit" id="${admin.id}"/>
             </td>
           </tr> 
         `

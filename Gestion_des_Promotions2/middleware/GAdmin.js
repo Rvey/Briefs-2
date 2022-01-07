@@ -9,14 +9,14 @@ const requireGAAuth = (req, res, next) => {
         jwt.verify(token, `${process.env.JWT_SECRET_KEY}`, (err, decodedToken) => {
             if (err) {
                 console.log(err.message);
-                res.redirect('/GADMINLOGIN')
+                res.redirect('/GAdminLogin')
             } else {
                 console.log(decodedToken);
                 next()
             }
         })
     } else {
-        res.redirect('/GADMINLOGIN')
+        res.redirect('/GAdminLogin')
     }
 }
 module.exports = { requireGAAuth }
