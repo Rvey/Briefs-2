@@ -182,7 +182,7 @@ const login = async (req, res) => {
       res.cookie('jwt', token, { httpOnly: true })
       res.cookie('role', RAdmin.role, { httpOnly: true })
 
-      res.status(200).json(`welcome ${hours}`);
+      res.status(200).json(RAdmin);
     } else {
       res.status(400).send("Invalid Credentials");
     }

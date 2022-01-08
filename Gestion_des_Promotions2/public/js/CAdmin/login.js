@@ -11,11 +11,18 @@ loginForm.addEventListener('submit', e => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(admin),
-      }).then((res) =>  {
-          if(res.status == 200) {
+      }).then((res) => res.json())
+      .then(async(data) => {
+        const admin = {
+            email: data.email,
+            id: data.id,
+            role: data.role,
+            rayon: data.rayon
+        }
+         sessionStorage.setItem('admin', JSON.stringify(admin))
+    }).then(() => {
+         
               location.replace('/RChefManage')
-          }else{
-              console.log('wrong creds');
-          }
-      })
+
+    })
 })

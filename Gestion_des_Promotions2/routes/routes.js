@@ -50,10 +50,10 @@ module.exports = (app) => {
   app.get("/GAdminLogin", (req, res) => {
     res.render("../public/views/pages/GAdmin/login.ejs");
   });
-  app.get("/GAdminDash", (req, res) => {
+  app.get("/GAdminDash",requireGAAuth, (req, res) => {
     res.render("../public/views/pages/GAdmin/GAdminPage.ejs");
   });
-  app.get("/Statistics", (req, res) => {
+  app.get("/Statistics",requireGAAuth, (req, res) => {
     res.render("../public/views/pages/GAdmin/Statisctics.ejs");
   });
   

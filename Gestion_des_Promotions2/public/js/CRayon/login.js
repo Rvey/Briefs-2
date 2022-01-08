@@ -8,14 +8,24 @@ loginForm.addEventListener('submit', e => {
     fetch("http://localhost:8082/login/RA", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+            "Content-Type": "application/json",
         },
         body: JSON.stringify(admin),
-      }).then((res) =>  {
-          if(res.status == 200) {
+    })
+    .then((res) => res.json())
+    .then((data) => {
+        const admin = {
+            email: data.email,
+            id: data.id,
+            role: data.role,
+            rayon: data.rayon
+        }
+         sessionStorage.setItem('admin', JSON.stringify(admin)
+        
+        )
+    }).then(() => {
+         
               location.replace('/promotionPanel')
-          }else{
-              console.log('wrong creds');
-          }
-      })
+
+    })
 })

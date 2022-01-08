@@ -11,11 +11,22 @@ loginForm.addEventListener("submit", (e) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(body),
-  }).then((res) =>  {
-      if(res.status == 201) {
-          location.replace('/GAdminDash')
-      }else{
-          console.log('wrong creds');
-      }
   })
+  .then((res) => res.json())
+    .then((data) => {
+        const admin = {
+            email: data.email,
+            id: data.id,
+            role: data.role,
+            rayon: data.rayon
+        }
+         sessionStorage.setItem('admin', JSON.stringify(admin)
+        
+        )
+    }).then(() => {
+         
+              location.replace('/GAdminDash')
+
+    })
+  
 });
