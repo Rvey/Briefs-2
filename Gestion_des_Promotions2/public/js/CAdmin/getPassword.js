@@ -16,7 +16,7 @@ getPassForm.addEventListener("submit", (e) => {
           // location.replace('/GAdminDash')
           getPassForm.innerHTML = `<div class="text-center">your password will be sent to your email</div> <div class="text-center">redirect to change your password ...</div> `
           setTimeout(() => {
-            location.replace('/RAChangePass')
+            location.replace('/CAChangePass')
           }, 3000)
       }else{
           console.log('wrong creds');

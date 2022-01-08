@@ -1,6 +1,6 @@
 const nodemailer = require("nodemailer");
 
-const sendMail = async (email, password) => {
+const sendMail = async (email, password , url) => {
   try {
     let mailTransporter = nodemailer.createTransport({
       service: "gmail",
@@ -14,7 +14,7 @@ const sendMail = async (email, password) => {
       to: `${email}`,
       subject: "MARJAN CORP",
       title: "YOU CENTER ADMIN PASSWORD",
-      html: `Your password is <h1>${password}</h1> http://localhost:8082/CAChangePass`,
+      html: `Your password is <h1>${password}</h1> <h3>http://localhost:8082/${url}</h3> `,
     };
 
     mailTransporter.sendMail(mailDetails, function (err, data) {

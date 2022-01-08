@@ -13,7 +13,7 @@ changePassword.addEventListener('submit', e => {
         body: JSON.stringify(password),
     }).then((res) => {
         if (res.status == 201) {
-            location.replace('/CAdminLogin')
+            location.replace('/CRALogin')
         } else {
             console.log('worg password');
         }

@@ -13,7 +13,7 @@ loginForm.addEventListener('submit', e => {
         body: JSON.stringify(admin),
       }).then((res) =>  {
           if(res.status == 200) {
-              location.replace('/RAdminDash')
+              location.replace('/promotionPanel')
           }else{
               console.log('wrong creds');
           }

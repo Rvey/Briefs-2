@@ -129,7 +129,8 @@ const EmailLogin = async (req, res) => {
     const RAdmin = Admins.find((admin) => admin.email == req.body.email);
 
     if (RAdmin) {
-      await sendMail.sendMail(email, RAdmin.password);
+      const url = 'CRAChangePass'
+      await sendMail.sendMail(email, RAdmin.password, url);
       res.json({
         message: "Email has been send with your password",
       });
@@ -177,7 +178,7 @@ const login = async (req, res) => {
       RAdmin.token = RAtoken;
 
       await RayonAdmin.update(RAdmin, RAdmin.id);
-      
+
       res.cookie('jwt', token, { httpOnly: true })
       res.cookie('role', RAdmin.role, { httpOnly: true })
 

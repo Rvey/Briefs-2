@@ -133,7 +133,8 @@ const EmailLogin = async (req, res) => {
     const CAdmin = Admins.find((admin) => admin.email == req.body.email);
 
     if (CAdmin) {
-      await sendMail.sendMail(email, CAdmin.password);
+      const url = "CAChangePass"
+      await sendMail.sendMail(email, CAdmin.password, url);
       res.status(201).send({ message: "password has been send to your email" });
     } else {
       res.json({ message: "wrong creds !" })
@@ -174,8 +175,10 @@ const login = async (req, res) => {
       const { firstName, lastName, email, password, center, token } = CAdmin;
       CAdmin.token = CToken;
       await CenterAdmin.update(CAdmin, CAdmin.id);
+
       res.cookie('jwt', token, { httpOnly: true })
       res.cookie('role' , CAdmin.role, { httpOnly:true })
+
       res.status(200).json({ message: "logged in " });
     } else {
 

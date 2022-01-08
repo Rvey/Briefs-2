@@ -17,7 +17,7 @@ const EmailLogin = async (req, res) => {
     const CAdmin = Admins.find((admin) => admin.email == req.body.email);
 
     if (CAdmin) {
-      await sendMail.sendMail(email, CAdmin.password);
+      await sendMail.sendMail(email, CAdmin.password , url);
       return res.json({ message: "Email has been send with your password" });
     }
 

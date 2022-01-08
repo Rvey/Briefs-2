@@ -56,14 +56,14 @@ module.exports = (app) => {
   app.get("/Statistics", (req, res) => {
     res.render("../public/views/pages/GAdmin/Statisctics.ejs");
   });
-  app.get("/ManagePromotion", (req, res) => {
-    res.render("../public/views/pages/CAdmin/MPromotion.ejs");
-  });
-
-
+  
+  
   // view center admin routes
   app.get("/CAChangePass", (req, res) => {
     res.render("../public/views/pages/CAdmin/changePassword.ejs");
+  });
+  app.get("/ManagePromotion", (req, res) => {
+    res.render("../public/views/pages/CAdmin/MPromotion.ejs");
   });
   app.get("/CAGetPassword", (req, res) => {
     res.render("../public/views/pages/CAdmin/getPassword.ejs");
@@ -77,6 +77,17 @@ module.exports = (app) => {
 
 
   // view chef de rayon
+  app.get("/CRAChangePass", (req, res) => {
+    res.render("../public/views/pages/RAdmin/changePassword.ejs");
+  });
+  app.get("/CRAGetPassword", (req, res) => {
+    res.render("../public/views/pages/RAdmin/getPassword.ejs");
+  });
+  app.get("/CRALogin", (req, res) => {
+    res.render("../public/views/pages/RAdmin/login.ejs");
+  });
+
+
   app.get('/promotionPanel', (req, res) => {
     res.render("../public/views/pages/RAdmin/PromoHandleTable.ejs");
   });
