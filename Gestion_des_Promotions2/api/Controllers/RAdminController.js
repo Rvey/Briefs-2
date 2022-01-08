@@ -33,11 +33,11 @@ const getRayonAdminById = async (req, res) => {
 const createAdminRayon = async (req, res) => {
   try {
     // Get user input
-    const { firstName, lastName, email, password, id_admin_center, rayon } =
+    const { firstName, lastName, email, id_admin_center, rayon } =
       req.body;
 
     // Validate user input
-    if (!(email && password)) {
+    if (!(email)) {
       res.status(400).send("All input is required");
     }
 
@@ -51,15 +51,10 @@ const createAdminRayon = async (req, res) => {
       return res.status(409).send("User Already Exist. Please Login");
     }
 
-    const token = jwt.sign(
-      {
-        email,
-      },
-      `${process.env.JWT_SECRET_KEY}`,
-      {
-        expiresIn: "2h",
-      }
-    );
+    const token = jwt.sign({ email }, `${process.env.JWT_SECRET_KEY}`, {
+      expiresIn: "2h",
+    });
+
     // Create user in our database
     const admin = await RayonAdmin.createRayonAdmin({
       firstName,
@@ -67,18 +62,19 @@ const createAdminRayon = async (req, res) => {
       id_admin_center,
       rayon: rayon,
       email: email.toLowerCase(), // sanitize: convert email to lowercase
-      password: password,
+      password: (Math.random() + 1).toString(36).substring(8),
       token: token,
-      role: RA
+      role: "RA"
     });
+    if(admin) {
 
-    // Create token
-
-    res.json(admin);
-    // return new user
-    res.status(201).json(admin);
+      // return new user
+      return res.status(201).json(admin);
+    }else {
+      res.json({ message: 'cannot create admin' })
+    }
   } catch (err) {
-    console.log(err);
+    res.status(404).json({ message: err });
   }
 };
 
@@ -111,7 +107,7 @@ const EmailLogin = async (req, res) => {
     const { email, password } = req.body;
 
     // validate user creds
-    if (!(email && password)) {
+    if (!(email)) {
       res.status(400).send("All input is required");
     }
 

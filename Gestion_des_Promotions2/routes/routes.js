@@ -70,4 +70,7 @@ module.exports = (app) => {
   app.get("/CAdminLogin", (req, res) => {
     res.render("../public/views/pages/CAdmin/login.ejs");
   });
+  app.get('/RChefManage', (req, res) => {
+    res.render("../public/views/pages/CAdmin/RAdminTable.ejs");
+  });
 };
