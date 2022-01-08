@@ -52,9 +52,12 @@ const login = async (req, res) => {
           expiresIn: "2h",
         }
       );
+      
       await Auth.update(token, Admin.id);
+
       res.cookie('jwt', token, { httpOnly: true })
       res.cookie('role', Admin.role, { httpOnly: true })
+
       res.status(201).send({
         ok: true,
         message: "Login successful"

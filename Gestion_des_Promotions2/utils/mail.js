@@ -14,7 +14,7 @@ const sendMail = async (email, password) => {
       to: `${email}`,
       subject: "MARJAN CORP",
       title: "YOU CENTER ADMIN PASSWORD",
-      html: `Your password is <h1>${password}</h1>`,
+      html: `Your password is <h1>${password}</h1> http://localhost:8082/CAChangePass`,
     };
 
     mailTransporter.sendMail(mailDetails, function (err, data) {

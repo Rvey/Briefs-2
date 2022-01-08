@@ -37,6 +37,7 @@ tbodyPromo.addEventListener("click", (e) => {
           option.value = product.name;
           option.appendChild(document.createTextNode(product.name));
           df.appendChild(option);
+          
         });
 
         productedit.appendChild(df);
@@ -83,7 +84,6 @@ update.addEventListener("click", (e) => {
     is_center_admin: "1",
     status:"notHandled"
   };
-  console.log(promo);
   fetch(`http://localhost:8082/updatePromo/${e.target.id}`, {
       method: "PUT",
       headers: {

@@ -18,6 +18,7 @@ module.exports = (app) => {
   app.get("/promotion/:id", promotionController.getPromotionById);
   app.put("/updatePromo/:id", promotionController.updatePromotion);
   app.delete("/deletePromo/:id", promotionController.deletePromotion);
+  app.put('/updatePromoStatus/:id', promotionController.updateStatus);
 
   // centerAdmin route
   app.get("/adminCenter", CAdminController.getAllAdmins);
@@ -43,7 +44,7 @@ module.exports = (app) => {
   app.get('/Product/:id', Products.getProductById)
 
   // rayon
-  app.get('/rayon' , Rayon.getAllRayons)
+  app.get('/rayon', Rayon.getAllRayons)
 
   // view general admin  routes
   app.get("/GAdminLogin", (req, res) => {
@@ -72,5 +73,11 @@ module.exports = (app) => {
   });
   app.get('/RChefManage', (req, res) => {
     res.render("../public/views/pages/CAdmin/RAdminTable.ejs");
+  });
+
+
+  // view chef de rayon
+  app.get('/promotionPanel', (req, res) => {
+    res.render("../public/views/pages/RAdmin/PromoHandleTable.ejs");
   });
 };

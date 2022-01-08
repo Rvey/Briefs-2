@@ -30,7 +30,7 @@ tbody.addEventListener('click', e => {
         fetch(`http://localhost:8082/AdminCenter/${e.target.id}`)
             .then(res => res.json())
             .then(data => {
-                UpdateModal.firstName.value = data.firstName,
+                    UpdateModal.firstName.value = data.firstName,
                     UpdateModal.lastName.value = data.lastName,
                     UpdateModal.email.value = data.email,
                     UpdateModal.password.value = data.password,

@@ -126,10 +126,10 @@ const EmailLogin = async (req, res) => {
     }
 
     // validate if user exist in our database
-    const CAdmin = Admins.find((admin) => admin.email == req.body.email);
+    const RAdmin = Admins.find((admin) => admin.email == req.body.email);
 
-    if (CAdmin) {
-      await sendMail.sendMail(email, CAdmin.password);
+    if (RAdmin) {
+      await sendMail.sendMail(email, RAdmin.password);
       res.json({
         message: "Email has been send with your password",
       });
@@ -177,6 +177,9 @@ const login = async (req, res) => {
       RAdmin.token = RAtoken;
 
       await RayonAdmin.update(RAdmin, RAdmin.id);
+      
+      res.cookie('jwt', token, { httpOnly: true })
+      res.cookie('role', RAdmin.role, { httpOnly: true })
 
       res.status(200).json(`welcome ${hours}`);
     } else {

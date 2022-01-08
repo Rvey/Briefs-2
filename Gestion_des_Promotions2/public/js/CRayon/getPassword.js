@@ -5,7 +5,7 @@ getPassForm.addEventListener("submit", (e) => {
   const body = {
     email: getPassForm.email.value
   };
-  fetch("http://localhost:8082/validation/CA", {
+  fetch("http://localhost:8082/validation/RA", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
