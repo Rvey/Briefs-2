@@ -66,11 +66,11 @@ const createAdminRayon = async (req, res) => {
       token: token,
       role: "RA"
     });
-    if(admin) {
+    if (admin) {
 
       // return new user
       return res.status(201).json(admin);
-    }else {
+    } else {
       res.json({ message: 'cannot create admin' })
     }
   } catch (err) {
@@ -79,11 +79,25 @@ const createAdminRayon = async (req, res) => {
 };
 
 const updateRayonAdmin = async (req, res) => {
+
   try {
-    await RayonAdmin.update(req.body, req.params.id);
-    res.json({
-      message: "well updated",
-    });
+    const Admins = await RayonAdmin.getAll();
+    const RAdmin = Admins.find((admin) => admin.id == req.params.id);
+
+    if (RAdmin) {
+      // let { firstName, lastName, email, id_admin_center, rayon, password, token, role } = RAdmin;
+      RAdmin.firstName = req.body.firstName;
+      RAdmin.lastName = req.body.lastName;
+      RAdmin.email = req.body.email;
+      RAdmin.rayon = req.body.rayon;
+      await RayonAdmin.update(RAdmin, req.params.id);
+      res.json({
+        message: "well updated",
+      });
+
+    }else {
+      res.status(404)
+    }
   } catch (error) {
     res.json({
       message: error.message,

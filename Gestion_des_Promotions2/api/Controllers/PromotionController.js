@@ -33,23 +33,23 @@ const createPromotion = async (req, res) => {
 
     if (parseInt(req.body.promotion) <= 50) {
 
-      if (req.body.rayon.localeCompare("multimedia") == 0 && parseInt(req.body.promotion) <= 20) {
-        req.body.loyalty_points = (req.body.promotion / 5) * 50;
-        await Promotion.create(req.body);
-        return res.status(201).send({
-          message: `promotion created for multimedia rayon`,
-        });
-      } else if (req.body.rayon.localeCompare("multimedia") !== 0) {
-        req.body.loyalty_points = (req.body.promotion / 5) * 50;
-        await Promotion.create(req.body);
-        return res.status(201).send({
-          message: `promotion created `,
-        });
-        // console.log(req.body.rayon.localeCompare("multimedia") == 0);
-      } else {
-        return res.status(404).send({ message: 'you cannot create' })
-      }
-
+        if (req.body.rayon.localeCompare("multimedia") == 0 && parseInt(req.body.promotion) <= 20) {
+          req.body.loyalty_points = (req.body.promotion / 5) * 50;
+          await Promotion.create(req.body);
+          return res.status(201).send({
+            message: `promotion created for multimedia rayon`,
+          });
+        } else if (req.body.rayon.localeCompare("multimedia") !== 0) {
+          req.body.loyalty_points = (req.body.promotion / 5) * 50;
+          await Promotion.create(req.body);
+          return res.status(201).send({
+            message: `promotion created `,
+          });
+          // console.log(req.body.rayon.localeCompare("multimedia") == 0);
+        }else {
+          return res.status(404).send({ message : 'you cannot create'})
+        }
+        
     } else {
       return res.json({
         message: "Promotion Greater than 50%",
@@ -66,23 +66,16 @@ const updatePromotion = async (req, res) => {
     // const Promotions = await Promotion.findAll();
     // const promo = Promotions.find((p) => p.id == req.params.id);
 
-    await Promotion.update(req.body, req.params.id);
+        await Promotion.update(req.body, req.params.id);
 
-    // write the action to txt file
-    fs.appendFileSync(
-      "log.txt",
-      `adminCenter ${id_admin_center} has been approve promotion of ${promotion}% on rayon ${rayon} product ${product} \n`,
-      "UTF-8",
-      { flags: "a+" }
-    );
+        // write the action to txt file
 
-    res.json({ message: updated });
-
+        res.json({ message: updated});
+    
   } catch (error) {
     res.json({ message: error.message });
   }
 };
-
 const updateStatus = async (req, res) => {
   try {
     const Promotions = await Promotion.findAll();

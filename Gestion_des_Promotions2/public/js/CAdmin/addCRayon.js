@@ -39,7 +39,7 @@ save.addEventListener("click", (e) => {
                         "Content-Type": "application/json",
                     },
                     body: JSON.stringify({ email: admin.email }),
-                }).then(() => res.redirected('/RChefManage'))
+                }).then(() => location.replace('/RChefManage'))
             }else {
                 error.classList.remove("hidden");
                 setTimeout(() => {

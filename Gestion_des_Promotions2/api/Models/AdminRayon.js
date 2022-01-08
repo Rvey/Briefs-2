@@ -9,12 +9,12 @@ class AdminRayon {
       });
     });
   }
-  static async getRayonAdminById(id) {
-    con.query(`SELECT FROM chef_rayon WHERE id =${id}`, (err, res) => {
-      if (err) {
-        throw err;
-      }
-      resolve(res);
+  static  getRayonAdminById(id) {
+    return new Promise((resolve, reject) => {
+      con.query(`SELECT FROM chef_rayon WHERE id = ${id}`, (err, res) => {
+        if (err) throw err;
+        resolve(res);
+      });
     });
   }
   static createRayonAdmin = async (admin_rayon) => {
@@ -23,7 +23,6 @@ class AdminRayon {
       lastName: admin_rayon.lastName,
       email: admin_rayon.email,
       id_admin_center: admin_rayon.id_admin_center,
-      password: admin_rayon.password,
       rayon: admin_rayon.rayon,
       role: admin_rayon.role,
       token: admin_rayon.token,
@@ -34,7 +33,8 @@ class AdminRayon {
       firstName: RayonAdmin.firstName,
       lastName: RayonAdmin.lastName,
       email: RayonAdmin.email,
-      password: RayonAdmin.password,
+      id_admin_center: RayonAdmin.id_admin_center,
+      rayon: RayonAdmin.rayon,
       role: RayonAdmin.role,
       token: RayonAdmin.token,
     });
