@@ -8,3 +8,11 @@ adminCenter 2   has been approve promotion of 50% on rayon id 1 product id 1
 adminCenter 1   has been approve promotion of 50 on rayon id 1 product id 1 
 adminCenter 1   has been approve promotion of 20% on rayon id 3 product id 1 
 adminCenter 1   has been approve promotion of 20% on rayon id 3 product id 1 
+adminCenter null has been approve promotion of 20% on rayon electronic product bimo 
+adminCenter null has been approve promotion of 20% on rayon electronic product bimo 
+adminCenter null has been approve promotion of 20% on rayon electronic product bimo 
+adminCenter null has been approve promotion of 20% on rayon electronic product bimo 
+adminCenter null has been approve promotion of 20% on rayon electronic product bimo 
+adminCenter null has been approve promotion of 20% on rayon multimedia product mouse 
+adminCenter null has been approve promotion of 20% on rayon multimedia product mouse 
+adminCenter null has been approve promotion of 20% on rayon multimedia product mouse 

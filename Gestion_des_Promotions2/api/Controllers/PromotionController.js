@@ -29,31 +29,30 @@ const createPromotion = async (req, res) => {
   try {
     // const product = await Product.getProductById(req.body.id_product);
 
-    const rayon = await Rayon.getRayonById(req.body.id_rayon);
+    const rayons = await Rayon.findAll();
+
     if (parseInt(req.body.promotion) <= 50) {
-      if (rayon[0].nom == "multimedia" && req.body.promotion <= 20) {
+
+      if (req.body.rayon.localeCompare("multimedia") == 0 && parseInt(req.body.promotion) <= 20) {
         req.body.loyalty_points = (req.body.promotion / 5) * 50;
         await Promotion.create(req.body);
-        res.json({
+        return res.status(201).send({
           message: `promotion created for multimedia rayon`,
         });
-      } else if (
-        rayon[0].nom == "electronic" ||
-        rayon[0].nom == "alimentation"
-      ) {
+      } else if (req.body.rayon.localeCompare("multimedia") !== 0) {
         req.body.loyalty_points = (req.body.promotion / 5) * 50;
         await Promotion.create(req.body);
-        res.json({
+        return res.status(201).send({
           message: `promotion created `,
         });
+        // console.log(req.body.rayon.localeCompare("multimedia") == 0);
+      } else {
+        return res.status(404).send({ message: 'you cannot create' })
       }
-      res.json({
-        message: "promotion not created",
-      });
-    } else {
 
-      res.json({
-        message: "Promotion Not Created",
+    } else {
+      return res.json({
+        message: "Promotion Greater than 50%",
       });
     }
 
@@ -64,14 +63,37 @@ const createPromotion = async (req, res) => {
 
 const updatePromotion = async (req, res) => {
   try {
+    // const Promotions = await Promotion.findAll();
+    // const promo = Promotions.find((p) => p.id == req.params.id);
+
+    await Promotion.update(req.body, req.params.id);
+
+    // write the action to txt file
+    fs.appendFileSync(
+      "log.txt",
+      `adminCenter ${id_admin_center} has been approve promotion of ${promotion}% on rayon ${rayon} product ${product} \n`,
+      "UTF-8",
+      { flags: "a+" }
+    );
+
+    res.json({ message: updated });
+
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+};
+
+const updateStatus = async (req, res) => {
+  try {
     const Promotions = await Promotion.findAll();
     const promo = Promotions.find((p) => p.id == req.params.id);
 
     const {
       promotion,
       id_admin_center,
-      id_product,
-      id_rayon,
+      product,
+      rayon,
+      expiration,
       date_promotion,
       status,
     } = promo;
@@ -91,22 +113,23 @@ const updatePromotion = async (req, res) => {
         // write the action to txt file
         fs.appendFileSync(
           "log.txt",
-          `adminCenter ${id_admin_center}   has been approve promotion of ${promotion}% on rayon id ${id_rayon} product id ${id_product} \n`,
+          `adminCenter ${id_admin_center} has been approve promotion of ${promotion}% on rayon ${rayon} product ${product} \n`,
           "UTF-8",
           { flags: "a+" }
         );
 
         res.json({ message: "status updated" });
       }
+    } else {
+
+      res.json({
+        message: "promotion not found",
+      });
     }
-    res.json({
-      message: "promotion not found",
-    });
   } catch (error) {
     res.json({ message: error.message });
   }
 };
-
 const deletePromotion = async (req, res) => {
   try {
     await Promotion.destroy(req.params.id);

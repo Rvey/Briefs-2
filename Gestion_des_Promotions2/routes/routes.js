@@ -5,6 +5,8 @@ module.exports = (app) => {
   const CAdminController = require("../api/Controllers/CAdminController");
   const RAdminController = require("../api/Controllers/RAdminController");
   const Admin = require("../api/Controllers/AdminAuthController");
+  const Products = require('../api/Controllers/ProductsController.js')
+  const Rayon = require('../api/Controllers/rayonController')
 
   // admin
   app.post("/login", Admin.login);
@@ -36,18 +38,25 @@ module.exports = (app) => {
   app.post("/validation/RA", RAdminController.EmailLogin);
   app.post("/login/RA", RAdminController.login);
 
+  // Products routes 
+  app.get('/Products', Products.getAllProducts)
+  app.get('/Product/:id', Products.getProductById)
+
+  // rayon
+  app.get('/rayon' , Rayon.getAllRayons)
+
   // view general admin  routes
   app.get("/GAdminLogin", (req, res) => {
     res.render("../public/views/pages/GAdmin/login.ejs");
   });
-  app.get("/GAdminDash", requireGAAuth, (req, res) => {
+  app.get("/GAdminDash", (req, res) => {
     res.render("../public/views/pages/GAdmin/GAdminPage.ejs");
   });
   app.get("/Statistics", (req, res) => {
     res.render("../public/views/pages/GAdmin/Statisctics.ejs");
   });
   app.get("/ManagePromotion", (req, res) => {
-    res.render("../public/views/pages/GAdmin/MPromotion.ejs");
+    res.render("../public/views/pages/CAdmin/MPromotion.ejs");
   });
 
 

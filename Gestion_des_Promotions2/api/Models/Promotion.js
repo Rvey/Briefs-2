@@ -13,10 +13,11 @@ class Promotion {
     con.query("INSERT INTO promotions SET ?", {
       promotion: promotion.promotion,
       id_admin_center: promotion.id_admin_center,
-      id_rayon: promotion.id_rayon,
-      id_product: promotion.id_product,
+      rayon: promotion.rayon,
+      product: promotion.product,
       loyalty_points: promotion.loyalty_points,
-      date_promotion: promotion.date_promotion,
+      created_at: promotion.created_at,
+      expiration: promotion.expiration,
       status: promotion.status,
     });
   }
@@ -25,10 +26,11 @@ class Promotion {
     con.query(`UPDATE promotions SET ? WHERE id =${id}`, {
       promotion: promotion.promotion,
       id_admin_center: promotion.id_admin_center,
-      id_rayon: promotion.id_rayon,
+      rayon: promotion.rayon,
+      product: promotion.product,
       loyalty_points: promotion.loyalty_points,
-      id_product: promotion.id_product,
-      date_promotion: promotion.date_promotion,
+      created_at: promotion.created_at,
+      expiration: promotion.expiration,
       status: promotion.status,
     });
   }

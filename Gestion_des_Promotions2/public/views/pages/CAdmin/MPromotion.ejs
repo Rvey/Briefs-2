@@ -1,30 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <%- include('../../partials/head.ejs'); %>
-      </head>
-<body>
-    <header class="bg-white shadow">
-        <div class="flex justify-between py-6 px-4 sm:px-6 lg:px-8">
-          <div class="text-3xl font-bold text-gray-900">
-            Manage chef Rayon
-          </div>
-          <button type="button"
-            class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 add">
-  
-            <svg class="w-6 h-6 mr-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-            </svg>
-            Add Rayon Chef
-          </button>
-        </div>
-      </header>
-    <main>
-        <%- include('../../components/RAdminTable.ejs') %>
-      </main>
 
-    <!-- update modal -->
-<form class="fixed z-10 inset-0 overflow-y-auto modal updateForm hidden">
+<head>
+  <%- include('../../partials/head.ejs') %>
+</head>
+
+<body>
+
+  <%- include('../../partials/header.ejs') %>
+  <header class="bg-white shadow">
+    <div class="flex justify-between py-6 px-4 sm:px-6 lg:px-8">
+      <div class="text-3xl font-bold text-gray-900">
+        Manage Promotion
+      </div>
+      <button type="button"
+        class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 add">
+
+        <svg class="w-6 h-6 mr-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+        </svg>
+        Add Promotion
+      </button>
+    </div>
+  </header>
+  <%- include('../../components/PromoTable.ejs') %>
+  <!-- update modal -->
+  <form class="fixed z-10 inset-0 overflow-y-auto modal updateForm hidden">
     <div class="
           flex
           items-end
@@ -37,10 +39,10 @@
           sm:block sm:p-0
         ">
       <div class="fixed inset-0 bg-gray-500 bg-opacity-75 click" aria-hidden="true"></div>
-  
+
       <!-- This element is to trick the browser into centering the modal contents. -->
       <span class="hidden sm:inline-block sm:align-middle sm:h-screen " aria-hidden="true">&#8203;</span>
-  
+
       <div class="
             inline-block
             align-bottom
@@ -73,41 +75,67 @@
                 <!-- Heroicon name: outline/exclamation -->
               </div>
               <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
-                Update Center Admin
+                Update Promotion 
               </h3>
             </div>
             <!-- extra services  -->
             <div class="mt-2 ">
               <!-- name -->
-              <div class="mt-5">fistName</div>
+              <div class="mt-5">Promo Amount</div>
               <div>
-                <input type="name" name="firstName"
+                <input type="number" name="promotion"
                   class="text-sm text-gray-900 name w-full p-1 border-2 border-l-indigo-200 rounded-md" />
               </div>
               <!-- name -->
-              <div class="mt-5">lastName</div>
+           <!-- name -->
+              <div class="mt-5">Promo duration</div>
               <div>
-                <input type="name" name="lastName"
-                  class="text-sm text-gray-900 name w-full p-1 border-2 border-l-indigo-200 rounded-md" />
+                <select class="
+                durationedit
+                w-full
+                px-3
+                py-2
+                mb-3
+                text-sm
+                leading-tight
+                text-gray-700
+                border
+                rounded
+                cursor-pointer
+                appearance-none
+                focus:outline-none focus:ring-2
+              " value="" name="" id="">
+                  <option value="15">15 days</option>
+                  <option value="7">7 days</option>
+                  <option value="21">21 days</option>
+                </select>
               </div>
-              <!-- name -->
-              <div class="mt-5">Email</div>
+              <!-- rayon -->
+              <div class="mt-5">rayon</div>
               <div>
-                <input type="email" name="email"
-                  class="text-sm text-gray-900 name w-full p-1 border-2 border-l-indigo-200 rounded-md" />
-              </div>
-              <!-- email -->
-              <div class="mt-5">Password</div>
-              <div>
-                <input type="password" name="password"
-                  class="text-sm text-gray-900 email w-full p-1 border-2 border-l-indigo-200 rounded-md" />
+                <select class="
+                rayonedit
+                w-full
+                px-3
+                py-2
+                mb-3
+                text-sm
+                leading-tight
+                text-gray-700
+                border
+                rounded
+                cursor-pointer
+                appearance-none
+                focus:outline-none focus:ring-2
+              " value="" name="" id="">
+                </select>
               </div>
               <!-- center -->
-              <div class="mt-5">Center</div>
+              <div class="mt-5">Product</div>
               <div>
-  
+
                 <select class="
-                       centeredit
+                     productedit
                        w-full
                        px-3
                        py-2
@@ -121,17 +149,6 @@
                        appearance-none
                        focus:outline-none focus:ring-2
                      " value="" name="" id="">
-                  <option value="safi">safi</option>
-                  <option value="casablanca">casablanca</option>
-                  <option value="marrakesh">marrakesh</option>
-                </select>
-              </div>
-              <!-- vacation -->
-              <div class="mt-5">
-                <div>work vacation</div>
-                <select class="vacation border rounded-md w-full">
-                  <option value="yes">Yes</option>
-                  <option value="no">No</option>
                 </select>
               </div>
             </div>
@@ -159,8 +176,8 @@
                 focus:ring-indigo-500
                 sm:ml-3 sm:w-auto sm:text-sm
               " />
-  
-  
+
+
           <input type="button" value="delete" id="" class="
                 delete
                 mt-3
@@ -181,13 +198,13 @@
                 focus:ring-indigo-500
                 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm
               " />
-  
-  
+
+
         </div>
       </div>
     </div>
   </form>
-  
+
   <!-- modal confirm delete-->
   <form class="fixed z-10 inset-0 overflow-y-auto modal confirmModal hidden">
     <div class="
@@ -202,10 +219,10 @@
           sm:block sm:p-0
         ">
       <div class="fixed inset-0 bg-gray-500 bg-opacity-75 click" aria-hidden="true"></div>
-  
+
       <!-- This element is to trick the browser into centering the modal contents. -->
       <span class="hidden sm:inline-block sm:align-middle sm:h-screen " aria-hidden="true">&#8203;</span>
-  
+
       <div class="
             inline-block
             align-bottom
@@ -247,8 +264,8 @@
                 cursor-pointer
                 sm:ml-3 sm:w-auto sm:text-sm
               " />
-  
-  
+
+
           <input type="button" value="delete" id="" class="
                 deleteConfirm
                 mt-3
@@ -270,14 +287,14 @@
                 cursor-pointer
                 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm
               " />
-  
-  
+
+
         </div>
       </div>
     </div>
   </form>
-  
-  <!-- add admin center modal -->
+
+  <!-- add promotion modal -->
   <form class="fixed z-10 inset-0 overflow-y-auto modal addForm hidden">
     <div class="
           flex
@@ -291,10 +308,10 @@
           sm:block sm:p-0
         ">
       <div class="fixed inset-0 bg-gray-500 bg-opacity-75 clickov" aria-hidden="true"></div>
-  
+
       <!-- This element is to trick the browser into centering the modal contents. -->
       <span class="hidden sm:inline-block sm:align-middle sm:h-screen " aria-hidden="true">&#8203;</span>
-  
+
       <div class="
             inline-block
             align-bottom
@@ -312,68 +329,29 @@
         <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
           <!-- modal body  -->
           <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-            <div class="flex items-center gap-5 mb-4">
-              <div class="
-                    mx-auto
-                    flex-shrink-0 flex
-                    items-center
-                    justify-center
-                    h-12
-                    w-12
-                    rounded-full
-                    bg-indigo-100
-                    sm:mx-0 sm:h-10 sm:w-10
-                  ">
-                <!-- Heroicon name: outline/exclamation -->
-              </div>
-              <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
+            <div class="flex items-center gap-5 mb-4 justify-between">
+
+              <h3 class="text-lg leading-6  font-medium text-gray-900" id="modal-title">
                 Add Promotion
               </h3>
+              <div>
+                <input type="date" class="datePicker text-right rounded-md" value="" readonly disabled>
+              </div>
             </div>
             <!-- extra services  -->
             <div class="mt-2 ">
-              <!-- Promotion Amount -->
-              <div class="mt-5">Promotion Amount</div>
+              <!-- promotion -->
+              <div class="mt-5">promotion</div>
               <div>
-                <input type="text" name="promotion"
+                <input type="number" name="promotion"
                   class="text-sm text-gray-900 name w-full p-1 border-2 border-l-indigo-200 rounded-md" />
               </div>
-              <!-- admin center -->
-              <div class="mt-5">admin Center</div>
+              <!-- rayon -->
+              <div class="mt-5">rayon</div>
               <div>
-                <input type="text" name="CenterAdmin"
-                  class="text-sm text-gray-900 name w-full p-1 border-2 border-l-indigo-200 rounded-md" />
-              </div>
-                <!-- RAYON -->
-                <div class="mt-5">rayon</div>
-                <div>
-    
-                  <select class="
-                      center
-                      w-full
-                      px-3
-                      py-2
-                      mb-3
-                      text-sm
-                      leading-tight
-                      text-gray-700
-                      border
-                      rounded
-                      cursor-pointer
-                      appearance-none
-                      focus:outline-none focus:ring-2
-                    " value="" name="" id="">
-                    <option value="electronic">electronic</option>
-                    <option value="multimedia">multimedia</option>
-                    <option value="alimentation">alimentation</option>
-                  </select>
-                </div>
-              <!-- Product -->
-              <div class="mt-5">Product</div>
-              <div>
-  
+
                 <select class="
-                    center
+                    rayon
                     w-full
                     px-3
                     py-2
@@ -387,9 +365,53 @@
                     appearance-none
                     focus:outline-none focus:ring-2
                   " value="" name="" id="">
-                  <option value="safi">safi</option>
-                  <option value="casablanca">casablanca</option>
-                  <option value="marrakesh">marrakesh</option>
+
+                </select>
+              </div>
+              <!-- product -->
+              <div class="mt-5 selectt">product</div>
+              <div>
+
+                <select class="
+                      product
+                       w-full
+                       px-3
+                       py-2
+                       mb-3
+                       text-sm
+                       leading-tight
+                       text-gray-700
+                       border
+                       rounded
+                       cursor-pointer
+                       appearance-none
+                       focus:outline-none focus:ring-2
+                     " value="" name="" id="">
+                     <!-- <option value="safi">${product.nom}</option> -->
+                </select>
+              </div>
+              <!-- expiration -->
+              <div class="mt-5">duration</div>
+              <div>
+
+                <select class="
+                        expiration
+                         w-full
+                         px-3
+                         py-2
+                         mb-3
+                         text-sm
+                         leading-tight
+                         text-gray-700
+                         border
+                         rounded
+                         cursor-pointer
+                         appearance-none
+                         focus:outline-none focus:ring-2
+                       " value="" name="" id="">
+                  <option value="5">5 days</option>
+                  <option value="15">15 days</option>
+                  <option value="21">21 days</option>
                 </select>
               </div>
             </div>
@@ -422,4 +444,7 @@
     </div>
   </form>
 </body>
+<script src="../../../js/CAdmin/Promotion.js"></script>
+<script src="../../../js/CAdmin/PromoTable.js"></script>
+
 </html>
