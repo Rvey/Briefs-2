@@ -2,6 +2,7 @@ const Promotion = require("../Models/Promotion");
 const fs = require("fs");
 const Product = require("../Models/Product");
 const Rayon = require("../Models/rayon");
+const Logs = require("../Models/Log");
 
 const getAllPromotions = async (req, res) => {
   try {
@@ -128,13 +129,12 @@ const updateStatus = async (req, res) => {
       let date = new Date();
       let hours = date.getHours();
 
-      if (hours <= 8 || hours > 17) {
+      if (hours <= 8 || hours > 19) {
         // promo.status = "Processed";
         // await Promotion.update(promo, req.params.id);
-        res.json({ message: "cannot status updated out of work time" , hours : hours >=  8 });
+        res.json({ message: "cannot status updated out of work time" });
       } else {
-
-        promo.status = "Processed";
+        promo.status = req.body.status;
         await Promotion.update(promo, req.params.id);
 
         // // write the action to txt file
@@ -145,7 +145,16 @@ const updateStatus = async (req, res) => {
         //   { flags: "a+" }
         // );
 
-        res.status(201).send({ message: "status updated" });
+        const Alog = {
+          RA_id: req.body.RA_id,
+          email: req.body.email,
+          rayon: req.body.rayon,
+          promo: promo.promotion,
+          product: promo.product
+        }
+        await Logs.create(Alog)
+
+        // res.status(201).send({ message: "status updated" });
       }
     } else {
 

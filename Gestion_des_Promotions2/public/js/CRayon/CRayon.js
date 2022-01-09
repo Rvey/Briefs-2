@@ -2,16 +2,16 @@ const tbody = document.querySelector(".tbody")
 // const currentAdmin = JSON.parse(sessionStorage('admin'))
 tbody.addEventListener('click', e => {
     if (e.target.classList.contains('approve'))
-        console.log('approved', e.target.id);
-    const status = {
-        status: 'handled'
-    }
     fetch(`http://localhost:8082/updatePromoStatus/${e.target.id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(status),
+        body: JSON.stringify({status: 'Approved',
+        email: currentAdmin.email , 
+        rayon: currentAdmin.rayon,
+        RA_id: currentAdmin.id 
+    }),
     })
     .then((res) => {
         if (res.status == 201) {
@@ -39,9 +39,19 @@ fetch("http://localhost:8082/promotion")
                 <td class="p-3 truncate"> ${formatDate(promo.created_at)}</td>
                 <td class="p-3 truncate">${promo.loyalty_points}</td>
                 <td class="p-3 truncate">${promo.status}</td>
-                <td class="p-3 text-red-400 text-center font-bold hover:text-red-600 hover:font-medium cursor-pointer">
-                <input type="button" class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 cursor-pointer approve" value="Approve" id="${promo.id}"/>
-                </td>
+                ${ promo.status !== 'Approved' ?
+            ` 
+            <td class="p-3 text-center">
+            <input type="button" class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 cursor-pointer approve" value="Approve" id="${promo.id}"/>
+            </td>   
+            `
+            :
+            `  
+            <td class="p-3 text-center">
+            <input type="button" class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 cursor-pointer approve" value="Approved" id="${promo.id}" disabled/>
+            </td>
+            `
+        }     
               </tr>
               `;
             }

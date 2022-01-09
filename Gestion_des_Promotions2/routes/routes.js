@@ -10,10 +10,15 @@ module.exports = (app) => {
   const Admin = require("../api/Controllers/AdminAuthController");
   const Products = require("../api/Controllers/ProductsController.js");
   const Rayon = require("../api/Controllers/rayonController");
+  const logs = require("../api/Controllers/logController");
 
   // admin
   app.post("/login", Admin.login);
   app.get("/logout", Admin.logout);
+
+  // logs
+  app.post('/log', logs.createLog)
+  app.get('/log', logs.getAllLog)
 
   // PROMOTION
   app.get("/promotion", promotionController.getAllPromotions);
