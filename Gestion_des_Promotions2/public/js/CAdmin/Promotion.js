@@ -26,17 +26,30 @@ ShowAddModal.addEventListener("click", (e) => {
 overlayA.addEventListener("click", (e) => {
   AddModal.classList.add("hidden");
 });
+const formatDate = (date) => {
+  let d = new Date(date),
+      month = '' + (d.getMonth() + 1),
+      day = '' + d.getDate(),
+      year = d.getFullYear();
 
+  if (month.length < 2)
+      month = '0' + month;
+  if (day.length < 2)
+      day = '0' + day;
+
+  return [year, month, day].join('-');
+}
+// const currentAdmin = JSON.parse(sessionStorage('admin'))
 // add mew promotion
 save.addEventListener("click", (e) => {
   const promotion = {
     promotion: AddModal.promotion.value,
     expiration: expiration.value,
-    created_at: datePicker.value,
+    created_at: formatDate(datePicker.value),
     rayon: rayon.value,
     product: products.value,
-    is_center_admin: 1,
-    status: "notHandled",
+    id_admin_center: currentAdmin.id,
+    status: "--",
   };
   console.log(promotion);
   fetch(`http://localhost:8082/promotion`, {

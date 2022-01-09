@@ -73,7 +73,7 @@ const login = async (req, res) => {
 const logout = async (req, res) => {
   res.cookie('jwt', '', { maxAge: 1 })
   res.cookie('role', '')
-  res.redirect('/login')
+  res.status(200).send({message : ' log out '})
 }
 
 module.exports = {

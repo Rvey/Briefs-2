@@ -1,6 +1,10 @@
 const jwt = require('jsonwebtoken')
 
-const requireGAAuth = (req, res, next) => {
+// const checkUser = (req, res,next) => {
+//     const token = req.cookies.jwt
+// }
+
+const requireGAAuth = (req, res, next ) => {
 
     const token = req.cookies.jwt;
     const role = req.cookies.role;

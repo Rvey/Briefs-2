@@ -91,9 +91,9 @@ const updateStatus = async (req, res) => {
       let date = new Date();
       let hours = date.getHours();
 
-      if (hours >= 8 || hours < 12) {
-        promo.status = "Not Processed";
-        await Promotion.update(promo, req.params.id);
+      if (hours <= 8 || hours > 16) {
+        // promo.status = "Not Processed";
+        // await Promotion.update(promo, req.params.id);
         res.json({ message: "you cannot update status" });
       } else {
         promo.status = "Not Processed";

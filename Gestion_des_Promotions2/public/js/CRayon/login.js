@@ -6,12 +6,12 @@ loginForm.addEventListener('submit', e => {
         password: loginForm.password.value
     }
     fetch("http://localhost:8082/login/RA", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(admin),
-    })
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(admin),
+        })
         .then((res) => res.json())
         .then((data) => {
             const admin = {
@@ -20,7 +20,7 @@ loginForm.addEventListener('submit', e => {
                 role: data.role,
                 rayon: data.rayon
             }
-            
+
             sessionStorage.setItem('admin', JSON.stringify(admin)
 
 
@@ -37,7 +37,9 @@ loginForm.addEventListener('submit', e => {
                                 headers: {
                                     "Content-Type": "application/json",
                                 },
-                                body: JSON.stringify({ status: 'on hold' }),
+                                body: JSON.stringify({
+                                    status: 'on hold'
+                                }),
                             })
                     })
                 }).then(() => {

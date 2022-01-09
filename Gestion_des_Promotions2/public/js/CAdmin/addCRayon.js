@@ -13,6 +13,7 @@ ShowAddModal.addEventListener("click", (e) => {
 overlayA.addEventListener("click", (e) => {
     AddModal.classList.add("hidden");
 });
+// const currentAdmin = JSON.parse(sessionStorage('admin'))
 
 // add mew admin
 save.addEventListener("click", (e) => {
@@ -20,7 +21,7 @@ save.addEventListener("click", (e) => {
         firstName: AddModal.firstName.value,
         lastName: AddModal.lastName.value,
         email: AddModal.email.value,
-        id_admin_center: 26,
+        id_admin_center: currentAdmin.id,
         rayon: rayon.value,
     };
     fetch(`http://localhost:8082/AdminRayon`, {
