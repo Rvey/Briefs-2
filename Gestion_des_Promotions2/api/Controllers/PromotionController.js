@@ -91,7 +91,7 @@ const updateStatusOnLogin = async (req, res) => {
       let date = new Date();
       let hours = date.getHours();
 
-      if (hours <= 8 || hours > 17 || promo.status == "--") {
+      if (hours <= 8 || hours > 17 || promo.status == "onHold") {
         promo.status = "Not Processed";
         await Promotion.update(promo, req.params.id);
         res.json({ message: "status updated" });

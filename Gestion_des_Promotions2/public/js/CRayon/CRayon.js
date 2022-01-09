@@ -19,15 +19,17 @@ tbody.addEventListener('click', e => {
         }
     })
 })
+// set the current day to input value 
+const date = new Date();
+const datePicker = date.toISOString().substring(0, 10);
 
 
-console.log(new Date(2022-1-1).getDay() < new Date(2022-1-10).getDay()); 
 // show promotion
 fetch("http://localhost:8082/promotion")
     .then((res) => res.json())
     .then((data) => {
         data.map((promo) => {
-            if (currentAdmin.rayon == promo.rayon) {
+            if (currentAdmin.rayon == promo.rayon && datePicker == formatDate(promo.created_at)) {
                 tbody.innerHTML += `
                 <tr class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0 border-b-[2px] border-gray-100 hover:bg-gray-100">
                 <td class="p-3 truncate">${promo.promotion} %</td>

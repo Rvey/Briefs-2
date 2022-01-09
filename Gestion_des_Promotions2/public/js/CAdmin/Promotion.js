@@ -13,7 +13,6 @@ const datePicker = document.querySelector('.datePicker')
 
 // set the current day to input value 
 const date = new Date();
-
 datePicker.value = date.toISOString().substring(0, 10);
 
 
@@ -49,7 +48,7 @@ save.addEventListener("click", (e) => {
     rayon: rayon.value,
     product: products.value,
     id_admin_center: currentAdmin.id,
-    status: "--",
+    status: "onHold",
   };
   console.log(promotion);
   fetch(`http://localhost:8082/promotion`, {
