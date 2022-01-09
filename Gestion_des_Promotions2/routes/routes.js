@@ -22,6 +22,7 @@ module.exports = (app) => {
   app.put("/updatePromo/:id", promotionController.updatePromotion);
   app.delete("/deletePromo/:id", promotionController.deletePromotion);
   app.put("/updatePromoStatus/:id", promotionController.updateStatus);
+  app.put("/updatePSOnLogin/:id", promotionController.updateStatusOnLogin);
 
   // centerAdmin route
   app.get("/adminCenter", CAdminController.getAllAdmins);

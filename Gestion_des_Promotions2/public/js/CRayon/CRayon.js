@@ -12,15 +12,16 @@ tbody.addEventListener('click', e => {
             "Content-Type": "application/json",
         },
         body: JSON.stringify(status),
-    }).then((res) => {
-        if (res.status == 200) {
+    })
+    .then((res) => {
+        if (res.status == 201) {
             location.replace('/promotionPanel')
         }
     })
 })
 
 
-console.log(new Date(2022-1-11) >= new Date(2022-1-10)); 
+console.log(new Date(2022-1-1).getDay() < new Date(2022-1-10).getDay()); 
 // show promotion
 fetch("http://localhost:8082/promotion")
     .then((res) => res.json())

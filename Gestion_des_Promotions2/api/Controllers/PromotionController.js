@@ -83,6 +83,43 @@ const updatePromotion = async (req, res) => {
   }
 };
 
+const updateStatusOnLogin = async (req, res) => {
+  try {
+    const Promotions = await Promotion.findAll();
+    const promo = Promotions.find((p) => p.id == req.params.id);
+    if (promo) {
+      let date = new Date();
+      let hours = date.getHours();
+
+      if (hours <= 8 || hours > 17 || promo.status == "--") {
+        promo.status = "Not Processed";
+        await Promotion.update(promo, req.params.id);
+        res.json({ message: "status updated" });
+      } else {
+
+        // promo.status = "Not Processed";
+        // await Promotion.update(promo, req.params.id);
+
+        // // write the action to txt file
+        // fs.appendFileSync(
+        //   "log.txt",
+        //   `adminCenter ${promo.id_admin_center} has been approve promotion of ${promo.promotion}% on rayon ${promo.rayon} product ${promo.product} \n`,
+        //   "UTF-8",
+        //   { flags: "a+" }
+        // );
+
+        res.status(404).send({ message: "cannot status updated" });
+      }
+    } else {
+
+      res.status(404).send({
+        message: "promotion not found",
+      });
+    }
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+};
 const updateStatus = async (req, res) => {
   try {
     const Promotions = await Promotion.findAll();
@@ -91,21 +128,22 @@ const updateStatus = async (req, res) => {
       let date = new Date();
       let hours = date.getHours();
 
-      if (hours <= 8 || hours > 16) {
-        // promo.status = "Not Processed";
+      if (hours <= 8 || hours > 17) {
+        // promo.status = "Processed";
         // await Promotion.update(promo, req.params.id);
-        res.json({ message: "you cannot update status" });
+        res.json({ message: "cannot status updated out of work time" , hours : hours >=  8 });
       } else {
-        promo.status = "Not Processed";
+
+        promo.status = "Processed";
         await Promotion.update(promo, req.params.id);
 
-        // write the action to txt file
-        fs.appendFileSync(
-          "log.txt",
-          `adminCenter ${promo.id_admin_center} has been approve promotion of ${promo.promotion}% on rayon ${promo.rayon} product ${promo.product} \n`,
-          "UTF-8",
-          { flags: "a+" }
-        );
+        // // write the action to txt file
+        // fs.appendFileSync(
+        //   "log.txt",
+        //   `adminCenter ${promo.id_admin_center} has been approve promotion of ${promo.promotion}% on rayon ${promo.rayon} product ${promo.product} \n`,
+        //   "UTF-8",
+        //   { flags: "a+" }
+        // );
 
         res.status(201).send({ message: "status updated" });
       }
@@ -137,4 +175,5 @@ module.exports = {
   deletePromotion,
   updatePromotion,
   updateStatus,
+  updateStatusOnLogin
 };

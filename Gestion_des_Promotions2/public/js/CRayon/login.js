@@ -32,7 +32,7 @@ loginForm.addEventListener('submit', e => {
                 .then((data) => {
                     data.map((promo) => {
                         if (currentAdmin.rayon == promo.rayon)
-                            fetch(`http://localhost:8082/updatePromoStatus/${promo.id}`, {
+                            fetch(`http://localhost:8082/updatePSOnLogin/${promo.id}`, {
                                 method: "PUT",
                                 headers: {
                                     "Content-Type": "application/json",
