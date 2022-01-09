@@ -35,6 +35,19 @@ class Promotion {
     });
   }
 
+  static async updateLoginRA(promotion, rayon) {
+    con.query(`UPDATE promotions SET ? WHERE rayon =${rayon}`, {
+      promotion: promotion.promotion,
+      id_admin_center: promotion.id_admin_center,
+      rayon: promotion.rayon,
+      product: promotion.product,
+      loyalty_points: promotion.loyalty_points,
+      created_at: promotion.created_at,
+      expiration: promotion.expiration,
+      status: promotion.status,
+    });
+  }
+
   static async destroy(id) {
     con.query(`DELETE FROM promotions WHERE id =${id}`, (err, result) => {
       if (err) throw err;

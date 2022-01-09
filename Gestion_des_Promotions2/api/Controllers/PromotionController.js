@@ -82,6 +82,7 @@ const updatePromotion = async (req, res) => {
     res.json({ message: error.message });
   }
 };
+
 const updateStatus = async (req, res) => {
   try {
     const Promotions = await Promotion.findAll();
@@ -90,12 +91,12 @@ const updateStatus = async (req, res) => {
       let date = new Date();
       let hours = date.getHours();
 
-      if (hours <= 8 || hours > 23) {
-        // promo.status = "Not Processed";
-        // await Promotion.update(promo, req.params.id);
+      if (hours >= 8 || hours < 12) {
+        promo.status = "Not Processed";
+        await Promotion.update(promo, req.params.id);
         res.json({ message: "you cannot update status" });
       } else {
-        promo.status = "Approved";
+        promo.status = "Not Processed";
         await Promotion.update(promo, req.params.id);
 
         // write the action to txt file
@@ -106,11 +107,11 @@ const updateStatus = async (req, res) => {
           { flags: "a+" }
         );
 
-        res.json({ message: "status updated" });
+        res.status(201).send({ message: "status updated" });
       }
     } else {
 
-      res.json({
+      res.status(404).send({
         message: "promotion not found",
       });
     }
@@ -135,5 +136,5 @@ module.exports = {
   getPromotionById,
   deletePromotion,
   updatePromotion,
-  updateStatus
+  updateStatus,
 };

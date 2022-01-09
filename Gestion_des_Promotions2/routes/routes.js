@@ -1,6 +1,6 @@
 
 module.exports = (app) => {
-  const { requireGAAuth } = require("../middleware/GAdmin");
+  const { requireGAAuth , requireCAAuth ,requireRAAuth } = require("../middleware/GAdmin");
   const promotionController = require("../api/Controllers/PromotionController");
   const CAdminController = require("../api/Controllers/CAdminController");
   const RAdminController = require("../api/Controllers/RAdminController");
@@ -56,8 +56,8 @@ module.exports = (app) => {
   app.get("/Statistics",requireGAAuth, (req, res) => {
     res.render("../public/views/pages/GAdmin/Statisctics.ejs");
   });
-  
-  
+
+
   // view center admin routes
   app.get("/CAChangePass", (req, res) => {
     res.render("../public/views/pages/CAdmin/changePassword.ejs");
@@ -86,6 +86,7 @@ module.exports = (app) => {
   app.get("/CRALogin", (req, res) => {
     res.render("../public/views/pages/RAdmin/login.ejs");
   });
+
 
 
   app.get('/promotionPanel', (req, res) => {
