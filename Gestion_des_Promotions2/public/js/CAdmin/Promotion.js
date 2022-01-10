@@ -38,26 +38,57 @@ const formatDate = (date) => {
 
   return [year, month, day].join('-');
 }
+
+const reservedDates = []
 // const currentAdmin = JSON.parse(sessionStorage('admin'))
 // add mew promotion
+
 save.addEventListener("click", (e) => {
-  const promotion = {
-    promotion: AddModal.promotion.value,
-    expiration: expiration.value,
-    created_at: formatDate(datePicker.value),
-    rayon: rayon.value,
-    product: products.value,
-    id_admin_center: currentAdmin.id,
-    status: "onHold",
-  };
-  console.log(promotion);
-  fetch(`http://localhost:8082/promotion`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(promotion),
+
+  fetch('http://localhost:8082/promotion').then((res) => res.json()).then((data) => {
+    data.map((el) => {
+    
+        reservedDates.push(formatDate(el.created_at))
+      
+    })
   })
+  .then(() => {
+    
+    const dup = reservedDates.find((dae) => dae == datePicker.value)
+    if (dup) {
+      error.innerHTML = `you cannot create multiple promotion in the same day`
+      setTimeout(() => {
+        error.innerHTML = ``
+      }, 2000)
+    }else {
+        const promotion = {
+          promotion: AddModal.promotion.value,
+          expiration: expiration.value,
+          created_at: formatDate(datePicker.value),
+          rayon: rayon.value,
+          product: products.value,
+          id_admin_center: currentAdmin.id,
+          status: "onHold",
+        };
+        console.log(promotion);
+        fetch(`http://localhost:8082/promotion`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(promotion),
+        }).then((res) => 
+      {  if (res.status == 201) {
+          location.replace('/ManagePromotion')
+        }}
+        )
+    }
+    // console.log(dup);
+ 
+  })
+
+
+
 });
 
 

@@ -24,6 +24,7 @@ class AdminRayon {
       email: admin_rayon.email,
       id_admin_center: admin_rayon.id_admin_center,
       rayon: admin_rayon.rayon,
+      approvedPromo:0,
       role: admin_rayon.role,
       token: admin_rayon.token,
     });
@@ -36,6 +37,7 @@ class AdminRayon {
       id_admin_center: RayonAdmin.id_admin_center,
       rayon: RayonAdmin.rayon,
       role: RayonAdmin.role,
+      approvedPromo:RayonAdmin.approvedPromo,
       token: RayonAdmin.token,
     });
   }

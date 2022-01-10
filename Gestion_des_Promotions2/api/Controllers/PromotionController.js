@@ -1,8 +1,8 @@
 const Promotion = require("../Models/Promotion");
-const fs = require("fs");
 const Product = require("../Models/Product");
 const Rayon = require("../Models/rayon");
 const Logs = require("../Models/Log");
+const RayonAdmin = require("../Models/AdminRayon");
 
 const getAllPromotions = async (req, res) => {
   try {
@@ -62,11 +62,11 @@ const createPromotion = async (req, res) => {
 
 const updatePromotion = async (req, res) => {
   try {
-    
+
     const promos = await Promotion.findAll()
     const promo = promos.find((pr) => pr.id == req.params.id)
 
-    if(promo) {
+    if (promo) {
       promo.promotion = req.body.promotion
       promo.product = req.body.product
       promo.rayon = req.body.rayon
@@ -92,22 +92,13 @@ const updateStatusOnLogin = async (req, res) => {
       let date = new Date();
       let hours = date.getHours();
 
-      if (hours <= 8 || hours > 17 || promo.status == "onHold") {
-        promo.status = "Not Processed";
-        await Promotion.update(promo, req.params.id);
+      if (hours >= 8 || hours < 12) {
+        if (promo.status !== 'Approved') {
+          promo.status = "Not Processed";
+          await Promotion.update(promo, req.params.id);  
+        }
         res.json({ message: "status updated" });
       } else {
-
-        // promo.status = "Not Processed";
-        // await Promotion.update(promo, req.params.id);
-
-        // // write the action to txt file
-        // fs.appendFileSync(
-        //   "log.txt",
-        //   `adminCenter ${promo.id_admin_center} has been approve promotion of ${promo.promotion}% on rayon ${promo.rayon} product ${promo.product} \n`,
-        //   "UTF-8",
-        //   { flags: "a+" }
-        // );
 
         res.status(404).send({ message: "cannot status updated" });
       }
@@ -125,25 +116,23 @@ const updateStatus = async (req, res) => {
   try {
     const Promotions = await Promotion.findAll();
     const promo = Promotions.find((p) => p.id == req.params.id);
+    const chefRayon = await RayonAdmin.getAll()
+
+
     if (promo) {
       let date = new Date();
       let hours = date.getHours();
 
-      if (hours <= 8 || hours > 19) {
+      if (hours >= 8 || hours < 12) {
         // promo.status = "Processed";
         // await Promotion.update(promo, req.params.id);
-        res.json({ message: "cannot status updated out of work time" });
-      } else {
+
         promo.status = req.body.status;
         await Promotion.update(promo, req.params.id);
 
-        // // write the action to txt file
-        // fs.appendFileSync(
-        //   "log.txt",
-        //   `adminCenter ${promo.id_admin_center} has been approve promotion of ${promo.promotion}% on rayon ${promo.rayon} product ${promo.product} \n`,
-        //   "UTF-8",
-        //   { flags: "a+" }
-        // );
+        const chef = chefRayon.find((p) => p.id == req.body.RA_id);
+        chef.approvedPromo = parseInt(chef.approvedPromo) + 1
+        await RayonAdmin.update(chef, req.body.RA_id)
 
         const Alog = {
           RA_id: req.body.RA_id,
@@ -154,7 +143,10 @@ const updateStatus = async (req, res) => {
         }
         await Logs.create(Alog)
 
-        // res.status(201).send({ message: "status updated" });
+        res.status(201).send({ message: "status updated" });
+
+      } else {
+        res.json({ message: "cannot status updated out of work time", hour: hours  });
       }
     } else {
 
