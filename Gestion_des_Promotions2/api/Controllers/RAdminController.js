@@ -91,7 +91,7 @@ const updateRayonAdmin = async (req, res) => {
       RAdmin.email = req.body.email;
       RAdmin.rayon = req.body.rayon;
       await RayonAdmin.update(RAdmin, req.params.id);
-      res.json({
+      res.status(200).send({
         message: "well updated",
       });
 
@@ -206,7 +206,7 @@ const login = async (req, res) => {
       RAdmin.token = RAtoken;
 
       await RayonAdmin.update(RAdmin, RAdmin.id);
-
+      
       res.cookie('jwt', token, { httpOnly: true })
       res.cookie('role', RAdmin.role, { httpOnly: true })
 

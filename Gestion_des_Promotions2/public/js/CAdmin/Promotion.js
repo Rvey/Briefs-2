@@ -69,7 +69,7 @@ save.addEventListener("click", (e) => {
           product: products.options[products.selectedIndex].text,
           productPrice: products.value,
           id_admin_center: currentAdmin.id,
-          status: "onHold",
+          status: "pending",
         };
 
         fetch(`http://localhost:8082/promotion`, {

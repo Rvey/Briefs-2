@@ -172,13 +172,13 @@ const login = async (req, res) => {
         }
       );
 
-      const { firstName, lastName, email, password, center, token } = CAdmin;
+      const { firstName, lastName, email, password ,vocation, center, token } = CAdmin;
       CAdmin.token = CToken;
       await CenterAdmin.update(CAdmin, CAdmin.id);
 
       res.cookie('jwt', token, { httpOnly: true })
       res.cookie('role' , CAdmin.role, { httpOnly:true })
-
+      res.cookie('vocation', CAdmin.vocation, { httpOnly: true })
       res.status(200).json(CAdmin);
     } else {
 

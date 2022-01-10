@@ -1,4 +1,6 @@
 const loginForm = document.querySelector('.loginForm')
+const currentUser = JSON.parse(sessionStorage.getItem('admin'))
+
 loginForm.addEventListener('submit', e => {
     e.preventDefault()
     const admin = {
@@ -20,10 +22,7 @@ loginForm.addEventListener('submit', e => {
                 role: data.role,
                 rayon: data.rayon
             }
-
             sessionStorage.setItem('admin', JSON.stringify(admin)
-
-
             )
         }).then(() => {
             const currentAdmin = JSON.parse(sessionStorage.getItem('admin'))

@@ -88,14 +88,14 @@ module.exports = (app) => {
   });
 
   app.get("/ManagePromotion", (req, res) => {
-    if (req.cookies.role == "CA") {
+    if (req.cookies.role == "CA" && req.cookies.vocation == "no") {
       res.render("../public/views/pages/CAdmin/MPromotion.ejs");
     } else {
       res.render("../public/views/pages/CAdmin/login.ejs");
     }
   });
   app.get("/RChefManage", (req, res) => {
-    if (req.cookies.role == "CA") {
+    if (req.cookies.role == "CA" && req.cookies.vocation == "no") {
       res.render("../public/views/pages/CAdmin/RAdminTable.ejs");
     } else {
       res.render("../public/views/pages/CAdmin/login.ejs");

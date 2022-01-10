@@ -34,6 +34,7 @@ const createPromotion = async (req, res) => {
 
       if (req.body.rayon.localeCompare("multimedia") == 0 && parseInt(req.body.promotion) <= 20) {
         req.body.loyalty_points = (req.body.promotion / 5) * (req.body.productPrice * req.body.promotion) / 100;
+        
         await Promotion.create(req.body);
         return res.status(201).send({
           message: `promotion created for multimedia rayon`,

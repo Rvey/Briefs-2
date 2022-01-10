@@ -72,13 +72,13 @@ update.addEventListener('click', e => {
         },
         body: JSON.stringify(admin),
     })
-    // .then((res) => {
-    //     if (res.status == 200) {
-    //         location.replace('/RChefManage')
-    //     } else {
-    //         console.log('wrong creds');
-    //     }
-    // })
+    .then((res) => {
+        if (res.status == 200) {
+            location.replace('/RChefManage')
+        } else {
+            console.log('wrong creds');
+        }
+    })
 })
 
 // remove admin 

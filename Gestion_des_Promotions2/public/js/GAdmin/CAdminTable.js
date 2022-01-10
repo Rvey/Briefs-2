@@ -5,6 +5,7 @@ const centeredit = document.querySelector(".centeredit")
 
 const UpdateModal = document.querySelector('.updateForm')
 const confirmDModal = document.querySelector('.confirmModal')
+
 // btn modal trigger
 const ShowUpdateModal = document.querySelector('.edit')
 
@@ -17,6 +18,8 @@ const confirmDelete = document.querySelector('.deleteConfirm')
 const cancelDelete = document.querySelector('.cancelDelete')
 const remove = document.querySelector('.delete')
 const update = document.querySelector('.update')
+const vd = document.querySelector('.VD')
+const vocationD = document.querySelector('.vacationD')
 
 
 overlay.addEventListener('click', e => {
@@ -45,7 +48,6 @@ tbody.addEventListener('click', e => {
 // update admin info 
 
 update.addEventListener('click', e => {
-    
     const admin = {
         firstName: UpdateModal.firstName.value,
         lastName: UpdateModal.lastName.value,

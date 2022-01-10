@@ -23,13 +23,16 @@ tbody.addEventListener('click', e => {
 const date = new Date();
 const datePicker = date.toISOString().substring(0, 10);
 
+// show only promotion of the current day
+// && datePicker == formatDate(promo.created_at)
+
 
 // show promotion
 fetch("http://localhost:8082/promotion")
     .then((res) => res.json())
     .then((data) => {
         data.map((promo) => {
-            if (currentAdmin.rayon == promo.rayon && datePicker == formatDate(promo.created_at)) {
+            if (currentAdmin.rayon == promo.rayon ) {
                 tbody.innerHTML += `
                 <tr class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0 border-b-[2px] border-gray-100 hover:bg-gray-100">
                 <td class="p-3 truncate">${promo.promotion} %</td>
