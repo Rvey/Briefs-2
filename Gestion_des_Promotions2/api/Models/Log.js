@@ -3,7 +3,7 @@ const con = require("../../config/db");
 class Logs {
     static async findAll() {
         return new Promise((resolve, reject) => {
-            con.query(`SELECT * FROM logs`, (err, result) => {
+            con.query(`SELECT * FROM logs ORDER BY id DESC;`, (err, result) => {
                 if (err) throw err;
                 resolve(result);
             });
