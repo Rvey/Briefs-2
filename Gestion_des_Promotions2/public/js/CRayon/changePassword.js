@@ -5,7 +5,7 @@ changePassword.addEventListener('submit', e => {
         password: changePassword.password.value,
         newPassword: changePassword.NewPassword.value
     }
-    fetch("http://localhost:8082/updatePass/CA", {
+    fetch("http://localhost:8082/updatePass/RA", {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",

@@ -45,6 +45,7 @@ module.exports = (app) => {
   app.get("/adminRayon/:id", RAdminController.getRayonAdminById);
   app.put("/UpdateAdminRayon/:id", RAdminController.updateRayonAdmin);
   app.delete("/DeleteAdminRayon/:id", RAdminController.deleteRayonAdmin);
+  app.put("/updatePass/RA", RAdminController.UpdatePasswordLogin);
   app.post("/validation/RA", RAdminController.EmailLogin);
   app.post("/login/RA", RAdminController.login);
 

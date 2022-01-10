@@ -71,7 +71,7 @@ save.addEventListener("click", (e) => {
           id_admin_center: currentAdmin.id,
           status: "onHold",
         };
-        console.log(promotion);
+
         fetch(`http://localhost:8082/promotion`, {
           method: "POST",
           headers: {
@@ -81,7 +81,14 @@ save.addEventListener("click", (e) => {
         }).then((res) => 
       {  if (res.status == 201) {
           location.replace('/ManagePromotion')
-        }}
+        }else {
+          error.innerHTML = `cannot set promotion greater than 20% for multimedia`
+          setTimeout(() => {
+            error.innerHTML = ``
+          }, 2000)
+        }
+      
+      }
         )
     }
     // console.log(dup);

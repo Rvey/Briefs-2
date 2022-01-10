@@ -25,7 +25,7 @@ loginForm.addEventListener("submit", (e) => {
         )
     }).then(() => {
          
-              location.replace('/GAdminDash')
+              location.replace('/Statistics')
 
     })
   

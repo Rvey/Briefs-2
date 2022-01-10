@@ -105,6 +105,34 @@ const updateRayonAdmin = async (req, res) => {
   }
 };
 
+const UpdatePasswordLogin = async (req, res) => {
+  try {
+    const Admins = await RayonAdmin.getAll();
+
+    const { password , newPassword } = req.body;
+
+    // validate user creds
+    if (!(password)) {
+      return res.status(400).send("All input is required");
+    }
+
+    // validate if user exist in our database
+    const RAdmin = Admins.find((admin) => admin.password == password);
+
+    if (RAdmin) {
+      RAdmin.password = newPassword
+      await RayonAdmin.update(RAdmin, RAdmin.id);
+      return res.status(201).json({ message: `password updated successfully` });
+    }else {
+      res.status(404).send("incorrect password" , req.body.password )
+    }
+
+  //   // create token
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+};
+
 const deleteRayonAdmin = async (req, res) => {
   try {
     await RayonAdmin.destroy(req.params.id);
@@ -184,7 +212,7 @@ const login = async (req, res) => {
 
       res.status(200).json(RAdmin);
     } else {
-      res.status(400).send("Invalid Credentials");
+      res.status(404).send("Invalid Credentials");
     }
     // create token
   } catch (error) {
@@ -200,5 +228,6 @@ module.exports = {
   createAdminRayon,
   deleteRayonAdmin,
   EmailLogin,
+  UpdatePasswordLogin,
   login,
 };
