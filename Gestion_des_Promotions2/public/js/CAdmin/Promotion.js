@@ -66,7 +66,8 @@ save.addEventListener("click", (e) => {
           expiration: expiration.value,
           created_at: formatDate(datePicker.value),
           rayon: rayon.value,
-          product: products.value,
+          product: products.options[products.selectedIndex].text,
+          productPrice: products.value,
           id_admin_center: currentAdmin.id,
           status: "onHold",
         };
@@ -123,7 +124,7 @@ fetch("http://localhost:8082/Products")
     data.map((product) => {
       if (product.price < 50) return;
       const option = document.createElement("option");
-      option.value = product.name;
+      option.value = product.price;
       option.appendChild(document.createTextNode(product.name));
       df.appendChild(option);
     });
