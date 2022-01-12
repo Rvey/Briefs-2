@@ -54,7 +54,8 @@ update.addEventListener('click', e => {
         email: UpdateModal.email.value,
         password: UpdateModal.password.value,
         center: centeredit.value,
-        vocation: vocation.value
+        vocation: vocation.value,
+        role: 'CA'
 
     }
     fetch(`http://localhost:8082/UpdateAdminCenter/${e.target.id}`, {

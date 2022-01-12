@@ -73,10 +73,22 @@ const createAdminCenter = async (req, res) => {
 
 const updateCenterAdmin = async (req, res) => {
   try {
-    await CenterAdmin.update(req.body, req.params.id);
+    const Admins = await CenterAdmin.getAll();
+    const CAdmin = Admins.find((admin) => admin.id == req.params.id);
+    CAdmin.firstName = req.body.firstName;
+    CAdmin.lastName = req.body.lastName;
+    CAdmin.email = req.body.email;
+    CAdmin.rayon = req.body.rayon;
+    CAdmin.center = req.body.center;
+    CAdmin.vocation = req.body.vocation;
+    if (CAdmin) {
+    await CenterAdmin.update(CAdmin, req.params.id);
     res.json({
       message: "well updated",
     });
+  } else {
+    res.json({ message: "Center Admin Not Found" });
+  }
   } catch (error) {
     res.json({ message: error.message });
   }
@@ -179,7 +191,7 @@ const login = async (req, res) => {
       res.cookie('jwt', token, { httpOnly: true })
       res.cookie('role' , CAdmin.role, { httpOnly:true })
       res.cookie('vocation', CAdmin.vocation, { httpOnly: true })
-      res.status(200).json(CAdmin);
+      res.status(200).send(CAdmin);
     } else {
 
       res.status(400).send("Invalid Credentials");

@@ -17,8 +17,8 @@ module.exports = (app) => {
   app.get("/logout", Admin.logout);
 
   // logs
-  app.post('/log', logs.createLog)
-  app.get('/log', logs.getAllLog)
+  app.post('/log',requireGAAuth, logs.createLog)
+  app.get('/log',requireGAAuth, logs.getAllLog)
 
   // PROMOTION
   app.get("/promotion", promotionController.getAllPromotions);
@@ -61,18 +61,10 @@ module.exports = (app) => {
     res.render("../public/views/pages/GAdmin/login.ejs");
   });
   app.get("/GAdminDash", requireGAAuth, (req, res) => {
-    if (req.cookies.role == "GA") {
-      res.render("../public/views/pages/GAdmin/GAdminPage.ejs");
-    } else {
-      res.render("../public/views/pages/GAdmin/login.ejs");
-    }
+    res.render("../public/views/pages/GAdmin/GAdminPage.ejs");
   });
   app.get("/Statistics", requireGAAuth, (req, res) => {
-    if (req.cookies.role == "GA") {
-      res.render("../public/views/pages/GAdmin/Statisctics.ejs");
-    } else {
-      res.render("../public/views/pages/GAdmin/login.ejs");
-    }
+    res.render("../public/views/pages/GAdmin/Statisctics.ejs");
   });
 
   // view center admin routes
@@ -87,21 +79,13 @@ module.exports = (app) => {
     res.render("../public/views/pages/CAdmin/login.ejs");
   });
 
-  app.get("/ManagePromotion", (req, res) => {
-    if (req.cookies.role == "CA" && req.cookies.vocation == "no") {
-      res.render("../public/views/pages/CAdmin/MPromotion.ejs");
-    } else {
-      res.render("../public/views/pages/CAdmin/login.ejs");
-    }
+  app.get("/ManagePromotion", requireCAAuth, (req, res) => {
+    res.render("../public/views/pages/CAdmin/MPromotion.ejs");
   });
-  app.get("/RChefManage", (req, res) => {
-    if (req.cookies.role == "CA" && req.cookies.vocation == "no") {
-      res.render("../public/views/pages/CAdmin/RAdminTable.ejs");
-    } else {
-      res.render("../public/views/pages/CAdmin/login.ejs");
-    }
+  app.get("/RChefManage", requireCAAuth, (req, res) => {
+    res.render("../public/views/pages/CAdmin/RAdminTable.ejs");
   });
-
+ 
   // view chef de rayon
   app.get("/CRAChangePass", (req, res) => {
     res.render("../public/views/pages/RAdmin/changePassword.ejs");
@@ -113,11 +97,7 @@ module.exports = (app) => {
     res.render("../public/views/pages/RAdmin/login.ejs");
   });
 
-  app.get("/promotionPanel", (req, res) => {
-    if (req.cookies.role == "RA") {
-      res.render("../public/views/pages/RAdmin/PromoHandleTable.ejs");
-    } else {
-      res.render("../public/views/pages/RAdmin/login.ejs");
-    }
+  app.get("/promotionPanel", requireRAAuth, (req, res) => {
+    res.render("../public/views/pages/RAdmin/PromoHandleTable.ejs");
   });
 };

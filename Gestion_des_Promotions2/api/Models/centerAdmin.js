@@ -38,7 +38,7 @@ class centerAdmin {
       token: admin_center.token,
       vocation: admin_center.vocation,
       center: admin_center.center,
-      role: admin_center.role
+      role: 'CA'
     });
   }
   static async updatePassword(admin_center, password) {

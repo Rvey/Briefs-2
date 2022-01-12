@@ -1,5 +1,4 @@
 const express = require("express");
-const path = require('path')
 const app = express();
 const cookieParser = require('cookie-parser')
 const cors = require("cors");
@@ -18,6 +17,7 @@ app.use(cookieParser());
 app.use(express.static('public'));
 
 require("./routes/routes")(app);
+
 
 //connect
 app.listen(PORT, () => {
